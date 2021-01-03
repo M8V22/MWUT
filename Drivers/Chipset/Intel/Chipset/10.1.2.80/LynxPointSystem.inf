@@ -1,0 +1,199 @@
+; ************************************************************
+; ************************************************************
+; **  Filename: LynxPointSystem.inf                         **
+; **  Abstract: Assigns the null driver to devices          **
+; **            for yellow-bang removal and                 **
+; **            brands Intel(R) devices                     ** 
+; ************************************************************
+; ************************************************************
+
+[Version]
+Signature=$WINDOWS NT$
+Class=System
+ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=LynxPoint.cat
+DriverVer=08/19/2016, 10.1.2.80
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[PackageInfo]
+Name=Chipset
+
+[Manufacturer]
+%INTEL%=INTEL,NT,NTamd64
+
+[INTEL.NT]
+%PCI\VEN_8086&DEV_8C10Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C10
+%PCI\VEN_8086&DEV_8C11Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C11
+%PCI\VEN_8086&DEV_8C12Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C12
+%PCI\VEN_8086&DEV_8C13Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C13
+%PCI\VEN_8086&DEV_8C14Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C14
+%PCI\VEN_8086&DEV_8C15Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C15
+%PCI\VEN_8086&DEV_8C16Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C16
+%PCI\VEN_8086&DEV_8C17Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C17
+%PCI\VEN_8086&DEV_8C18Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C18
+%PCI\VEN_8086&DEV_8C19Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C19
+%PCI\VEN_8086&DEV_8C1ADesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C1A
+%PCI\VEN_8086&DEV_8C1BDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C1B
+%PCI\VEN_8086&DEV_8C1CDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C1C
+%PCI\VEN_8086&DEV_8C1DDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C1D
+%PCI\VEN_8086&DEV_8C1EDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C1E
+%PCI\VEN_8086&DEV_8C1FDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C1F
+%PCI\VEN_8086&DEV_8C22Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_8C22
+%PCI\VEN_8086&DEV_8C23Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_8C23
+%PCI\VEN_8086&DEV_8C24Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_8C24
+%PCI\VEN_8086&DEV_8C40Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C40
+%PCI\VEN_8086&DEV_8C41Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C41
+%PCI\VEN_8086&DEV_8C42Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C42
+%PCI\VEN_8086&DEV_8C44Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C44
+%PCI\VEN_8086&DEV_8C46Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C46
+%PCI\VEN_8086&DEV_8C49Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C49
+%PCI\VEN_8086&DEV_8C4ADesc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C4A
+%PCI\VEN_8086&DEV_8C4BDesc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C4B
+%PCI\VEN_8086&DEV_8C4CDesc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C4C
+%PCI\VEN_8086&DEV_8C4EDesc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C4E
+%PCI\VEN_8086&DEV_8C4FDesc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C4F
+%PCI\VEN_8086&DEV_8C50Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C50
+%PCI\VEN_8086&DEV_8C52Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C52
+%PCI\VEN_8086&DEV_8C54Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C54
+%PCI\VEN_8086&DEV_8C56Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C56
+%PCI\VEN_8086&DEV_8C58Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C58
+%PCI\VEN_8086&DEV_8C5CDesc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C5C
+
+[INTEL.NTamd64]
+%PCI\VEN_8086&DEV_8C10Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C10
+%PCI\VEN_8086&DEV_8C11Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C11
+%PCI\VEN_8086&DEV_8C12Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C12
+%PCI\VEN_8086&DEV_8C13Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C13
+%PCI\VEN_8086&DEV_8C14Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C14
+%PCI\VEN_8086&DEV_8C15Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C15
+%PCI\VEN_8086&DEV_8C16Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C16
+%PCI\VEN_8086&DEV_8C17Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C17
+%PCI\VEN_8086&DEV_8C18Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C18
+%PCI\VEN_8086&DEV_8C19Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C19
+%PCI\VEN_8086&DEV_8C1ADesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C1A
+%PCI\VEN_8086&DEV_8C1BDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C1B
+%PCI\VEN_8086&DEV_8C1CDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C1C
+%PCI\VEN_8086&DEV_8C1DDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C1D
+%PCI\VEN_8086&DEV_8C1EDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C1E
+%PCI\VEN_8086&DEV_8C1FDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_8C1F
+%PCI\VEN_8086&DEV_8C22Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_8C22
+%PCI\VEN_8086&DEV_8C23Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_8C23
+%PCI\VEN_8086&DEV_8C24Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_8C24
+%PCI\VEN_8086&DEV_8C40Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C40
+%PCI\VEN_8086&DEV_8C41Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C41
+%PCI\VEN_8086&DEV_8C42Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C42
+%PCI\VEN_8086&DEV_8C44Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C44
+%PCI\VEN_8086&DEV_8C46Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C46
+%PCI\VEN_8086&DEV_8C49Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C49
+%PCI\VEN_8086&DEV_8C4ADesc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C4A
+%PCI\VEN_8086&DEV_8C4BDesc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C4B
+%PCI\VEN_8086&DEV_8C4CDesc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C4C
+%PCI\VEN_8086&DEV_8C4EDesc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C4E
+%PCI\VEN_8086&DEV_8C4FDesc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C4F
+%PCI\VEN_8086&DEV_8C50Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C50
+%PCI\VEN_8086&DEV_8C52Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C52
+%PCI\VEN_8086&DEV_8C54Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C54
+%PCI\VEN_8086&DEV_8C56Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C56
+%PCI\VEN_8086&DEV_8C58Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C58
+%PCI\VEN_8086&DEV_8C5CDesc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_8C5C
+
+[Needs_PCI_DRV]
+Include=machine.inf
+Needs=PCI_DRV
+
+[Needs_PCI_DRV.Services]
+Include=machine.inf
+Needs=PCI_DRV.Services
+
+[Needs_PCI_DRV.HW]
+Include=machine.inf
+Needs=PCI_DRV.HW
+
+[Needs_NO_DRV]
+Include=machine.inf
+Needs=NO_DRV
+
+[Needs_NO_DRV.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+[Needs_ISAPNP_DRV]
+Include=machine.inf
+Needs=ISAPNP_DRV
+
+[Needs_ISAPNP_DRV.Services]
+Include=machine.inf
+Needs=ISAPNP_DRV.Services
+
+[Strings]
+INTEL="INTEL"
+PCI\VEN_8086&DEV_8C10Desc="Intel(R) 8 Series/C220 Series PCI Express Root Port #1 - 8C10"
+PCI\VEN_8086&DEV_8C11Desc="Intel(R) 8 Series/C220 Series PCI Express Root Port #1 - 8C11"
+PCI\VEN_8086&DEV_8C12Desc="Intel(R) 8 Series/C220 Series PCI Express Root Port #2 - 8C12"
+PCI\VEN_8086&DEV_8C13Desc="Intel(R) 8 Series/C220 Series PCI Express Root Port #2 - 8C13"
+PCI\VEN_8086&DEV_8C14Desc="Intel(R) 8 Series/C220 Series PCI Express Root Port #3 - 8C14"
+PCI\VEN_8086&DEV_8C15Desc="Intel(R) 8 Series/C220 Series PCI Express Root Port #3 - 8C15"
+PCI\VEN_8086&DEV_8C16Desc="Intel(R) 8 Series/C220 Series PCI Express Root Port #4 - 8C16"
+PCI\VEN_8086&DEV_8C17Desc="Intel(R) 8 Series/C220 Series PCI Express Root Port #4 - 8C17"
+PCI\VEN_8086&DEV_8C18Desc="Intel(R) 8 Series/C220 Series PCI Express Root Port #5 - 8C18"
+PCI\VEN_8086&DEV_8C19Desc="Intel(R) 8 Series/C220 Series PCI Express Root Port #5 - 8C19"
+PCI\VEN_8086&DEV_8C1ADesc="Intel(R) 8 Series/C220 Series PCI Express Root Port #6 - 8C1A"
+PCI\VEN_8086&DEV_8C1BDesc="Intel(R) 8 Series/C220 Series PCI Express Root Port #6 - 8C1B"
+PCI\VEN_8086&DEV_8C1CDesc="Intel(R) 8 Series/C220 Series PCI Express Root Port #7 - 8C1C"
+PCI\VEN_8086&DEV_8C1DDesc="Intel(R) 8 Series/C220 Series PCI Express Root Port #7 - 8C1D"
+PCI\VEN_8086&DEV_8C1EDesc="Intel(R) 8 Series/C220 Series PCI Express Root Port #8 - 8C1E"
+PCI\VEN_8086&DEV_8C1FDesc="Intel(R) 8 Series/C220 Series PCI Express Root Port #8 - 8C1F"
+PCI\VEN_8086&DEV_8C22Desc="Intel(R) 8 Series/C220 Series SMBus Controller - 8C22"
+PCI\VEN_8086&DEV_8C23Desc="Intel(R) 8 Series/C220 Series CHAP Counters - 8C23"
+PCI\VEN_8086&DEV_8C24Desc="Intel(R) 8 Series/C220 Series Thermal - 8C24"
+PCI\VEN_8086&DEV_8C40Desc="Intel(R) 8 Series/C220 Series Unfused part LPC Controller - 8C40"
+PCI\VEN_8086&DEV_8C41Desc="Intel(R) 8 Series Mobile Super SKU LPC Controller - 8C41"
+PCI\VEN_8086&DEV_8C42Desc="Intel(R) 8 Series/C220 Series Desktop Super SKU LPC Controller - 8C42"
+PCI\VEN_8086&DEV_8C44Desc="Intel(R) Z87 LPC Controller - 8C44"
+PCI\VEN_8086&DEV_8C46Desc="Intel(R) Z85 LPC Controller - 8C46"
+PCI\VEN_8086&DEV_8C49Desc="Intel(R) HM86 LPC Controller - 8C49"
+PCI\VEN_8086&DEV_8C4ADesc="Intel(R) H87 LPC Controller - 8C4A"
+PCI\VEN_8086&DEV_8C4BDesc="Intel(R) HM87 LPC Controller - 8C4B"
+PCI\VEN_8086&DEV_8C4CDesc="Intel(R) Q85 LPC Controller - 8C4C"
+PCI\VEN_8086&DEV_8C4EDesc="Intel(R) Q87 LPC Controller - 8C4E"
+PCI\VEN_8086&DEV_8C4FDesc="Intel(R) QM87 LPC Controller - 8C4F"
+PCI\VEN_8086&DEV_8C50Desc="Intel(R) B85 LPC Controller - 8C50"
+PCI\VEN_8086&DEV_8C52Desc="Intel(R) C222 Series Server Essential SKU LPC Controller - 8C52"
+PCI\VEN_8086&DEV_8C54Desc="Intel(R) C224 Series Server Standard SKU LPC Controller - 8C54"
+PCI\VEN_8086&DEV_8C56Desc="Intel(R) C226 Series Server Advanced SKU LPC Controller - 8C56"
+PCI\VEN_8086&DEV_8C58Desc="Intel(R) C220 Series LPC Controller - 8C58"
+PCI\VEN_8086&DEV_8C5CDesc="Intel(R) H81 LPC Controller - 8C5C"
+
+
+
+
+; Copyright (c) 2003-2016 Intel Corporation
+; 
+; ********************************************************************************
+; Intel is making no claims of usability, efficacy or warranty.
+; ********************************************************************************
+; Information in this document is provided in connection with Intel products. No
+; license, express or implied, by estoppel or otherwise, to any intellectual
+; property rights is granted by this document. Intel assumes no liability
+; whatsoever, and Intel disclaims any express or implied warranty, relating to
+; sale and/or use of Intel products including liability or warranties relating to
+; fitness for a particular purpose, merchantability, or infringement of any
+; patent, copyright or other intellectual property right. Intel products are not
+; intended for use in medical, life saving, or life sustaining applications.
+; ********************************************************************************
+; Intel Corporation disclaims all warranties and liabilities for the use of this
+; document and the information contained herein, and assumes no responsibility for
+; any errors which may appear in this document, nor does Intel make a commitment
+; to update the information contained herein. Intel reserves the right to make
+; changes to this document at any time, without notice.
+; ********************************************************************************
+; ********************************************************************************
+; 
+; * Third-party brands and names are the property of their respective owners.

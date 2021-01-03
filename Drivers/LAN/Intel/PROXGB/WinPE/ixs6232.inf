@@ -1,0 +1,554 @@
+;*******************************************************************************
+;**                                                                           **
+;**                            INTEL CONFIDENTIAL                             **
+;**                                                                           **
+;**        Copyright 2019 Intel Corporation All Rights Reserved.              **
+;**                                                                           **
+;**  The material contained or described herein and all documents related     **
+;**  to such material ("Material") are owned by Intel Corporation or its      **
+;**  suppliers or licensors. Title to the Material remains with Intel         **
+;**  Corporation or its suppliers and licensors. The Material contains trade  **
+;**  secrets and proprietary and confidential information of Intel or its     **
+;**  suppliers and licensors. The Material is protected by worldwide          **
+;**  copyright and trade secret laws and treaty provisions. No part of the    **
+;**  Material may be used, copied, reproduced, modified, published,           **
+;**  uploaded, posted, transmitted, distributed, or disclosed in any way      **
+;**  without Intel's prior express written permission.                        **
+;**                                                                           **
+;**  No license under any patent, copyright, trade secret or other            **
+;**  intellectual property right is granted to or conferred upon you by       **
+;**  disclosure or delivery of the Materials, either expressly, by            **
+;**  implication, inducement, estoppel or otherwise. Any license under such   **
+;**  intellectual property rights must be express and approved by Intel in    **
+;**  writing.                                                                 **
+;**                                                                           **
+;*******************************************************************************
+;
+;*******************************************************************************
+; INF for Intel(R) 10 Gigabit PCIe Network Adapters
+;*******************************************************************************
+;
+
+[Version]
+Signature   = "$Windows NT$"
+Class       = Net
+ClassGUID   = {4d36e972-e325-11ce-bfc1-08002be10318}
+Provider    = %Intel%
+DriverVer = 09/24/2019,3.14.206.0
+
+[Manufacturer]
+%Intel%     = Intel, NTx86.6.1,    NTx86.6.2
+
+[Intel]
+
+[Intel.NTx86.6.1]
+; DisplayName                       Section      DeviceID
+; -----------                       -------      --------
+%S10A6.DeviceDesc%                  = NO_DRV,    PCI\VEN_8086&DEV_10A6
+%S1563.Dual.Description%            = S1563_DP,  PCI\VEN_8086&DEV_1563
+%S1563.Retail.Dual.Description%     = S1563_DP,  PCI\VEN_8086&DEV_1563&SUBSYS_00018086
+%S1563.Generic.Dual.Description%    = S1563_DP,  PCI\VEN_8086&DEV_1563&SUBSYS_001A8086
+%S15D1.Retail.Single.Description%   = S15D1_SP,  PCI\VEN_8086&DEV_15D1&SUBSYS_00028086
+%S1563.Generic.Dual.Description%    = S1563_DP,  PCI\VEN_8086&DEV_1563&SUBSYS_00228086
+%S15D1.Generic.Single.Description%  = S15D1_SP,  PCI\VEN_8086&DEV_15D1&SUBSYS_00218086
+%S15D1.Generic.Single.Description%  = S15D1_SP,  PCI\VEN_8086&DEV_15D1&SUBSYS_00A28086
+%S15D1.Single.Description%          = S15D1_SP,  PCI\VEN_8086&DEV_15D1
+%S1563.Dual2P.Description%          = S1563_D2P,  PCI\VEN_8086&DEV_1563&SUBSYS_001D8086
+%S1563.NDC.SF.Description%          = S1563_NDC,  PCI\VEN_8086&DEV_1563&SUBSYS_1FA91028
+%S1563.NDC.WF.Description%          = S1563_NDC,  PCI\VEN_8086&DEV_1563&SUBSYS_1FA81028
+%S1563.HP.Dual.Description%         = S1563_HP,  PCI\VEN_8086&DEV_1563&SUBSYS_00D11590
+%S1563.HP.ALOM.Description%         = S1563_HP,  PCI\VEN_8086&DEV_1563&SUBSYS_00D21590
+%S1563.Cisco.NIC.Description%       = S1563_DP,  PCI\VEN_8086&DEV_1563&SUBSYS_01A21137
+%S1563.Cisco.Dual.Description%      = S1563_DP,  PCI\VEN_8086&DEV_1563&SUBSYS_01A31137
+%S1563.Cisco.Dual.Description%      = S1563_DP,  PCI\VEN_8086&DEV_1563&SUBSYS_01A41137
+%S1563.Cisco.Dual.Description%      = S1563_DP,  PCI\VEN_8086&DEV_1563&SUBSYS_01A51137
+%S1563.OCP.Dual.Description%        = S1563_DP,  PCI\VEN_8086&DEV_1563&SUBSYS_001B8086
+%S15D1.OCP.Single.Description%      = S15D1_SP,  PCI\VEN_8086&DEV_15D1&SUBSYS_001B8086
+
+[Intel.NTx86.6.2]
+
+[NO_DRV]
+Characteristics    = 0x01
+Include            = machine.inf
+Needs              = NO_DRV
+
+[NO_DRV.Services]
+Include            = machine.inf
+Needs              = NO_DRV.Services
+
+; ---------------------------------------------------
+; Intel(R) Ethernet Converged Network Adapter X550-T1
+; ---------------------------------------------------
+[S15D1_SP]
+Characteristics    = 0x84 ; NCF_HAS_UI | NCF_PHYSICAL
+BusType            = 5 ; PCI
+DelReg             = Advanced.DelReg
+AddReg             = Default.reg,     Triplespeed.reg,  DMACoalescing.reg
+CopyFiles          = CopyFiles
+*IfType            = 6     ; IF_TYPE_ETHERNET_CSMACD
+*MediaType         = 0     ; NdisMedium802_3
+*PhysicalMediaType = 14    ; NdisPhysicalMedium802_3
+
+[S15D1_SP.Services]
+AddService = %ServiceName%, 2, Service, EventLog
+
+[S15D1_SP.HW]
+Include            = machine.inf
+Needs              = PciIoSpaceNotRequired
+AddReg             = MSI.reg
+
+; ---------------------------------------------------
+; Intel(R) Ethernet Converged Network Adapter X550-T2
+; ---------------------------------------------------
+[S1563_DP]
+Characteristics    = 0x84 ; NCF_HAS_UI | NCF_PHYSICAL
+BusType            = 5 ; PCI
+ 
+DelReg             = Advanced.DelReg
+AddReg             = Default.reg,     Triplespeed.reg,  DMACoalescing.reg
+CopyFiles          = CopyFiles
+*IfType            = 6     ; IF_TYPE_ETHERNET_CSMACD
+*MediaType         = 0     ; NdisMedium802_3
+*PhysicalMediaType = 14    ; NdisPhysicalMedium802_3
+
+[S1563_DP.Services]
+AddService = %ServiceName%, 2, Service, EventLog
+
+[S1563_DP.HW]
+Include            = machine.inf
+Needs              = PciIoSpaceNotRequired
+AddReg             = MSI.reg
+
+; ---------------------------------------------------
+; Intel(R) Ethernet 10G 2P X550-t Adapter
+; ---------------------------------------------------
+[S1563_D2P]
+Characteristics    = 0x84 ; NCF_HAS_UI | NCF_PHYSICAL
+BusType            = 5 ; PCI
+ 
+DelReg             = Advanced.DelReg
+AddReg             = Default.reg,     Triplespeed.reg,  DMACoalescing.reg
+AddReg             = NoIPSec.reg
+CopyFiles          = CopyFiles
+*IfType            = 6     ; IF_TYPE_ETHERNET_CSMACD
+*MediaType         = 0     ; NdisMedium802_3
+*PhysicalMediaType = 14    ; NdisPhysicalMedium802_3
+
+[S1563_D2P.Services]
+AddService = %ServiceName%, 2, Service, EventLog
+
+[S1563_D2P.HW]
+Include            = machine.inf
+Needs              = PciIoSpaceNotRequired
+AddReg             = MSI.reg
+
+; ---------------------------------------------------
+; Intel(R) Ethernet 10G 4P X550 rNDC
+; ---------------------------------------------------
+[S1563_NDC]
+Characteristics    = 0x84 ; NCF_HAS_UI | NCF_PHYSICAL
+BusType            = 5 ; PCI
+ 
+DelReg             = Advanced.DelReg
+AddReg             = Default.reg,     Triplespeed.reg,  DMACoalescing.reg
+AddReg             = NoIPSec.reg
+CopyFiles          = CopyFiles
+*IfType            = 6     ; IF_TYPE_ETHERNET_CSMACD
+*MediaType         = 0     ; NdisMedium802_3
+*PhysicalMediaType = 14    ; NdisPhysicalMedium802_3
+
+[S1563_NDC.Services]
+AddService = %ServiceName%, 2, Service, EventLog
+
+[S1563_NDC.HW]
+Include            = machine.inf
+Needs              = PciIoSpaceNotRequired
+AddReg             = MSI.reg
+
+; ---------------------------------------------------
+; HPE Ethernet 10Gb 2-port 562T Adapter
+; ---------------------------------------------------
+[S1563_HP]
+Characteristics    = 0x84 ; NCF_HAS_UI | NCF_PHYSICAL
+BusType            = 5 ; PCI
+ 
+DelReg             = Advanced.DelReg
+AddReg             = Default.reg,     Triplespeed.reg,  DMACoalescing.reg
+AddReg             = NoIPSec.reg
+CopyFiles          = CopyFiles
+*IfType            = 6     ; IF_TYPE_ETHERNET_CSMACD
+*MediaType         = 0     ; NdisMedium802_3
+*PhysicalMediaType = 14    ; NdisPhysicalMedium802_3
+
+[S1563_HP.Services]
+AddService = %ServiceName%, 2, Service, EventLog
+
+[S1563_HP.HW]
+Include            = machine.inf
+Needs              = PciIoSpaceNotRequired
+AddReg             = MSI.reg
+
+;-------------------------------------------------------------------------------
+; Registry Settings
+;-------------------------------------------------------------------------------
+[Default.reg]
+HKR, Ndi\Interfaces,                            UpperRange,             0, "ndis5"
+HKR, Ndi\Interfaces,                            LowerRange,             0, "ethernet"
+HKR, Ndi,                                       Service,                0, %ServiceName%
+
+; *FlowControl
+HKR, Ndi\Params\*FlowControl,                   ParamDesc,              0, %FlowControl%
+HKR, Ndi\Params\*FlowControl,                   default,                0, "3"
+HKR, Ndi\Params\*FlowControl\Enum,              "0",                    0, %Disabled%
+HKR, Ndi\Params\*FlowControl\Enum,              "1",                    0, %FlowControl_TxOnly%
+HKR, Ndi\Params\*FlowControl\Enum,              "2",                    0, %FlowControl_RxOnly%
+HKR, Ndi\Params\*FlowControl\Enum,              "3",                    0, %FlowControl_Full%
+HKR, Ndi\Params\*FlowControl,                   type,                   0, "enum"
+
+; Force FlowControl on
+HKR,,                                           *FlowControl,           0, "3"
+
+; *TransmitBuffers
+HKR, Ndi\params\*TransmitBuffers,               ParamDesc,              0, %TransmitBuffers%
+HKR, Ndi\params\*TransmitBuffers,               default,                0, "512"
+HKR, Ndi\params\*TransmitBuffers,               min,                    0, "128"
+HKR, Ndi\params\*TransmitBuffers,               max,                    0, "16384"
+HKR, Ndi\params\*TransmitBuffers,               step,                   0, "64"
+HKR, Ndi\params\*TransmitBuffers,               Base,                   0, "10"
+HKR, Ndi\params\*TransmitBuffers,               type,                   0, "int"
+
+; *ReceiveBuffers
+HKR, Ndi\params\*ReceiveBuffers,                ParamDesc,              0, %ReceiveBuffers%
+HKR, Ndi\params\*ReceiveBuffers,                default,                0, "512"
+HKR, Ndi\params\*ReceiveBuffers,                min,                    0, "128"
+HKR, Ndi\params\*ReceiveBuffers,                max,                    0, "4096"
+HKR, Ndi\params\*ReceiveBuffers,                step,                   0, "64"
+HKR, Ndi\params\*ReceiveBuffers,                Base,                   0, "10"
+HKR, Ndi\params\*ReceiveBuffers,                type,                   0, "int"
+
+; Set MinHardwareOwnedPacketCount to 32
+HKR,,                                           MinHardwareOwnedPacketCount,   0, "32"
+
+; *TCPChecksumOffloadIPv4
+HKR, Ndi\Params\*TCPChecksumOffloadIPv4,        ParamDesc,              0, %TCPChksumOffv4%
+HKR, Ndi\Params\*TCPChecksumOffloadIPv4,        default,                0, "3"
+HKR, Ndi\Params\*TCPChecksumOffloadIPv4\Enum,   "0",                    0, %Disabled%
+HKR, Ndi\Params\*TCPChecksumOffloadIPv4\Enum,   "1",                    0, %ChksumOffTx%
+HKR, Ndi\Params\*TCPChecksumOffloadIPv4\Enum,   "2",                    0, %ChksumOffRx%
+HKR, Ndi\Params\*TCPChecksumOffloadIPv4\Enum,   "3",                    0, %ChksumOffTxRx%
+HKR, Ndi\Params\*TCPChecksumOffloadIPv4,        type,                   0, "enum"
+
+; *TCPChecksumOffloadIPv6
+HKR, Ndi\Params\*TCPChecksumOffloadIPv6,        ParamDesc,              0, %TCPChksumOffv6%
+HKR, Ndi\Params\*TCPChecksumOffloadIPv6,        default,                0, "3"
+HKR, Ndi\Params\*TCPChecksumOffloadIPv6\Enum,   "0",                    0, %Disabled%
+HKR, Ndi\Params\*TCPChecksumOffloadIPv6\Enum,   "1",                    0, %ChksumOffTx%
+HKR, Ndi\Params\*TCPChecksumOffloadIPv6\Enum,   "2",                    0, %ChksumOffRx%
+HKR, Ndi\Params\*TCPChecksumOffloadIPv6\Enum,   "3",                    0, %ChksumOffTxRx%
+HKR, Ndi\Params\*TCPChecksumOffloadIPv6,        type,                   0, "enum"
+
+; *UDPChecksumOffloadIPv4
+HKR, Ndi\Params\*UDPChecksumOffloadIPv4,        ParamDesc,              0, %UDPChksumOffv4%
+HKR, Ndi\Params\*UDPChecksumOffloadIPv4,        default,                0, "3"
+HKR, Ndi\Params\*UDPChecksumOffloadIPv4\Enum,   "0",                    0, %Disabled%
+HKR, Ndi\Params\*UDPChecksumOffloadIPv4\Enum,   "1",                    0, %ChksumOffTx%
+HKR, Ndi\Params\*UDPChecksumOffloadIPv4\Enum,   "2",                    0, %ChksumOffRx%
+HKR, Ndi\Params\*UDPChecksumOffloadIPv4\Enum,   "3",                    0, %ChksumOffTxRx%
+HKR, Ndi\Params\*UDPChecksumOffloadIPv4,        type,                   0, "enum"
+
+; *UDPChecksumOffloadIPv6
+HKR, Ndi\Params\*UDPChecksumOffloadIPv6,        ParamDesc,              0, %UDPChksumOffv6%
+HKR, Ndi\Params\*UDPChecksumOffloadIPv6,        default,                0, "3"
+HKR, Ndi\Params\*UDPChecksumOffloadIPv6\Enum,   "0",                    0, %Disabled%
+HKR, Ndi\Params\*UDPChecksumOffloadIPv6\Enum,   "1",                    0, %ChksumOffTx%
+HKR, Ndi\Params\*UDPChecksumOffloadIPv6\Enum,   "2",                    0, %ChksumOffRx%
+HKR, Ndi\Params\*UDPChecksumOffloadIPv6\Enum,   "3",                    0, %ChksumOffTxRx%
+HKR, Ndi\Params\*UDPChecksumOffloadIPv6,        type,                   0, "enum"
+
+; *IPChecksumOffloadIPv4
+HKR, Ndi\Params\*IPChecksumOffloadIPv4,         ParamDesc,              0, %IPChksumOffv4%
+HKR, Ndi\Params\*IPChecksumOffloadIPv4,         default,                0, "3"
+HKR, Ndi\Params\*IPChecksumOffloadIPv4\Enum,    "0",                    0, %Disabled%
+HKR, Ndi\Params\*IPChecksumOffloadIPv4\Enum,    "1",                    0, %ChksumOffTx%
+HKR, Ndi\Params\*IPChecksumOffloadIPv4\Enum,    "2",                    0, %ChksumOffRx%
+HKR, Ndi\Params\*IPChecksumOffloadIPv4\Enum,    "3",                    0, %ChksumOffTxRx%
+HKR, Ndi\Params\*IPChecksumOffloadIPv4,         type,                   0, "enum"
+
+; Network Address
+HKR, Ndi\params\NetworkAddress,                 ParamDesc,              0, %LAA%
+HKR, Ndi\params\NetworkAddress,                 Default,                0, ""
+HKR, Ndi\params\NetworkAddress,                 type,                   0, "edit"
+HKR, NDI\params\NetworkAddress,                 LimitText,              0, "12"
+HKR, NDI\params\NetworkAddress,                 UpperCase,              0, "1"
+HKR, NDI\params\NetworkAddress,                 optional,               0, "1"
+
+;Log Link State Event
+HKR,Ndi\Params\LogLinkStateEvent,               ParamDesc,              0, %LogLinkState%
+HKR,Ndi\Params\LogLinkStateEvent,               Type,                   0, "enum"
+HKR,Ndi\Params\LogLinkStateEvent,               Default,                0, "51"
+HKR,Ndi\Params\LogLinkStateEvent\Enum,          "51",                   0, %Enabled%
+HKR,Ndi\Params\LogLinkStateEvent\Enum,          "16",                   0, %Disabled%
+
+; Interrupt Throttle Rate
+HKR, Ndi\Params\ITR,                            ParamDesc,              0, %InterruptThrottleRate%
+HKR, Ndi\Params\ITR,                            default,                0, "65535"
+HKR, Ndi\Params\ITR\Enum,                       "65535",                0, %Adaptive%
+HKR, Ndi\Params\ITR\Enum,                       "2000",                 0, %Extreme%
+HKR, Ndi\Params\ITR\Enum,                       "950",                  0, %High%
+HKR, Ndi\Params\ITR\Enum,                       "488",                  0, %Medium%
+HKR, Ndi\Params\ITR\Enum,                       "200",                  0, %Low%
+HKR, Ndi\Params\ITR\Enum,                       "0",                    0, %Off%
+HKR, Ndi\Params\ITR,                            type,                   0, "enum"
+
+; *PriorityVLANTag
+HKR, Ndi\Params\*PriorityVLANTag,               ParamDesc,              0, %PriorityVLANTag%
+HKR, Ndi\Params\*PriorityVLANTag,               default,                0, "3"
+HKR, Ndi\Params\*PriorityVLANTag\Enum,          "0",                    0, %PriorityVlanDisabled%
+HKR, Ndi\Params\*PriorityVLANTag\Enum,          "1",                    0, %PriorityEnabled%
+HKR, Ndi\Params\*PriorityVLANTag\Enum,          "2",                    0, %VlanEnabled%
+HKR, Ndi\Params\*PriorityVLANTag\Enum,          "3",                    0, %PriorityVlanEnabled%
+HKR, Ndi\Params\*PriorityVLANTag,               type,                   0, "enum"
+
+; *InterruptModeration
+HKR, Ndi\Params\*InterruptModeration,           ParamDesc,              0, %InterruptModeration%
+HKR, Ndi\Params\*InterruptModeration,           default,                0, "1"
+HKR, Ndi\Params\*InterruptModeration\Enum,      "0",                    0, %Disabled%
+HKR, Ndi\Params\*InterruptModeration\Enum,      "1",                    0, %Enabled%
+HKR, Ndi\Params\*InterruptModeration,           type,                   0, "enum"
+
+; *LsoV2IPv4
+HKR, Ndi\Params\*LsoV2IPv4,                     ParamDesc,              0, %LsoV2IPv4%
+HKR, Ndi\Params\*LsoV2IPv4,                     default,                0, "1"
+HKR, Ndi\Params\*LsoV2IPv4\Enum,                "0",                    0, %Disabled%
+HKR, Ndi\Params\*LsoV2IPv4\Enum,                "1",                    0, %Enabled%
+HKR, Ndi\Params\*LsoV2IPv4,                     type,                   0, "enum"
+
+; *LsoV2IPv6
+HKR, Ndi\Params\*LsoV2IPv6,                     ParamDesc,              0, %LsoV2IPv6%
+HKR, Ndi\Params\*LsoV2IPv6,                     default,                0, "1"
+HKR, Ndi\Params\*LsoV2IPv6\Enum,                "0",                    0, %Disabled%
+HKR, Ndi\Params\*LsoV2IPv6\Enum,                "1",                    0, %Enabled%
+HKR, Ndi\Params\*LsoV2IPv6,                     type,                   0, "enum"
+
+; Header Split capabilities
+HKR, Ndi\Params\*HeaderDataSplit,               ParamDesc,              0, %HeaderDataSplit%
+HKR, Ndi\Params\*HeaderDataSplit,               default,                0, "0"
+HKR, Ndi\Params\*HeaderDataSplit\Enum,          "0",                    0, %Disabled%
+HKR, Ndi\Params\*HeaderDataSplit\Enum,          "1",                    0, %Enabled%
+HKR, Ndi\Params\*HeaderDataSplit,               type,                   0, "enum"
+HKR,,                                           *HeaderDataSplit,       0, "0"
+
+; *JumboPacket
+HKR, Ndi\Params\*JumboPacket,                   ParamDesc,              0, %JumboPacket%
+HKR, Ndi\Params\*JumboPacket,                   default,                0, "1514"
+HKR, Ndi\Params\*JumboPacket\Enum,              "1514",                 0, %Disabled%
+HKR, Ndi\Params\*JumboPacket\Enum,              "4088",                 0, %Bytes4088%
+HKR, Ndi\Params\*JumboPacket\Enum,              "9014",                 0, %Bytes9014%
+HKR, Ndi\Params\*JumboPacket,                   type,                   0, "enum"
+
+; Miscellanous defaults
+HKR,,                                           MulticastFilterType,    0, "0"
+HKR,,                                           VlanFiltering,          0, "0"
+
+; NumRssQueues
+HKR, Ndi\Params\NumRssQueues,                   ParamDesc,              0, %NumRssQueues%
+HKR, Ndi\Params\NumRssQueues,                   default,                0, "2"
+HKR, Ndi\Params\NumRssQueues,                   type,                   0, "enum"
+HKR, Ndi\Params\NumRssQueues\Enum,              "1",                    0, %1queue%
+HKR, Ndi\Params\NumRssQueues\Enum,              "2",                    0, %2queues%
+HKR, Ndi\Params\NumRssQueues\Enum,              "4",                    0, %4queues%
+HKR, Ndi\Params\NumRssQueues\Enum,              "8",                    0, %8queues%
+HKR, Ndi\Params\NumRssQueues\Enum,              "16",                   0, %16queues%
+
+; *RSS
+HKR, Ndi\Params\*RSS,                           ParamDesc,              0, %RSS%
+HKR, Ndi\Params\*RSS,                           default,                0, "1"
+HKR, Ndi\Params\*RSS,                           type,                   0, "enum"
+HKR, Ndi\Params\*RSS\Enum,                      "0",                    0, %Disabled%
+HKR, Ndi\Params\*RSS\Enum,                      "1",                    0, %Enabled%
+
+[Triplespeed.reg]
+HKR, Ndi\params\*SpeedDuplex,                   ParamDesc,              0, %SpeedDuplex%
+HKR, Ndi\params\*SpeedDuplex,                   default,                0, "0"
+HKR, Ndi\params\*SpeedDuplex,                   type,                   0, "enum"
+HKR, Ndi\params\*SpeedDuplex\enum,              "0",                    0, %AutoNegotiation%
+HKR, Ndi\params\*SpeedDuplex\enum,              "4",                    0, %100Mb_Full_Duplex%
+HKR, Ndi\params\*SpeedDuplex\enum,              "6",                    0, %1000Mb_Full_Duplex%
+HKR, Ndi\params\*SpeedDuplex\enum,              "7",                    0, %10Gb_Full_Duplex%
+
+[MSI.reg]
+HKR, "Interrupt Management", 0x00000010
+HKR, "Interrupt Management\MessageSignaledInterruptProperties", 0x00000010
+HKR, "Interrupt Management\MessageSignaledInterruptProperties", MSISupported, 0x00010001, 1
+HKR, "Interrupt Management\MessageSignaledInterruptProperties", MessageNumberLimit, 0x00010001, 18
+
+[IPSec.reg]
+; IPSec capabilities
+HKR, Ndi\Params\*IPsecOffloadV2,                        ParamDesc,              0, %IPsecOffloadV2%
+HKR, Ndi\Params\*IPsecOffloadV2,                        default,                0, "0"
+HKR, Ndi\Params\*IPsecOffloadV2\Enum,                   "0",                    0, %Disabled%
+HKR, Ndi\Params\*IPsecOffloadV2\Enum,                   "1",                    0, %IPsecAH%
+HKR, Ndi\Params\*IPsecOffloadV2\Enum,                   "2",                    0, %IPsecESP%
+HKR, Ndi\Params\*IPsecOffloadV2\Enum,                   "3",                    0, %IPsecAHESP%
+HKR, Ndi\Params\*IPsecOffloadV2,                        type,                   0, "enum"
+
+[NoIPSec.reg]
+HKR,,                                                   IPSecurity,             0, "0"
+
+[DMACoalescing.reg]
+; DMACoalescing
+HKR, Ndi\Params\DMACoalescing,            ParamDesc,                    0, %EnableDMACoalescing%
+HKR, Ndi\Params\DMACoalescing\Enum,       "0",                          0, %Disabled%
+HKR, Ndi\Params\DMACoalescing\Enum,       "50",                         0, %50usec%
+HKR, Ndi\Params\DMACoalescing\Enum,       "100",                        0, %100usec%
+HKR, Ndi\Params\DMACoalescing\Enum,       "250",                        0, %250usec%
+HKR, Ndi\Params\DMACoalescing\Enum,       "500",                        0, %500usec%
+HKR, Ndi\Params\DMACoalescing\Enum,       "1000",                       0, %1msec%
+HKR, Ndi\Params\DMACoalescing\Enum,       "2000",                       0, %2msec%
+HKR, Ndi\Params\DMACoalescing\Enum,       "5000",                       0, %5msec%
+HKR, Ndi\Params\DMACoalescing\Enum,       "10000",                      0, %10msec%
+HKR, Ndi\Params\DMACoalescing,            type,                         0, "enum"
+HKR, Ndi\Params\DMACoalescing,            default,                      0, "0"
+
+[Advanced.DelReg]
+HKR, Ndi\Params
+HKR, PROSetNdi\Params
+HKR, PROSetNdi\NdiExt
+
+[IPSec.DelReg]
+HKR,, *IPsecOffloadV2
+
+[AddEventLog]
+HKR,, EventMessageFile, 0x00020000, %EventLogMessageDllPath%
+HKR,, TypesSupported,   0x00010001, 7
+
+;-----------------------------------------------------------------------------
+; Driver "service" installation settings
+;-----------------------------------------------------------------------------
+[Service]
+DisplayName     = %Service.Displayname%
+ServiceType     = 1 ;%SERVICE_KERNEL_DRIVER%
+StartType       = 3 ;%SERVICE_DEMAND_START%
+ErrorControl    = 1 ;%SERVICE_ERROR_NORMAL%
+ServiceBinary   = %12%\ixs6232.sys
+LoadOrderGroup  = NDIS
+
+;-----------------------------------------------------------------------------
+; Event Log settings
+;-----------------------------------------------------------------------------
+
+[EventLog]
+AddReg             = AddEventLog
+
+[CopyFiles]
+ixs6232.sys,,,2
+
+;-----------------------------------------------------------------------------
+; DestinationDirs
+;-----------------------------------------------------------------------------
+[DestinationDirs]
+CopyFiles          = 12
+
+[SourceDisksNames]
+1 = %DiskName%,,,
+
+;-----------------------------------------------------------------------------
+; SourceDisksFiles
+;-----------------------------------------------------------------------------
+[SourceDisksFiles]
+ixs6232.sys  = 1
+
+[Strings]
+InterruptModeration                 = "Interrupt Moderation"
+InterruptThrottleRate               = "Interrupt Moderation Rate"
+Adaptive                            = "Adaptive"
+Extreme                             = "Extreme"
+High                                = "High"
+Medium                              = "Medium"
+Low                                 = "Low"
+IPChksumOffv4                       = "IPv4 Checksum Offload"
+TCPChksumOffv4                      = "TCP Checksum Offload (IPv4)"
+UDPChksumOffv4                      = "UDP Checksum Offload (IPv4)"
+LsoV2IPv4                           = "Large Send Offload V2 (IPv4)"
+TCPChksumOffv6                      = "TCP Checksum Offload (IPv6)"
+UDPChksumOffv6                      = "UDP Checksum Offload (IPv6)"
+LsoV2IPv6                           = "Large Send Offload V2 (IPv6)"
+HeaderDataSplit                     = "Header Data Split"
+ChksumOffTxRx                       = "Rx & Tx Enabled"
+ChksumOffTx                         = "Tx Enabled"
+ChksumOffRx                         = "Rx Enabled"
+TransmitBuffers                     = "Transmit Buffers"
+ReceiveBuffers                      = "Receive Buffers"
+RSS                                 = "Receive Side Scaling"
+NumRssQueues                        = "Receive Side Scaling Queues"
+1queue                              = "1 Queue"
+2queues                             = "2 Queues"
+4queues                             = "4 Queues"
+8queues                             = "8 Queues"
+16queues                            = "16 Queues"
+IPsecOffloadV2                      = "IPsec Offload"
+IPsecAH                             = "Auth Header Enabled"
+IPsecESP                            = "ESP Enabled"
+IPSecAHESP                          = "Auth Header & ESP Enabled"
+FlowControl                         = "Flow Control"
+FlowControl_RxOnly                  = "Rx Enabled"
+FlowControl_TxOnly                  = "Tx Enabled"
+FlowControl_Full                    = "Rx & Tx Enabled"
+PriorityVLANTag                     = "Priority & VLAN"
+PriorityVlanDisabled                = "Priority & VLAN Disabled"
+PriorityEnabled                     = "Priority Enabled"
+PriorityVlanEnabled                 = "Priority & VLAN Enabled"
+VlanEnabled                         = "VLAN Enabled"
+SpeedDuplex                         = "Speed & Duplex"
+AutoNegotiation                     = "Auto Negotiation"
+100Mb_Full_Duplex                   = "100 Mbps Full Duplex"
+1000Mb_Full_Duplex                  = "1.0 Gbps Full Duplex"
+10Gb_Full_Duplex                    = "10 Gbps Full Duplex"
+Off                                 = "Off"
+Enabled                             = "Enabled"
+Disabled                            = "Disabled"
+Bytes4088                           = "4088 Bytes"
+Bytes9014                           = "9014 Bytes"
+LAA                                 = "Locally Administered Address"
+JumboPacket                         = "Jumbo Packet"
+LogLinkState                        = "Log Link State Event"
+EnableDMACoalescing                 = "DMA Coalescing"
+50usec                              = "50 usec"
+100usec                             = "100 usec"
+250usec                             = "250 usec"
+500usec                             = "500 usec"
+1msec                               = "1 msec"
+2msec                               = "2 msec"
+5msec                               = "5 msec"
+10msec                              = "10 msec"
+ServiceName                     = "ixgbs"
+Intel                           = "Intel"
+EventLogMessageDllPath          = "%SystemRoot%\System32\netevent.dll;%SystemRoot%\System32\drivers\ixs6232.sys"
+DiskName                        = "Intel(R) PRO/10GbE Driver Disk"
+Service.Displayname             = "Intel(R) PRO/10GbE PCIe-S Network Connection Driver"
+
+;-----------------------------------------------------------------------------
+; Device Description Strings
+;-----------------------------------------------------------------------------
+S10A6.DeviceDesc                 = "Intel(R) X550 Multi-Function Network Device"
+S1563.Dual.Description           = "Intel(R) Ethernet Controller X550"
+S1563.Generic.Dual.Description   = "Intel(R) Ethernet Converged Network Adapter X550-T2"
+S1563.Retail.Dual.Description    = "Intel(R) Ethernet Converged Network Adapter X550-T2"
+S1563.Dual2P.Description         = "Intel(R) Ethernet 10G 2P X550-t Adapter"
+S1563.NDC.SF.Description         = "Intel(R) Ethernet 10G 4P X550 rNDC"
+S1563.NDC.WF.Description         = "Intel(R) Ethernet 10G 4P X550/I350 rNDC"
+S1563.HP.Dual.Description        = "HPE Ethernet 10Gb 2-port 562T Adapter"
+S1563.HP.ALOM.Description        = "HPE Ethernet 10Gb 2-port 562FLR-T Adapter"
+S15D1.Single.Description         = "Intel(R) Ethernet Controller X550"
+S15D1.Generic.Single.Description = "Intel(R) Ethernet Converged Network Adapter X550-T1"
+S15D1.Retail.Single.Description  = "Intel(R) Ethernet Converged Network Adapter X550-T1"
+S1563.Cisco.Dual.Description     = "Cisco X550-TX 10 Gig LOM"
+S1563.Cisco.NIC.Description      = "Cisco(R) Ethernet Converged NIC X550-T2"
+S1563.OCP.Dual.Description       = "Intel(R) Ethernet Server Adapter X550-T2 for OCP"
+S15D1.OCP.Single.Description     = "Intel(R) Ethernet Server Adapter X550-T1 for OCP"
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+

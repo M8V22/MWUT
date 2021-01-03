@@ -1,0 +1,53 @@
+Release Notes.TXT file for AMD CIR Driver
+(c) Copyright 2009-2012 Advanced Micro Devices, Inc.  All rights reserved.  
+
+LIMITATION OF LIABILITY:  THE MATERIALS ARE PROVIDED AS IS WITHOUT ANY EXPRESS OR
+IMPLIED WARRANTY OF ANY KIND INCLUDING WARRANTIES OF MERCHANTABILITY, 
+NONINFRINGEMENT OF THIRD-PARTY INTELLECTUAL PROPERTY, OR FITNESS FOR ANY PARTICULAR
+PURPOSE. IN NO EVENT SHALL AMD OR ITS SUPPLIERS BE LIABLE FOR ANY DAMAGES 
+WHATSOEVER (INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF PROFITS, BUSINESS
+INTERRUPTION, LOSS OF INFORMATION) ARISING OUT OF THE USE OF OR INABILITY TO USE
+THE MATERIALS, EVEN IF AMD HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+BECAUSE SOME JURISDICTIONS PROHIBIT THE EXCLUSION OR LIMITATION OF LIABILITY FOR
+CONSEQUENTIAL OR INCIDENTAL DAMAGES, THE ABOVE LIMITATION MAY NOT APPLY TO YOU.
+AMD does not assume any responsibility for any errors which may appear in the 
+Materials nor any responsibility to support or update the Materials.  AMD
+retains the right to make changes to its test specifications at any time, 
+without notice.  NO SUPPORT OBLIGATION: AMD is not obligated to furnish, support, 
+or make any further information, software, technical information, know-how, or 
+show-how available to you.
+U.S. GOVERNMENT RESTRICTED RIGHTS: The Materials and documentation are provided 
+with RESTRICTED RIGHTS.  Use, duplication or disclosure by the Government is 
+subject to restrictions as set forth in FAR52.227014 and DFAR252.227-7013, et
+seq., or its successor.  Use of the Materials by the Government constitutes
+acknowledgment of AMD’s proprietary rights in them.
+
+
+
+History:
+
+Version 3.02.00.87 :10/11/2009
+-- Added support for Windows & and Windows Vista.
+-- Added support for programmable wake for RC6 and QP remote.
+-- Added support for both Sb700/SB800 IR controller.
+
+Version 3.02.00.90 :01/29/2010
+-- Added support for SB900 IR controller.
+
+Version 3.02.00.93 :04/09/2010
+-- Aplha driver release for Hudson-2.
+-- Suppotrs the new time mode wake feature.
+-- Removes the contraint of not supporting all address wake for QP when programmed for address "0".
+
+Version 3.2.1.95 :06/10/2010
+-- WindowsHudson2 IRInfrared Driver Issue  BUG206223: CIR 94 sleep\wake issue with QP and RC6 on COBIA 
+-- Version Number is updated properly
+
+Version 3.2.2.99 :08/10/2010
+-- Formal release for hudson-2/hudson-3 support.
+
+Version 3.2.3.100 :10/04/2010
+-- BUG230888 -- resolved the bug
+
+Version 3.2.4.110 :12/16/2011
+-- Added support for Windows 8

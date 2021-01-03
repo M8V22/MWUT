@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="urn:Microsoft.WindowsPhone/PackageSchema.v8.00"
+   Owner="Intel"
+   OwnerType="SiliconVendor"
+   ReleaseType="Production"
+   Platform="Win32"
+   Component="Chipset"
+   SubComponent="Chipset.Driver">
+  <Components>
+      <Driver InfSource="$(TargetDir)\CrystalwellSystem.inf"/>
+  </Components>
+</Package>

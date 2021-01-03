@@ -1,0 +1,221 @@
+; ************************************************************
+; ************************************************************
+; **  Filename: ValleyView2System.inf                       **
+; **  Abstract: Assigns the null driver to devices          **
+; **            for yellow-bang removal and                 **
+; **            brands Intel(R) devices                     ** 
+; ************************************************************
+; ************************************************************
+
+[Version]
+Signature=$WINDOWS NT$
+Class=System
+ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=ValleyView2.cat
+DriverVer=07/18/1968, 10.1.1.45
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%INTEL%=INTEL,NTx86,NTamd64,NTx86.6.1,NTamd64.6.1,NTx86.6.3.1,NTamd64.6.3.1
+
+[INTEL.NTx86]
+%PCI\VEN_8086&DEV_0F00Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_0F00
+%PCI\VEN_8086&DEV_0F12Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_0F12
+%PCI\VEN_8086&DEV_0F1CDesc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_0F1C
+%PCI\VEN_8086&DEV_0F48Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_0F48
+%PCI\VEN_8086&DEV_0F4ADesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_0F4A
+%PCI\VEN_8086&DEV_0F4CDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_0F4C
+%PCI\VEN_8086&DEV_0F4EDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_0F4E
+%ACPI\VEN_8086&DEV_0F06Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F06
+%ACPI\VEN_8086&DEV_0F0EDesc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F0E
+%ACPI\VEN_8086&DEV_0F40Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F40
+%ACPI\VEN_8086&DEV_0F41Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F41
+%ACPI\VEN_8086&DEV_0F42Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F42
+%ACPI\VEN_8086&DEV_0F43Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F43
+%ACPI\VEN_8086&DEV_0F44Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F44
+%ACPI\VEN_8086&DEV_0F45Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F45
+%ACPI\VEN_8086&DEV_0F46Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F46
+%ACPI\VEN_8086&DEV_0F47Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F47
+
+[INTEL.NTx86.6.1]
+%PCI\VEN_8086&DEV_0F00Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_0F00
+%PCI\VEN_8086&DEV_0F12Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_0F12
+%PCI\VEN_8086&DEV_0F1CDesc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_0F1C
+%PCI\VEN_8086&DEV_0F48Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_0F48
+%PCI\VEN_8086&DEV_0F4ADesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_0F4A
+%PCI\VEN_8086&DEV_0F4CDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_0F4C
+%PCI\VEN_8086&DEV_0F4EDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_0F4E
+%ACPI\VEN_8086&DEV_0F06Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F06
+%ACPI\VEN_8086&DEV_0F08Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F08
+%ACPI\VEN_8086&DEV_0F09Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F09
+%ACPI\VEN_8086&DEV_0F0EDesc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F0E
+%ACPI\VEN_8086&DEV_0F40Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F40
+%ACPI\VEN_8086&DEV_0F41Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F41
+%ACPI\VEN_8086&DEV_0F42Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F42
+%ACPI\VEN_8086&DEV_0F43Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F43
+%ACPI\VEN_8086&DEV_0F44Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F44
+%ACPI\VEN_8086&DEV_0F45Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F45
+%ACPI\VEN_8086&DEV_0F46Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F46
+%ACPI\VEN_8086&DEV_0F47Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F47
+
+[INTEL.NTx86.6.3.1]
+%PCI\VEN_8086&DEV_0F00Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_0F00
+%PCI\VEN_8086&DEV_0F12Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_0F12
+%PCI\VEN_8086&DEV_0F1CDesc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_0F1C
+%PCI\VEN_8086&DEV_0F48Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_0F48
+%PCI\VEN_8086&DEV_0F4ADesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_0F4A
+%PCI\VEN_8086&DEV_0F4CDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_0F4C
+%PCI\VEN_8086&DEV_0F4EDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_0F4E
+%ACPI\VEN_8086&DEV_0F06Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F06
+%ACPI\VEN_8086&DEV_0F0EDesc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F0E
+%ACPI\VEN_8086&DEV_0F40Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F40
+%ACPI\VEN_8086&DEV_0F41Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F41
+%ACPI\VEN_8086&DEV_0F42Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F42
+%ACPI\VEN_8086&DEV_0F43Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F43
+%ACPI\VEN_8086&DEV_0F44Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F44
+%ACPI\VEN_8086&DEV_0F45Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F45
+%ACPI\VEN_8086&DEV_0F46Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F46
+%ACPI\VEN_8086&DEV_0F47Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F47
+
+[INTEL.NTamd64]
+%PCI\VEN_8086&DEV_0F00Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_0F00
+%PCI\VEN_8086&DEV_0F12Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_0F12
+%PCI\VEN_8086&DEV_0F1CDesc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_0F1C
+%PCI\VEN_8086&DEV_0F48Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_0F48
+%PCI\VEN_8086&DEV_0F4ADesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_0F4A
+%PCI\VEN_8086&DEV_0F4CDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_0F4C
+%PCI\VEN_8086&DEV_0F4EDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_0F4E
+%ACPI\VEN_8086&DEV_0F06Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F06
+%ACPI\VEN_8086&DEV_0F0EDesc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F0E
+%ACPI\VEN_8086&DEV_0F40Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F40
+%ACPI\VEN_8086&DEV_0F41Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F41
+%ACPI\VEN_8086&DEV_0F42Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F42
+%ACPI\VEN_8086&DEV_0F43Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F43
+%ACPI\VEN_8086&DEV_0F44Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F44
+%ACPI\VEN_8086&DEV_0F45Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F45
+%ACPI\VEN_8086&DEV_0F46Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F46
+%ACPI\VEN_8086&DEV_0F47Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F47
+
+[INTEL.NTamd64.6.1]
+%PCI\VEN_8086&DEV_0F00Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_0F00
+%PCI\VEN_8086&DEV_0F12Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_0F12
+%PCI\VEN_8086&DEV_0F1CDesc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_0F1C
+%PCI\VEN_8086&DEV_0F48Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_0F48
+%PCI\VEN_8086&DEV_0F4ADesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_0F4A
+%PCI\VEN_8086&DEV_0F4CDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_0F4C
+%PCI\VEN_8086&DEV_0F4EDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_0F4E
+%ACPI\VEN_8086&DEV_0F06Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F06
+%ACPI\VEN_8086&DEV_0F08Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F08
+%ACPI\VEN_8086&DEV_0F09Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F09
+%ACPI\VEN_8086&DEV_0F0EDesc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F0E
+%ACPI\VEN_8086&DEV_0F40Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F40
+%ACPI\VEN_8086&DEV_0F41Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F41
+%ACPI\VEN_8086&DEV_0F42Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F42
+%ACPI\VEN_8086&DEV_0F43Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F43
+%ACPI\VEN_8086&DEV_0F44Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F44
+%ACPI\VEN_8086&DEV_0F45Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F45
+%ACPI\VEN_8086&DEV_0F46Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F46
+%ACPI\VEN_8086&DEV_0F47Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F47
+
+[INTEL.NTamd64.6.3.1]
+%PCI\VEN_8086&DEV_0F00Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_0F00
+%PCI\VEN_8086&DEV_0F12Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_0F12
+%PCI\VEN_8086&DEV_0F1CDesc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_0F1C
+%PCI\VEN_8086&DEV_0F48Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_0F48
+%PCI\VEN_8086&DEV_0F4ADesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_0F4A
+%PCI\VEN_8086&DEV_0F4CDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_0F4C
+%PCI\VEN_8086&DEV_0F4EDesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_0F4E
+%ACPI\VEN_8086&DEV_0F06Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F06
+%ACPI\VEN_8086&DEV_0F0EDesc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F0E
+%ACPI\VEN_8086&DEV_0F40Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F40
+%ACPI\VEN_8086&DEV_0F41Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F41
+%ACPI\VEN_8086&DEV_0F42Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F42
+%ACPI\VEN_8086&DEV_0F43Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F43
+%ACPI\VEN_8086&DEV_0F44Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F44
+%ACPI\VEN_8086&DEV_0F45Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F45
+%ACPI\VEN_8086&DEV_0F46Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F46
+%ACPI\VEN_8086&DEV_0F47Desc%=Needs_NO_DRV,ACPI\VEN_8086&DEV_0F47
+
+[Needs_NO_DRV]
+Include=machine.inf
+Needs=NO_DRV
+
+[Needs_NO_DRV.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+[Needs_ISAPNP_DRV]
+Include=machine.inf
+Needs=ISAPNP_DRV
+
+[Needs_ISAPNP_DRV.Services]
+Include=machine.inf
+Needs=ISAPNP_DRV.Services
+
+[Needs_PCI_DRV]
+Include=machine.inf
+Needs=PCI_DRV
+
+[Needs_PCI_DRV.Services]
+Include=machine.inf
+Needs=PCI_DRV.Services
+
+[Needs_PCI_DRV.HW]
+Include=machine.inf
+Needs=PCI_DRV.HW
+
+[Strings]
+INTEL="INTEL"
+PCI\VEN_8086&DEV_0F00Desc="Intel(R) Atom(TM)/Celeron(R)/Pentium(R) Processor SoC Transaction Router - 0F00"
+PCI\VEN_8086&DEV_0F12Desc="Intel(R) Atom(TM)/Celeron(R)/Pentium(R) Processor Platform Control Unit - SMBus Port - 0F12"
+PCI\VEN_8086&DEV_0F1CDesc="Intel(R) Atom(TM)/Celeron(R)/Pentium(R) Processor Platform Control Unit - LPC: Bridge to Intel Legacy Block - 0F1C"
+PCI\VEN_8086&DEV_0F48Desc="Intel(R) Atom(TM)/Celeron(R)/Pentium(R) Processor PCI Express - Root Port 1 - 0F48"
+PCI\VEN_8086&DEV_0F4ADesc="Intel(R) Atom(TM)/Celeron(R)/Pentium(R) Processor PCI Express - Root Port 2 - 0F4A"
+PCI\VEN_8086&DEV_0F4CDesc="Intel(R) Atom(TM)/Celeron(R)/Pentium(R) Processor PCI Express - Root Port 3 - 0F4C"
+PCI\VEN_8086&DEV_0F4EDesc="Intel(R) Atom(TM)/Celeron(R)/Pentium(R) Processor PCI Express - Root Port 4 - 0F4E"
+ACPI\VEN_8086&DEV_0F06Desc="Intel(R) Atom(TM)/Celeron(R)/Pentium(R) Processor Serial IO (SIO) - DMA - 0F06"
+ACPI\VEN_8086&DEV_0F08Desc="Intel(R) Atom(TM)/Celeron(R)/Pentium(R) Processor Serial IO (SIO) - PWM Port 1 - 0F08"
+ACPI\VEN_8086&DEV_0F09Desc="Intel(R) Atom(TM)/Celeron(R)/Pentium(R) Processor Serial IO (SIO) - PWM Port 2 - 0F09"
+ACPI\VEN_8086&DEV_0F0EDesc="Intel(R) Atom(TM)/Celeron(R)/Pentium(R) Processor Serial IO (SIO) - SPI Port - 0F0E"
+ACPI\VEN_8086&DEV_0F40Desc="Intel(R) Atom(TM)/Celeron(R)/Pentium(R) Processor Serial IO (SIO) - DMA - 0F40"
+ACPI\VEN_8086&DEV_0F41Desc="Intel(R) Atom(TM)/Celeron(R)/Pentium(R) Processor Serial IO (SIO) - I2C Port 1 - 0F41"
+ACPI\VEN_8086&DEV_0F42Desc="Intel(R) Atom(TM)/Celeron(R)/Pentium(R) Processor Serial IO (SIO) - I2C Port 2 - 0F42"
+ACPI\VEN_8086&DEV_0F43Desc="Intel(R) Atom(TM)/Celeron(R)/Pentium(R) Processor Serial IO (SIO) - I2C Port 3 - 0F43"
+ACPI\VEN_8086&DEV_0F44Desc="Intel(R) Atom(TM)/Celeron(R)/Pentium(R) Processor Serial IO (SIO) - I2C Port 4 - 0F44"
+ACPI\VEN_8086&DEV_0F45Desc="Intel(R) Atom(TM)/Celeron(R)/Pentium(R) Processor Serial IO (SIO) - I2C Port 5 - 0F45"
+ACPI\VEN_8086&DEV_0F46Desc="Intel(R) Atom(TM)/Celeron(R)/Pentium(R) Processor Serial IO (SIO) - I2C Port 6 - 0F46"
+ACPI\VEN_8086&DEV_0F47Desc="Intel(R) Atom(TM)/Celeron(R)/Pentium(R) Processor Serial IO (SIO) - I2C Port 7 - 0F47"
+
+
+
+
+; Copyright (c) 2003-2017 Intel Corporation
+; 
+; ********************************************************************************
+; Intel is making no claims of usability, efficacy or warranty.
+; ********************************************************************************
+; Information in this document is provided in connection with Intel products. No
+; license, express or implied, by estoppel or otherwise, to any intellectual
+; property rights is granted by this document. Intel assumes no liability
+; whatsoever, and Intel disclaims any express or implied warranty, relating to
+; sale and/or use of Intel products including liability or warranties relating to
+; fitness for a particular purpose, merchantability, or infringement of any
+; patent, copyright or other intellectual property right. Intel products are not
+; intended for use in medical, life saving, or life sustaining applications.
+; ********************************************************************************
+; Intel Corporation disclaims all warranties and liabilities for the use of this
+; document and the information contained herein, and assumes no responsibility for
+; any errors which may appear in this document, nor does Intel make a commitment
+; to update the information contained herein. Intel reserves the right to make
+; changes to this document at any time, without notice.
+; ********************************************************************************
+; ********************************************************************************
+; 
+; * Third-party brands and names are the property of their respective owners.

@@ -1,0 +1,55 @@
+;-----------------------------------------------
+; AmdEHCI.inf
+; Null Filter INF for EHCI Controller
+; Copyright © 2010 AMD, Inc. All rights reserved.
+;-----------------------------------------------
+[Version]
+Signature="$WINDOWS NT$"
+Class=USB
+ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+Provider=%AMD%
+DriverVer=03/30/2010, 1.0.0.5
+CatalogFile=AmdEHCI.cat
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%AMD_MFG% = AMDEHCI,NTamd64
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[AMDEHCI]
+%AMDEHCI.DeviceDesc%=NULL_Inst,PCI\VEN_1002&DEV_4386
+%AMDEHCI.DeviceDesc%=NULL_Inst,PCI\VEN_1002&DEV_4396
+%AMDEHCI.DeviceDesc%=NULL_Inst,PCI\VEN_1022&DEV_7808
+
+[AMDEHCI.NTamd64]
+%AMDEHCI.DeviceDesc%=NULL_Inst,PCI\VEN_1002&DEV_4386
+%AMDEHCI.DeviceDesc%=NULL_Inst,PCI\VEN_1002&DEV_4396
+%AMDEHCI.DeviceDesc%=NULL_Inst,PCI\VEN_1022&DEV_7808
+
+[NULL_Inst]
+Include = usbport.inf
+Needs = EHCI.Dev.NT
+
+[NULL_Inst.Services]
+Include = usbport.inf
+Needs = EHCI.Dev.NT.Services
+
+[NULL_Inst.HW]
+AddReg = NULL_Inst.HW.AddReg
+
+[NULL_Inst.HW.AddReg]
+HKR,,"EnHcPeriodicIdle",%REG_DWORD%,0
+
+[Strings]
+AMD = "AMD"
+AMD_MFG = "AMD"
+AMDEHCI.DeviceDesc = "Standard Enhanced PCI to USB Host Controller"
+
+;-----------------------------------------------
+;Handy macro substitutions (non-localizable)
+;-----------------------------------------------
+REG_DWORD              = 0x00010001

@@ -1,0 +1,133 @@
+; ************************************************************
+; ************************************************************
+; **  Filename: WildcatPointLPSystem.inf                    **
+; **  Abstract: Assigns the null driver to devices          **
+; **            for yellow-bang removal and                 **
+; **            brands Intel(R) devices                     ** 
+; ************************************************************
+; ************************************************************
+
+[Version]
+Signature=$WINDOWS NT$
+Class=System
+ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=WildcatPointLP.cat
+DriverVer=07/18/1968, 10.1.3.1
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%INTEL%=INTEL,NTx86,NTamd64
+
+[INTEL.NTx86]
+%PCI\VEN_8086&DEV_9C90Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_9C90
+%PCI\VEN_8086&DEV_9C92Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_9C92
+%PCI\VEN_8086&DEV_9C94Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_9C94
+%PCI\VEN_8086&DEV_9C96Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_9C96
+%PCI\VEN_8086&DEV_9C98Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_9C98
+%PCI\VEN_8086&DEV_9C9ADesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_9C9A
+%PCI\VEN_8086&DEV_9CA2Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_9CA2
+%PCI\VEN_8086&DEV_9CA4Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_9CA4
+%PCI\VEN_8086&DEV_9CC1Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_9CC1
+%PCI\VEN_8086&DEV_9CC2Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_9CC2
+%PCI\VEN_8086&DEV_9CC3Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_9CC3
+%PCI\VEN_8086&DEV_9CC5Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_9CC5
+%PCI\VEN_8086&DEV_9CC6Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_9CC6
+%PCI\VEN_8086&DEV_9CC7Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_9CC7
+%PCI\VEN_8086&DEV_9CC9Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_9CC9
+
+[INTEL.NTamd64]
+%PCI\VEN_8086&DEV_9C90Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_9C90
+%PCI\VEN_8086&DEV_9C92Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_9C92
+%PCI\VEN_8086&DEV_9C94Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_9C94
+%PCI\VEN_8086&DEV_9C96Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_9C96
+%PCI\VEN_8086&DEV_9C98Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_9C98
+%PCI\VEN_8086&DEV_9C9ADesc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_9C9A
+%PCI\VEN_8086&DEV_9CA2Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_9CA2
+%PCI\VEN_8086&DEV_9CA4Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_9CA4
+%PCI\VEN_8086&DEV_9CC1Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_9CC1
+%PCI\VEN_8086&DEV_9CC2Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_9CC2
+%PCI\VEN_8086&DEV_9CC3Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_9CC3
+%PCI\VEN_8086&DEV_9CC5Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_9CC5
+%PCI\VEN_8086&DEV_9CC6Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_9CC6
+%PCI\VEN_8086&DEV_9CC7Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_9CC7
+%PCI\VEN_8086&DEV_9CC9Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_9CC9
+
+[Needs_PCI_DRV]
+Include=machine.inf
+Needs=PCI_DRV
+
+[Needs_PCI_DRV.Services]
+Include=machine.inf
+Needs=PCI_DRV.Services
+
+[Needs_PCI_DRV.HW]
+Include=machine.inf
+Needs=PCI_DRV.HW
+
+[Needs_NO_DRV]
+Include=machine.inf
+Needs=NO_DRV
+
+[Needs_NO_DRV.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+[Needs_ISAPNP_DRV]
+Include=machine.inf
+Needs=ISAPNP_DRV
+
+[Needs_ISAPNP_DRV.Services]
+Include=machine.inf
+Needs=ISAPNP_DRV.Services
+
+[Strings]
+INTEL="INTEL"
+PCI\VEN_8086&DEV_9C90Desc="Mobile 5th Generation Intel(R) Core(TM) PCI Express Root Port #1 - 9C90"
+PCI\VEN_8086&DEV_9C92Desc="Mobile 5th Generation Intel(R) Core(TM) PCI Express Root Port #2 - 9C92"
+PCI\VEN_8086&DEV_9C94Desc="Mobile 5th Generation Intel(R) Core(TM) PCI Express Root Port #3 - 9C94"
+PCI\VEN_8086&DEV_9C96Desc="Mobile 5th Generation Intel(R) Core(TM) PCI Express Root Port #4 - 9C96"
+PCI\VEN_8086&DEV_9C98Desc="Mobile 5th Generation Intel(R) Core(TM) PCI Express Root Port #5 - 9C98"
+PCI\VEN_8086&DEV_9C9ADesc="Mobile 5th Generation Intel(R) Core(TM) PCI Express Root Port #6 - 9C9A"
+PCI\VEN_8086&DEV_9CA2Desc="Mobile 5th Generation Intel(R) Core(TM) SMBus Controller - 9CA2"
+PCI\VEN_8086&DEV_9CA4Desc="Mobile 5th Generation Intel(R) Core(TM) Thermal Management Controller - 9CA4"
+PCI\VEN_8086&DEV_9CC1Desc="Mobile 5th Generation Intel(R) Core(TM) Engineering Sample LPC Controller - 9CC1"
+PCI\VEN_8086&DEV_9CC2Desc="Mobile 5th Generation Intel(R) Core(TM) Engineering Sample LPC Controller - 9CC2"
+PCI\VEN_8086&DEV_9CC3Desc="Mobile 5th Generation Intel(R) Core(TM) Premium SKU LPC Controller - 9CC3"
+PCI\VEN_8086&DEV_9CC5Desc="Mobile 5th Generation Intel(R) Core(TM) Base SKU LPC Controller - 9CC5"
+PCI\VEN_8086&DEV_9CC6Desc="Intel(R) Core(TM) M Engineering Sample LPC Controller - 9CC6"
+PCI\VEN_8086&DEV_9CC7Desc="Intel(R) Core(TM) M Premium SKU LPC Controller - 9CC7"
+PCI\VEN_8086&DEV_9CC9Desc="Intel(R) Core(TM) M Base SKU LPC Controller - 9CC9"
+
+
+
+
+; Copyright (c) 2003-2017 Intel Corporation
+; 
+; ********************************************************************************
+; Intel is making no claims of usability, efficacy or warranty.
+; ********************************************************************************
+; Information in this document is provided in connection with Intel products. No
+; license, express or implied, by estoppel or otherwise, to any intellectual
+; property rights is granted by this document. Intel assumes no liability
+; whatsoever, and Intel disclaims any express or implied warranty, relating to
+; sale and/or use of Intel products including liability or warranties relating to
+; fitness for a particular purpose, merchantability, or infringement of any
+; patent, copyright or other intellectual property right. Intel products are not
+; intended for use in medical, life saving, or life sustaining applications.
+; ********************************************************************************
+; Intel Corporation disclaims all warranties and liabilities for the use of this
+; document and the information contained herein, and assumes no responsibility for
+; any errors which may appear in this document, nor does Intel make a commitment
+; to update the information contained herein. Intel reserves the right to make
+; changes to this document at any time, without notice.
+; ********************************************************************************
+; ********************************************************************************
+; 
+; * Third-party brands and names are the property of their respective owners.

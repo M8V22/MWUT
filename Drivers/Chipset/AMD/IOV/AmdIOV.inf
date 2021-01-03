@@ -1,0 +1,66 @@
+;*******************************************
+; AmdIOV.inf
+; Null INF for IOMMU devices
+; Copyright © 2008-2019 AMD, Inc. All rights reserved.
+;*******************************************
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System 
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%AMD%
+DriverVer=11/12/2019, 1.2.0.0043
+
+CatalogFile=AmdIOV.cat
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%AMD_MFG% = InstallSection, NTX86, NTamd64
+
+[DestinationDirs]
+DefaultDestDir = 12
+ 
+[SourceDisksNames]
+
+[SourceDisksFiles]  
+
+[InstallSection.NTX86]
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1022&DEV_15D1
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1002&DEV_5A23
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1022&DEV_1419
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1022&DEV_1577
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1022&DEV_1423
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1022&DEV_1437
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1022&DEV_1449
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1022&DEV_1611
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1022&DEV_1451
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1022&DEV_1481
+
+[InstallSection.NTamd64]
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1022&DEV_15D1
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1002&DEV_5A23
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1022&DEV_1419
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1022&DEV_1577
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1022&DEV_1423
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1022&DEV_1437
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1022&DEV_1449
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1022&DEV_1611
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1022&DEV_1451
+%IOMMU.DeviceDesc%=NULL_DRIVER,PCI\VEN_1022&DEV_1481
+
+[NULL_DRIVER]
+
+[NULL_DRIVER.Services]
+AddService = , %SPSVCINST_ASSOCSERVICE%		; null service install
+
+[Strings]
+AMD = "AMD"
+AMD_MFG = "AMD"
+IOMMU.DeviceDesc = "AMD IOMMU Device"
+
+;*******************************************
+;Handy macro substitutions (non-localizable)
+;*******************************************
+SPSVCINST_ASSOCSERVICE = 0x00000002

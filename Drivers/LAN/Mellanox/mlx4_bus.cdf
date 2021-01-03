@@ -1,0 +1,10 @@
+[CatalogHeader]
+Name=mlx4_bus.cat
+PublicVersion=0x0000001
+EncodingType=0x00010001
+CATATTR1=0x10010001:OSAttr:2:6.0
+[CatalogFiles]
+<hash>mlx4_bus.inf=mlx4_bus.inf
+<hash>mlx4_bus.sys=mlx4_bus.sys
+<hash>winctxtune.dll=winctxtune.dll
+<hash>WdfCoInstaller01009.dll=WdfCoInstaller01009.dll

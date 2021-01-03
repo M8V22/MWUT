@@ -1,0 +1,83 @@
+;
+;
+;Copyright (c) Intel Corporation.  All rights reserved.
+;
+;    THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY
+;    KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+;    IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR
+;    PURPOSE.
+;
+;Module Name:
+;
+;    AcpiCtl.INF
+;
+;Abstract:
+;
+;    INF file for ACPI read/write to the BIOS as well as real-time device control.
+;    This is a mutlios INF file. Same INF file cab be used on
+;    x86, ia64 and amd64 platforms.
+;
+;=============================================================================
+;
+
+[version]
+Signature="$Chicago$"
+Class=System
+ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%Mfg%
+DriverVer=07/26/2012,3.0.25.1
+CatalogFile=AcpiCtl.cat
+
+[DestinationDirs]
+DriverCopyFiles=11         ; NTKERN wants to load from system directory
+DriverCopyFiles.nt=12      ; load from system32\drivers
+
+[SourceDisksNames]
+0=%DiskName%,,,
+
+[SourceDisksNames.amd64]
+0=%DiskName%,,,
+
+[SourceDisksFiles]
+AcpiCtlDrv.sys=0,32bit
+
+[SourceDisksFiles.amd64]
+AcpiCtlDrv.sys=0,64bit
+
+[Manufacturer]
+%Mfg%=IntelDevice,NTamd64
+
+[IntelDevice]
+%DeviceDesc%=DriverInstall,*INT3394
+
+[IntelDevice.NTamd64]
+%DeviceDesc%=DriverInstall,*INT3394
+
+;----------------------------------------------------------------------
+; NT install sections:
+;----------------------------------------------------------------------
+
+[DriverInstall.nt]
+CopyFiles=DriverCopyFiles.nt
+
+[DriverCopyFiles.nt]
+AcpiCtlDrv.sys,,,2
+
+[DriverInstall.nt.Services]
+AddService=AcpiCtlDrv,2,DriverService
+
+[DriverService]
+ServiceType	= 1           ; SERVICE_KERNEL_DRIVER
+StartType	= 3           ; SERVICE_DEMAND_START
+ErrorControl	= 1           ; SERVICE_ERROR_NORMAL
+ServiceBinary	= %12%\AcpiCtlDrv.sys
+
+
+;----------------------------------------------------------------------
+; String Constants
+;----------------------------------------------------------------------
+
+[Strings]
+Mfg="Intel"
+DeviceDesc="Intel(R) ACPI BIOS Control Driver"
+DiskName = "ACPI and BIOS Control"

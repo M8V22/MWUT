@@ -1,0 +1,25 @@
+"X:\Program Files\7-Zip\7z.exe" x -o"X:\Program Files\Mozilla Firefox" -y "X:\Program Files\Mozilla Firefox\Firefox.7z"
+
+rem regsvr32 /s "X:\Program Files\Mozilla Firefox\AccessibleMarshal.dll"
+regsvr32 /s "X:\Program Files\Mozilla Firefox\AccessibleHandler.dll"
+
+reg add "HKLM\Software\Mozilla\Mozilla Firefox\68.6.0 ESR (x86 en-US)\Main" /v "Install Directory" /d "X:\Program Files\Mozilla Firefox"
+reg add "HKLM\Software\Mozilla\Mozilla Firefox\68.6.0 ESR (x86 en-US)\Main" /v "PathToExe" /d "X:\Program Files\Mozilla Firefox\firefox.exe"
+reg add "HKLM\Software\Mozilla\Mozilla Firefox\68.6.0 ESR (x86 en-US)\Uninstall" /v "Description" /d "Mozilla Firefox 68.6.0 ESR (x86 en-US)"
+reg add "HKLM\Software\Mozilla\Mozilla Firefox\68.6.0 ESR (x86 en-US)" /ve /d "68.6.0 ESR (x86 en-US)"
+reg add "HKLM\Software\Mozilla\Mozilla Firefox 68.6.0 ESR\bin" /v "PathToExe" /d "X:\Program Files\Mozilla Firefox\firefox.exe"
+reg add "HKLM\Software\Mozilla\Mozilla Firefox 68.6.0 ESR\extensions" /v "Components" /d "X:\Program Files\Mozilla Firefox\components"
+reg add "HKLM\Software\Mozilla\Mozilla Firefox 68.6.0 ESR\extensions" /v "Plugins" /d "X:\Program Files\Mozilla Firefox\plugins"
+reg add "HKLM\Software\Mozilla\Mozilla Firefox 68.6.0 ESR" /v "GeckoVer" /d "68.6.0"
+reg add "HKLM\Software\Mozilla\Mozilla Firefox ESR" /ve /d "68.6.0"
+reg add "HKLM\Software\Mozilla\Mozilla Firefox ESR" /v "CurrentVersion" /d "68.6.0 ESR (x86 en-US)"
+
+reg add "HKLM\Software\Classes\.shtml" /ve /d "shtmlfile"
+reg add "HKLM\Software\Classes\.shtml" /v "Content Type" /d "text/html"
+reg add "HKLM\Software\Classes\.shtml" /v "Perceived Type" /d "text"
+reg add "HKLM\Software\Classes\.xht" /ve /d "xhtfile"
+reg add "HKLM\Software\Classes\.xht" /v "Content Type" /d "application/xhtml+xml"
+reg add "HKLM\Software\Classes\.xhtml" /ve /d "xhtmlfile"
+reg add "HKLM\Software\Classes\.xhtml" /v "Content Type" /d "application/xhtml+xml"
+
+start "" "X:\Program Files\Mozilla Firefox\firefox.exe" https://www.google.hr

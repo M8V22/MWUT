@@ -1,0 +1,472 @@
+; NETATx86.INF - Windows Vista x86 NDIS 6.0 Driver
+;
+; Allied Telesis AT-2450/2700 Series PCI Ethernet Adapters
+;
+; Copyright 1993-2007, Allied Telesis, Inc.
+
+[version]
+Signature   = "$Chicago$"
+Compatible  = 1
+Class       = Net
+ClassGUID   = {4d36e972-e325-11ce-bfc1-08002be10318}
+Provider    = %Allied%
+DriverVer=03/01/2011,6.4.2.0
+CatalogFile = ATNICx86.cat
+
+[Manufacturer]
+%Allied% = Allied,NT.6.0
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Allied.NT.6.0]
+;%*AT2700.DeviceDesc%=AT2700.ndi.NT.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_27001259
+;%*AT2701.DeviceDesc%=AT2701.ndi.NT.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_27011259
+;%*AT2702.DeviceDesc%=AT2702.ndi.NT.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_27021259
+%*AT2703.DeviceDesc%=AT2703.ndi.NT.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_27031259
+%*AT2704.DeviceDesc%=AT2704.ndi.NT.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_27041259
+;%*AT2745.DeviceDesc%=AT2745.ndi.NT.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_27451259
+;%*AT2450.DeviceDesc%=AT2450.ndi.NT.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_00000000
+;%*AT2454.DeviceDesc%=AT2454.ndi.NT.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_24541259
+;%*AT2455.DeviceDesc%=AT2455.ndi.NT.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_24501259
+%*AT2746.DeviceDesc%=AT2746.ndi.NT.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_27461259
+;%*AT2455.DeviceDesc%=AT2455.ndi.NT.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_24551259
+%*AT2456.DeviceDesc%=AT2456.ndi.NT.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_24561259
+
+;****************************************************************************
+; Allied Telesis AT-2700TX 10/100 PCI Ethernet Adapter
+;****************************************************************************
+[AT2700.ndi.NT.6.0]
+Characteristics = 0x84 ; NCF_PHYSICAL | NCF_HAS_UI
+BusType         = 5
+AddReg          = ATNIC.NT.reg, BasicN.reg, MII2700.reg
+CopyFiles       = VistaCopyDriver
+*IfType         = 6		; IF_TYPE_ETHERNET_CSMACD 
+*MediaType      = 0		; NdisMedium802_3
+*PhysicalMediaType = 0		; NdisPhysicalMediumUnspecified
+
+[AT2700.ndi.NT.6.0.Services]
+AddService      = ATNICm6, 2, ATNIC.NT.6.0.Service, ATNIC.NT.6.0.AddEventLog
+
+;****************************************************************************
+; Allied Telesis AT-2700FX 100Mb PCI Fiber Ethernet Adapter
+;****************************************************************************
+[AT2701.ndi.NT.6.0]
+Characteristics = 0x84 ; NCF_PHYSICAL | NCF_HAS_UI
+BusType         = 5
+AddReg          = ATNIC.NT.reg, BasicN.reg, MII2701.reg
+CopyFiles       = VistaCopyDriver
+*IfType         = 6		; IF_TYPE_ETHERNET_CSMACD 
+*MediaType      = 0		; NdisMedium802_3
+*PhysicalMediaType = 0		; NdisPhysicalMediumUnspecified
+
+[AT2701.ndi.NT.6.0.Services]
+AddService      = ATNICm6, 2, ATNIC.NT.6.0.Service, ATNIC.NT.6.0.AddEventLog
+
+;****************************************************************************
+; Allied Telesis AT-2700FTX PCI Ethernet Adapter
+;****************************************************************************
+[AT2702.ndi.NT.6.0]
+Characteristics = 0x84 ; NCF_PHYSICAL | NCF_HAS_UI
+BusType         = 5
+AddReg          = ATNIC.NT.reg, BasicN.reg, MII2702.reg
+CopyFiles       = VistaCopyDriver
+*IfType         = 6		; IF_TYPE_ETHERNET_CSMACD 
+*MediaType      = 0		; NdisMedium802_3
+*PhysicalMediaType = 0		; NdisPhysicalMediumUnspecified
+
+[AT2702.ndi.NT.6.0.Services]
+AddService      = ATNICm6, 2, ATNIC.NT.6.0.Service, ATNIC.NT.6.0.AddEventLog
+
+;****************************************************************************
+; Allied Telesis AT-2701FX PCI Ethernet Adapter
+;****************************************************************************
+[AT2703.ndi.NT.6.0]
+Characteristics = 0x84 ; NCF_PHYSICAL | NCF_HAS_UI
+BusType         = 5
+AddReg          = ATNIC.NT.reg, BasicN.reg, MII2701.reg
+CopyFiles       = VistaCopyDriver
+*IfType         = 6		; IF_TYPE_ETHERNET_CSMACD 
+*MediaType      = 0		; NdisMedium802_3
+*PhysicalMediaType = 0		; NdisPhysicalMediumUnspecified
+
+[AT2703.ndi.NT.6.0.Services]
+AddService      = ATNICm6, 2, ATNIC.NT.6.0.Service, ATNIC.NT.6.0.AddEventLog
+
+;****************************************************************************
+; Allied Telesis AT-2701FTX PCI Ethernet Adapter
+;****************************************************************************
+[AT2704.ndi.NT.6.0]
+Characteristics = 0x84 ; NCF_PHYSICAL | NCF_HAS_UI
+BusType         = 5
+AddReg          = ATNIC.NT.reg, BasicN.reg, MII2702.reg
+CopyFiles       = VistaCopyDriver
+*IfType         = 6		; IF_TYPE_ETHERNET_CSMACD 
+*MediaType      = 0		; NdisMedium802_3
+*PhysicalMediaType = 0		; NdisPhysicalMediumUnspecified
+
+[AT2704.ndi.NT.6.0.Services]
+AddService      = ATNICm6, 2, ATNIC.NT.6.0.Service, ATNIC.NT.6.0.AddEventLog
+
+;****************************************************************************
+; Allied Telesis AT-2745FX PCI Ethernet Adapter
+;****************************************************************************
+[AT2745.ndi.NT.6.0]
+Characteristics = 0x84 ; NCF_PHYSICAL | NCF_HAS_UI
+BusType         = 5
+AddReg          = ATNIC.NT.reg, BasicN.reg, MII2745.reg
+CopyFiles       = VistaCopyDriver
+*IfType         = 6		; IF_TYPE_ETHERNET_CSMACD 
+*MediaType      = 0		; NdisMedium802_3
+*PhysicalMediaType = 0		; NdisPhysicalMediumUnspecified
+
+[AT2745.ndi.NT.6.0.Services]
+AddService      = ATNICm6, 2, ATNIC.NT.6.0.Service, ATNIC.NT.6.0.AddEventLog
+
+;****************************************************************************
+; Allied Telesis AT-2746FX PCI Ethernet Adapter
+;****************************************************************************
+[AT2746.ndi.NT.6.0]
+Characteristics = 0x84 ; NCF_PHYSICAL | NCF_HAS_UI
+BusType         = 5
+AddReg          = ATNIC.NT.reg, BasicN.reg, MII2745.reg
+CopyFiles       = VistaCopyDriver
+*IfType         = 6		; IF_TYPE_ETHERNET_CSMACD 
+*MediaType      = 0		; NdisMedium802_3
+*PhysicalMediaType = 0		; NdisPhysicalMediumUnspecified
+
+[AT2746.ndi.NT.6.0.Services]
+AddService      = ATNICm6, 2, ATNIC.NT.6.0.Service, ATNIC.NT.6.0.AddEventLog
+
+;****************************************************************************
+; Allied Telesis AT-2450 PCI Ethernet Adapter
+;****************************************************************************
+[AT2450.ndi.NT.6.0]
+Characteristics = 0x84 ; NCF_PHYSICAL | NCF_HAS_UI
+BusType         = 5
+AddReg          = ATNIC.NT.reg, BasicP.reg
+CopyFiles       = VistaCopyDriver
+*IfType         = 6		; IF_TYPE_ETHERNET_CSMACD 
+*MediaType      = 0		; NdisMedium802_3
+*PhysicalMediaType = 0		; NdisPhysicalMediumUnspecified
+
+[AT2450.ndi.NT.6.0.Services]
+AddService      = ATNICm6, 2, ATNIC.NT.6.0.Service, ATNIC.NT.6.0.AddEventLog
+
+;****************************************************************************
+; Allied Telesis AT-2450v4 PCI Ethernet Adapter
+;****************************************************************************
+[AT2454.ndi.NT.6.0]
+Characteristics = 0x84 ; NCF_PHYSICAL | NCF_HAS_UI
+BusType         = 5
+AddReg          = ATNIC.NT.reg, BasicN.reg, MII2454.reg
+CopyFiles       = VistaCopyDriver
+*IfType         = 6		; IF_TYPE_ETHERNET_CSMACD 
+*MediaType      = 0		; NdisMedium802_3
+*PhysicalMediaType = 0		; NdisPhysicalMediumUnspecified
+
+[AT2454.ndi.NT.6.0.Services]
+AddService      = ATNICm6, 2, ATNIC.NT.6.0.Service, ATNIC.NT.6.0.AddEventLog
+
+;****************************************************************************
+; Allied Telesis AT-2450FTX PCI Ethernet Adapter
+;****************************************************************************
+
+[AT2455.ndi.NT.6.0]
+Characteristics = 0x84 ; NCF_PHYSICAL | NCF_HAS_UI
+BusType         = 5
+AddReg          = ATNIC.NT.reg, BasicN.reg, MII2455.reg
+CopyFiles       = VistaCopyDriver
+*IfType         = 6		; IF_TYPE_ETHERNET_CSMACD 
+*MediaType      = 0		; NdisMedium802_3
+*PhysicalMediaType = 0		; NdisPhysicalMediumUnspecified
+
+[AT2455.ndi.NT.6.0.Services]
+AddService      = ATNICm6, 2, ATNIC.NT.6.0.Service, ATNIC.NT.6.0.AddEventLog
+
+;****************************************************************************
+; Allied Telesis AT-2456FTX PCI Ethernet Adapter
+;****************************************************************************
+[AT2456.ndi.NT.6.0]
+Characteristics = 0x84 ; NCF_PHYSICAL | NCF_HAS_UI
+BusType         = 5
+AddReg          = ATNIC.NT.reg, BasicN.reg, MII2456.reg
+CopyFiles       = VistaCopyDriver
+*IfType         = 6		; IF_TYPE_ETHERNET_CSMACD 
+*MediaType      = 0		; NdisMedium802_3
+*PhysicalMediaType = 0		; NdisPhysicalMediumUnspecified
+
+[AT2456.ndi.NT.6.0.Services]
+AddService      = ATNICm6, 2, ATNIC.NT.6.0.Service, ATNIC.NT.6.0.AddEventLog
+
+;-------------------------------------------------------------------------------
+; Common Section for NT5.0 and Win9x.
+;-------------------------------------------------------------------------------
+
+; ATI common params section
+;
+
+[BasicP.reg]
+HKR, Ndi\params\TP,                    	ParamDesc,   0, %PORT%
+HKR, Ndi\params\TP,                    	default,     0, "0"
+HKR, Ndi\params\TP,                    	type,        0, "enum"
+HKR, Ndi\params\TP\enum,               	"0",         0, %AUI%
+HKR, Ndi\params\TP\enum,               	"1",         0, %TP%
+
+HKR, Ndi\params\FDUP,                  ParamDesc,   0, %DUPLEX% 
+HKR, Ndi\params\FDUP,                  default,     0, "0"
+HKR, Ndi\params\FDUP,                  type,        0, "enum"
+HKR, Ndi\params\FDUP\enum,             "0",         0, %HD%
+HKR, Ndi\params\FDUP\enum,             "1",         0, %FD%
+HKR, Ndi\params\FDUP\enum,             "3",         0, %AUIFD%
+
+[BasicN.reg]
+HKR, Ndi\params\EMBA,                   ParamDesc,   0, %EMBA%
+HKR, Ndi\params\EMBA,                   default,     0, "0"
+HKR, Ndi\params\EMBA,                   type,        0, "enum"
+HKR, Ndi\params\EMBA\enum,              "0",         0, %OFF%
+HKR, Ndi\params\EMBA\enum,              "1",         0, %ON%
+
+HKR,Ndi\params\NetworkAddress,         	ParamDesc,   0, %NetworkAddress%
+HKR,Ndi\params\NetworkAddress,         	type,        0, "edit"
+HKR,Ndi\params\NetworkAddress,         	default,     0, ""
+HKR,Ndi\params\NetworkAddress,         	LimitText,   0, "12"
+HKR,Ndi\params\NetworkAddress,         	UpperCase,   0, "1"
+HKR,Ndi\params\NetworkAddress,         	Optional,    0, "1"
+
+HKR, Ndi\params\VlanID,                	ParamDesc,   0, "%VlanId%"
+HKR, Ndi\params\VlanID,                	default,     0, "0"
+HKR, Ndi\params\VlanID,                	type,        0, "long"
+HKR, Ndi\params\VlanID,                	min,         0, "0"
+HKR, Ndi\params\VlanID,                	max,         0, "4095"
+HKR, Ndi\params\VlanID,               	step,        0, "1"
+HKR, Ndi\params\VlanID,                	base,        0, "10"
+
+[MII2700.reg]
+HKR, Ndi\params\EXTPHY,                	ParamDesc,   0, %EXTPHY%
+HKR, Ndi\params\EXTPHY,                	default,     0, "0"
+HKR, Ndi\params\EXTPHY,                	type,        0, "enum"
+HKR, Ndi\params\EXTPHY\enum,           	"0",         0, %Auto%
+HKR, Ndi\params\EXTPHY\enum,           	"1",         0, %100HD%
+HKR, Ndi\params\EXTPHY\enum,           	"2",         0, %100FD%
+HKR, Ndi\params\EXTPHY\enum,           	"3",         0, %10HD%
+HKR, Ndi\params\EXTPHY\enum,           	"4",         0, %10FD%
+
+[MII2745.reg]
+HKR, Ndi\params\EXTPHY,                ParamDesc,   0, %EXTPHY_100MB_FIBER%
+HKR, Ndi\params\EXTPHY,                default,     0, "2"
+HKR, Ndi\params\EXTPHY,                type,        0, "enum"
+HKR, Ndi\params\EXTPHY\enum,           "1",         0, %100HD%
+HKR, Ndi\params\EXTPHY\enum,           "2",         0, %100FD%
+
+HKR, Ndi\params\EXTPHY2,                ParamDesc,  0, %EXTPHY_10MB_FIBER%
+HKR, Ndi\params\EXTPHY2,                default,    0, "4"
+HKR, Ndi\params\EXTPHY2,                type,       0, "enum"
+HKR, Ndi\params\EXTPHY2\enum,           "3",        0, %10HD%
+HKR, Ndi\params\EXTPHY2\enum,           "4",        0, %10FD%
+
+[MII2455.reg]
+HKR, ,                                 EXTPHY,      0, "0"
+HKR, Ndi\params\EXTPHY,                ParamDesc,   0, %EXTPHY_COPPER%
+HKR, Ndi\params\EXTPHY,                default,     0, "0"
+HKR, Ndi\params\EXTPHY,                type,        0, "enum"
+HKR, Ndi\params\EXTPHY\enum,           "0",         0, %Auto%
+HKR, Ndi\params\EXTPHY\enum,           "1",         0, %100HD%
+HKR, Ndi\params\EXTPHY\enum,           "2",         0, %100FD%
+HKR, Ndi\params\EXTPHY\enum,           "3",         0, %10HD%
+HKR, Ndi\params\EXTPHY\enum,           "4",         0, %10FD%
+
+HKR, ,                                 EXTPHY2,     0, "4"
+HKR, Ndi\params\EXTPHY2,                ParamDesc,  0, %EXTPHY_10MB_FIBER%
+HKR, Ndi\params\EXTPHY2,                default,    0, "4"
+HKR, Ndi\params\EXTPHY2,                type,       0, "enum"
+HKR, Ndi\params\EXTPHY2\enum,           "3",        0, %10HD%
+HKR, Ndi\params\EXTPHY2\enum,           "4",        0, %10FD%
+
+
+[MII2456.reg]
+HKR, ,                                 EXTPHY,      0, "4"
+HKR, Ndi\params\EXTPHY,                ParamDesc,   0, %EXTPHY_10MB_FIBER%
+HKR, Ndi\params\EXTPHY,                default,     0, "4"
+HKR, Ndi\params\EXTPHY,                type,        0, "enum"
+HKR, Ndi\params\EXTPHY\enum,           "3",         0, %10HD%
+HKR, Ndi\params\EXTPHY\enum,           "4",         0, %10FD%
+
+HKR, ,                                 EXTPHY2,     0, "0"
+HKR, Ndi\params\EXTPHY2,                ParamDesc,  0, %EXTPHY_COPPER%
+HKR, Ndi\params\EXTPHY2,                default,    0, "0"
+HKR, Ndi\params\EXTPHY2,                type,       0, "enum"
+HKR, Ndi\params\EXTPHY2\enum,           "0",        0, %Auto%
+HKR, Ndi\params\EXTPHY2\enum,           "1",        0, %100HD%
+HKR, Ndi\params\EXTPHY2\enum,           "2",        0, %100FD%
+HKR, Ndi\params\EXTPHY2\enum,           "3",        0, %10HD%
+HKR, Ndi\params\EXTPHY2\enum,           "4",        0, %10FD%
+
+HKR, Ndi\params\Congest,               ParamDesc,   0, %Congest%
+HKR, Ndi\params\Congest,               default,     0, "0"
+HKR, Ndi\params\Congest,               type,        0, "enum"
+HKR, Ndi\params\Congest\enum,          "0",         0, %OFF%
+HKR, Ndi\params\Congest\enum,          "1",         0, %Negotiate%
+HKR, Ndi\params\Congest\enum,          "2",         0, %Force%
+
+[MII2702.reg]
+HKR, ,                                 EXTPHY,      0, "2"
+HKR, Ndi\params\EXTPHY,                ParamDesc,   0, %EXTPHY_100MB_FIBER%
+HKR, Ndi\params\EXTPHY,                default,     0, "2"
+HKR, Ndi\params\EXTPHY,                type,        0, "enum"
+HKR, Ndi\params\EXTPHY\enum,           "1",         0, %100HD%
+HKR, Ndi\params\EXTPHY\enum,           "2",         0, %100FD%
+
+HKR, ,                                 EXTPHY2,     0, "0"
+HKR, Ndi\params\EXTPHY2,                ParamDesc,  0, %EXTPHY_COPPER%
+HKR, Ndi\params\EXTPHY2,                default,    0, "0"
+HKR, Ndi\params\EXTPHY2,                type,       0, "enum"
+HKR, Ndi\params\EXTPHY2\enum,           "0",        0, %Auto%
+HKR, Ndi\params\EXTPHY2\enum,           "1",        0, %100HD%
+HKR, Ndi\params\EXTPHY2\enum,           "2",        0, %100FD%
+HKR, Ndi\params\EXTPHY2\enum,           "3",        0, %10HD%
+HKR, Ndi\params\EXTPHY2\enum,           "4",        0, %10FD%
+
+HKR, Ndi\params\Congest,               ParamDesc,   0, %Congest%
+HKR, Ndi\params\Congest,               default,     0, "0"
+HKR, Ndi\params\Congest,               type,        0, "enum"
+HKR, Ndi\params\Congest\enum,          "0",         0, %OFF%
+HKR, Ndi\params\Congest\enum,          "1",         0, %Negotiate%
+HKR, Ndi\params\Congest\enum,          "2",         0, %Force%
+
+[MII2701.reg]
+HKR, ,                                 EXTPHY,      0, "2"
+HKR, Ndi\params\EXTPHY,                ParamDesc,   0, %EXTPHY%
+HKR, Ndi\params\EXTPHY,                default,     0, "2"
+HKR, Ndi\params\EXTPHY,                type,        0, "enum"
+HKR, Ndi\params\EXTPHY\enum,           "1",         0, %100HD%
+HKR, Ndi\params\EXTPHY\enum,           "2",         0, %100FD%
+
+HKR, Ndi\params\Congest,               ParamDesc,   0, %Congest%
+HKR, Ndi\params\Congest,               default,     0, "0"
+HKR, Ndi\params\Congest,               type,        0, "enum"
+HKR, Ndi\params\Congest\enum,          "0",         0, %OFF%
+HKR, Ndi\params\Congest\enum,          "1",         0, %Negotiate%
+HKR, Ndi\params\Congest\enum,          "2",         0, %Force%
+
+[MII2454.reg]
+HKR, ,                                 EXTPHY,      0, "4"
+HKR, Ndi\params\EXTPHY,                ParamDesc,   0, %EXTPHY%
+HKR, Ndi\params\EXTPHY,                default,     0, "4"
+HKR, Ndi\params\EXTPHY,                type,        0, "enum"
+HKR, Ndi\params\EXTPHY\enum,           "3",         0, %FHD%
+HKR, Ndi\params\EXTPHY\enum,           "4",         0, %FD%
+
+;-------------------------------------------------------------------------------
+; Win2K /XP / Vista only sections
+;-------------------------------------------------------------------------------
+
+[ATNIC.NT.reg]
+HKR, Ndi,            Service,    0, "ATNIC"
+HKR, Ndi\Interfaces, UpperRange, 0, "ndis5"
+HKR, Ndi\Interfaces, LowerRange, 0, "ethernet"
+
+
+[ATNIC.NT.6.0.Service]
+DisplayName     = %ATNIC.NT.6.0.Service.DispName%
+ServiceType     = 1 ;%SERVICE_KERNEL_DRIVER%
+StartType       = 3 ;%SERVICE_DEMAND_START%
+ErrorControl    = 1 ;%SERVICE_ERROR_NORMAL%
+ServiceBinary   = %12%\atnicm60.sys
+LoadOrderGroup  = NDIS
+
+[ATNIC.NT.6.0.AddEventLog]
+AddReg = ATNIC.NT.6.0.AddEventLog.reg
+
+[ATNIC.NT.6.0.AddEventLog.reg]
+HKR,,EventMessageFile,0x00020000,%%SystemRoot%%\System32\drivers\atnicm60.sys
+HKR,,TypesSupported,0x00010001,7
+
+;-------------------------------------------------------------------------------
+; DestinationDirs
+;
+[DestinationDirs]
+DefaultDestDir   = 12
+VistaCopyDriver  = 12
+
+[VistaCopyDriver]
+atnicm60.sys,,,2
+
+[SourceDisksNames]
+1 = %SourceDisk%,,,
+
+[SourceDisksFiles]
+atnicm60.sys  = 1
+
+;-------------------------------------------------------------------------------
+; Localizable Strings
+;
+
+[Strings]
+Allied                   = "Allied Telesis, Inc."
+TP                       = "UTP Port"
+AUI                      = "AUI/BNC/Fiber"
+AUTOSEL                  = "Auto Select"
+PORT                     = "Active Port"
+Default(OFF)             = "Off (Default)"
+ON                       = "On"
+OFF                      = "Off"
+MPMODE                   = "Magic Packet"
+EMBA                     = "Enhanced Backoff Algorithm"
+Congest                  = "Flow Control"
+PCILatency               = "PCI Latency Timer"
+Negotiate                = "Automatic"
+Force                    = "Force"
+Priority8021p            = "QoS Tagging (IEEE 802.1p/q)"
+DUPLEX                   = "Duplex Setting"
+HD                       = "Half Duplex"
+FHD                      = "Half - Fiber"
+FD                       = "Full Duplex (Copper)"
+AUIFD                    = "Full Duplex (AUI/Fiber)"
+EXTPHY                   = "Speed/Duplex"
+EXTPHY_COPPER            = "Speed/Duplex (Copper)"
+EXTPHY_10MB_FIBER        = "Speed/Duplex (10Mb Fiber)"
+EXTPHY_100MB_FIBER       = "Speed/Duplex (100Mb Fiber)"
+Auto                     = "(0) Auto Negotiate"
+100HD                    = "(1) 100Mb/Half Duplex"
+100FD                    = "(2) 100Mb/Full Duplex"
+10HD                     = "(3) 10Mb/Half Duplex"
+10FD                     = "(4) 10Mb/Full Duplex"
+10FHD                    = "(5) 10Mb Fiber/Half Duplex"
+10FFD                    = "(6) 10Mb Fiber/Full Duplex"
+NetworkAddress           = "Network Address (LAA)"
+SourceDisk               = "CardAssistant"
+TcpipOffload             = "TCP/IP Task Offload"
+TxThreshold              = "Transmit Threshold (bytes)"
+TransmitControlBlocks    = "Transmit Control Blocks"
+ReceiveFrameDescriptors  = "Receive Frame Descriptors"
+16BYTES                  = "16 bytes"
+64BYTES                  = "64 bytes"
+128BYTES                 = "128 bytes"
+FULLPACKET               = "Full Packet"
+VLANTagging              = "VLAN Tagging"
+VlanId                   = "Vlan Id"
+10Fiber                  = "10Mb Fiber"
+100Fiber                 = "100Mb Fiber"
+Copper                   = "Copper"
+Enabled                  = "Enabled"
+Disabled                 = "Disabled"
+DEBUG										 = "Debug Level"
+ERROR                    = "Error"
+WARN                     = "Warning"
+INFO                     = "Info"
+TRACE                    = "Trace"
+
+*AT2700.DeviceDesc       = "Allied Telesis AT-2700TX PCI 10/100 Ethernet Adapter"
+*AT2701.DeviceDesc       = "Allied Telesis AT-2700FX PCI 100Mb Fiber Ethernet Adapter"
+*AT2702.DeviceDesc       = "Allied Telesis AT-2700FTX PCI Ethernet Adapter"
+*AT2703.DeviceDesc       = "Allied Telesis AT-2701FX PCI 100Mb Fiber Ethernet Adapter"
+*AT2704.DeviceDesc       = "Allied Telesis AT-2701FTX PCI Ethernet Adapter"
+*AT2745.DeviceDesc       = "Allied Telesis AT-2745FX PCI Fiber Ethernet Adapter"
+*AT2746.DeviceDesc       = "Allied Telesis AT-2746FX PCI Fiber Ethernet Adapter"
+*AT2450.DeviceDesc       = "Allied Telesis AT-2450T/AT/BT/FT PCI 10Mb Ethernet Adapter"
+*AT2454.DeviceDesc       = "Allied Telesis AT-2450F (ACPI) PCI 10Mb Fiber Ethernet Adapter"
+*AT2455.DeviceDesc       = "Allied Telesis AT-2450FTX PCI Ethernet Adapter"
+*AT2456.DeviceDesc       = "Allied Telesis AT-2451FTX PCI Ethernet Adapter"
+
+ATNIC.NT.6.0.Service.DispName        = "Allied Telesis NDIS 6.0 (x86)"

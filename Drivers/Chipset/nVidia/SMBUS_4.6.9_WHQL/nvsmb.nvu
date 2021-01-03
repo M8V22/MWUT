@@ -1,0 +1,58 @@
+; Remove any NVIDIA device driver if present
+Set ForceNoReboot=yes
+if {OS}=WinME then set RemoveDeviceStyle=Win9x
+RemoveDevice pci,VEN_10DE&DEV_0034,System
+RemoveDevice pci,VEN_10DE&DEV_0052,System
+RemoveDevice pci,VEN_10DE&DEV_005D,System
+RemoveDevice pci,VEN_10DE&DEV_005E,System
+RemoveDevice pci,VEN_10DE&DEV_0064,System
+RemoveDevice pci,VEN_10DE&DEV_007B,System
+RemoveDevice pci,VEN_10DE&DEV_007D,System
+RemoveDevice pci,VEN_10DE&DEV_0084,System
+RemoveDevice pci,VEN_10DE&DEV_00A4,System
+RemoveDevice pci,VEN_10DE&DEV_00D3,System
+RemoveDevice pci,VEN_10DE&DEV_00D4,System
+RemoveDevice pci,VEN_10DE&DEV_00E4,System
+RemoveDevice pci,VEN_10DE&DEV_01B4,System
+RemoveDevice pci,VEN_10DE&DEV_0264,System
+RemoveDevice pci,VEN_10DE&DEV_02F0,System
+RemoveDevice pci,VEN_10DE&DEV_02FE,System
+RemoveDevice pci,VEN_10DE&DEV_02F8,System
+RemoveDevice pci,VEN_10DE&DEV_02F9,System
+RemoveDevice pci,VEN_10DE&DEV_027E,System
+RemoveDevice pci,VEN_10DE&DEV_027F,System
+RemoveDevice pci,VEN_10DE&DEV_02FF,System
+RemoveDevice pci,VEN_10DE&DEV_0270,System
+RemoveDevice pci,VEN_10DE&DEV_0272,System
+RemoveDevice pci,VEN_10DE&DEV_02FA,System
+RemoveDevice pci,VEN_10DE&DEV_0368,System
+RemoveDevice pci,VEN_10DE&DEV_03EB,System
+RemoveDevice pci,VEN_10DE&DEV_0446,System
+RemoveDevice pci,VEN_10DE&DEV_0752,System
+RemoveDevice pci,VEN_10DE&DEV_078F,System
+RemoveDevice pci,VEN_10DE&DEV_07D8,System
+RemoveDevice pci,VEN_10DE&DEV_0AA2,System
+RemoveDevice pci,VEN_10DE&DEV_0BBB,System
+RemoveDevice pci,VEN_10DE&DEV_0C54,System
+RemoveDevice pci,VEN_10DE&DEV_0C94,System
+if {OS}=WinME then set RemoveDeviceStyle
+
+; Now try to delete files used by System Management Bus driver
+DelOemInfs nv*,version,Provider,%Nvidia%,version,CatalogFile,nvsmb.cat
+DelOemInfs nv*,version,Provider,%NVIDIA%,version,CatalogFile,nfsmb64.cat
+DelOemInfs nv*,version,Provider,%NV%,version,CatalogFile,nf4sys.cat
+DelOemInfs nv*,version,Provider,%NVDA%,version,CatalogFile,nf4pcie.cat
+
+DelBoot {sysdir}\nvsmbus.inf
+DelBoot {windir}\INF\INTERNET\NVIDIAnvsmbus.inf
+
+; also delete its uninstaller binary
+DelBoot {sysdir}\nvusmb.exe
+
+; and delete the coinstaller binary
+DelBoot {sysdir}\nvcosmb.dll 
+
+DelBoot {windir}\APPLOG\NVUSMB.LGD
+DelBoot {windir}\APPLOG\NVUSMB.LGC
+DelBoot {windir}\APPLOG\NVUNINST.LGD
+DelBoot {windir}\APPLOG\NVUNINST.LGC

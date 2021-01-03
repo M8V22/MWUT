@@ -1,0 +1,58 @@
+;
+; Copyright (C) 2008  NVIDIA Corporation 
+; 
+ 
+ 
+ 
+[Version] 
+Signature = "$Windows NT$" 
+Class=System
+ClassGUID={4d36e97d-e325-11ce-bfc1-08002be10318} 
+Provider=%NV% 
+CatalogFile=nf4sys.cat
+DriverVer= 08/21/2008,5.1.2600.0469
+
+[Manufacturer] 
+%NV%=NV, NTx86, NTamd64
+
+[NV]
+%NF4LDTDesc%=NO_DRV,PCI\VEN_10DE&DEV_005E
+%NF4LDTDesc%=NO_DRV,PCI\VEN_10DE&DEV_00A4
+%NF4SLPCDesc%=NO_DRV,PCI\VEN_10DE&DEV_00D3
+
+[NV.NTx86]
+%NF4LDTDesc%=NO_DRV,PCI\VEN_10DE&DEV_005E
+%NF4LDTDesc%=NO_DRV,PCI\VEN_10DE&DEV_00A4
+%NF4SLPCDesc%=NO_DRV,PCI\VEN_10DE&DEV_00D3
+
+[NV.NTamd64]
+%NF4LDTDesc%=NO_DRV,PCI\VEN_10DE&DEV_005E
+
+[NO_DRV]
+
+[NO_DRV.Services]
+AddService = , 2   ; null service install
+
+[Strings] 
+
+;  *******Localizable Strings******* 
+NV= "NVIDIA" 
+NF4LDTDesc= "nForce HyperTransport Bridge" 
+NF4SLPCDesc= "nForce Low Pin Count Controller" 
+
+;  *******Non Localizable Strings******* 
+
+SERVICE_BOOT_START = 0x0 
+SERVICE_SYSTEM_START = 0x1 
+SERVICE_AUTO_START = 0x2 
+SERVICE_DEMAND_START = 0x3 
+SERVICE_DISABLED = 0x4 
+
+SERVICE_KERNEL_DRIVER = 0x1 
+SERVICE_ERROR_IGNORE = 0x0 
+SERVICE_ERROR_NORMAL = 0x1 
+SERVICE_ERROR_SEVERE = 0x2 
+SERVICE_ERROR_CRITICAL = 0x3 
+
+REG_EXPAND_SZ = 0x00020000 
+REG_DWORD = 0x00010001 

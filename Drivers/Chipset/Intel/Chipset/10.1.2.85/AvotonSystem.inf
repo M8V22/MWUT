@@ -1,0 +1,184 @@
+; ************************************************************
+; ************************************************************
+; **  Filename: AvotonSystem.inf                            **
+; **  Abstract: Assigns the null driver to devices          **
+; **            for yellow-bang removal and                 **
+; **            brands Intel(R) devices                     ** 
+; ************************************************************
+; ************************************************************
+
+[Version]
+Signature=$WINDOWS NT$
+Class=System
+ClassGUID={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=Avoton.cat
+DriverVer=01/01/1970, 10.1.2.85
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[PackageInfo]
+Name=Chipset
+
+[Manufacturer]
+%INTEL%=INTEL,NT,NTamd64
+
+[INTEL.NT]
+%PCI\VEN_8086&DEV_1F00Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F00
+%PCI\VEN_8086&DEV_1F01Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F01
+%PCI\VEN_8086&DEV_1F02Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F02
+%PCI\VEN_8086&DEV_1F03Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F03
+%PCI\VEN_8086&DEV_1F04Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F04
+%PCI\VEN_8086&DEV_1F05Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F05
+%PCI\VEN_8086&DEV_1F06Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F06
+%PCI\VEN_8086&DEV_1F07Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F07
+%PCI\VEN_8086&DEV_1F08Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F08
+%PCI\VEN_8086&DEV_1F09Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F09
+%PCI\VEN_8086&DEV_1F0ADesc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F0A
+%PCI\VEN_8086&DEV_1F0BDesc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F0B
+%PCI\VEN_8086&DEV_1F0CDesc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F0C
+%PCI\VEN_8086&DEV_1F0DDesc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F0D
+%PCI\VEN_8086&DEV_1F0EDesc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F0E
+%PCI\VEN_8086&DEV_1F0FDesc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F0F
+%PCI\VEN_8086&DEV_1F10Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_1F10
+%PCI\VEN_8086&DEV_1F11Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_1F11
+%PCI\VEN_8086&DEV_1F12Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_1F12
+%PCI\VEN_8086&DEV_1F13Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_1F13
+%PCI\VEN_8086&DEV_1F14Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F14
+%PCI\VEN_8086&DEV_1F15Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F15
+%PCI\VEN_8086&DEV_1F16Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F16
+%PCI\VEN_8086&DEV_1F18Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F18
+%PCI\VEN_8086&DEV_1F19Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F19
+%PCI\VEN_8086&DEV_1F38Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_1F38
+%PCI\VEN_8086&DEV_1F39Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F39
+%PCI\VEN_8086&DEV_1F3ADesc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F3A
+%PCI\VEN_8086&DEV_1F3BDesc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F3B
+%PCI\VEN_8086&DEV_1F3CDesc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F3C
+%PCI\VEN_8086&DEV_1F3DDesc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F3D
+
+[INTEL.NTamd64]
+%PCI\VEN_8086&DEV_1F00Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F00
+%PCI\VEN_8086&DEV_1F01Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F01
+%PCI\VEN_8086&DEV_1F02Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F02
+%PCI\VEN_8086&DEV_1F03Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F03
+%PCI\VEN_8086&DEV_1F04Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F04
+%PCI\VEN_8086&DEV_1F05Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F05
+%PCI\VEN_8086&DEV_1F06Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F06
+%PCI\VEN_8086&DEV_1F07Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F07
+%PCI\VEN_8086&DEV_1F08Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F08
+%PCI\VEN_8086&DEV_1F09Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F09
+%PCI\VEN_8086&DEV_1F0ADesc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F0A
+%PCI\VEN_8086&DEV_1F0BDesc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F0B
+%PCI\VEN_8086&DEV_1F0CDesc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F0C
+%PCI\VEN_8086&DEV_1F0DDesc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F0D
+%PCI\VEN_8086&DEV_1F0EDesc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F0E
+%PCI\VEN_8086&DEV_1F0FDesc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F0F
+%PCI\VEN_8086&DEV_1F10Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_1F10
+%PCI\VEN_8086&DEV_1F11Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_1F11
+%PCI\VEN_8086&DEV_1F12Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_1F12
+%PCI\VEN_8086&DEV_1F13Desc%=Needs_PCI_DRV,PCI\VEN_8086&DEV_1F13
+%PCI\VEN_8086&DEV_1F14Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F14
+%PCI\VEN_8086&DEV_1F15Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F15
+%PCI\VEN_8086&DEV_1F16Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F16
+%PCI\VEN_8086&DEV_1F18Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F18
+%PCI\VEN_8086&DEV_1F19Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F19
+%PCI\VEN_8086&DEV_1F38Desc%=Needs_ISAPNP_DRV,PCI\VEN_8086&DEV_1F38
+%PCI\VEN_8086&DEV_1F39Desc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F39
+%PCI\VEN_8086&DEV_1F3ADesc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F3A
+%PCI\VEN_8086&DEV_1F3BDesc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F3B
+%PCI\VEN_8086&DEV_1F3CDesc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F3C
+%PCI\VEN_8086&DEV_1F3DDesc%=Needs_NO_DRV,PCI\VEN_8086&DEV_1F3D
+
+[Needs_NO_DRV]
+Include=machine.inf
+Needs=NO_DRV
+
+[Needs_NO_DRV.Services]
+Include=machine.inf
+Needs=NO_DRV.Services
+
+[Needs_PCI_DRV]
+Include=machine.inf
+Needs=PCI_DRV
+
+[Needs_PCI_DRV.Services]
+Include=machine.inf
+Needs=PCI_DRV.Services
+
+[Needs_PCI_DRV.HW]
+Include=machine.inf
+Needs=PCI_DRV.HW
+
+[Needs_ISAPNP_DRV]
+Include=machine.inf
+Needs=ISAPNP_DRV
+
+[Needs_ISAPNP_DRV.Services]
+Include=machine.inf
+Needs=ISAPNP_DRV.Services
+
+[Strings]
+INTEL="INTEL"
+PCI\VEN_8086&DEV_1F00Desc="Intel(R) Atom(TM) processor C2000 product family SoC Transaction Router - 1F00"
+PCI\VEN_8086&DEV_1F01Desc="Intel(R) Atom(TM) processor C2000 product family SoC Transaction Router - 1F01"
+PCI\VEN_8086&DEV_1F02Desc="Intel(R) Atom(TM) processor C2000 product family SoC Transaction Router - 1F02"
+PCI\VEN_8086&DEV_1F03Desc="Intel(R) Atom(TM) processor C2000 product family SoC Transaction Router - 1F03"
+PCI\VEN_8086&DEV_1F04Desc="Intel(R) Atom(TM) processor C2000 product family SoC Transaction Router - 1F04"
+PCI\VEN_8086&DEV_1F05Desc="Intel(R) Atom(TM) processor C2000 product family SoC Transaction Router - 1F05"
+PCI\VEN_8086&DEV_1F06Desc="Intel(R) Atom(TM) processor C2000 product family SoC Transaction Router - 1F06"
+PCI\VEN_8086&DEV_1F07Desc="Intel(R) Atom(TM) processor C2000 product family SoC Transaction Router - 1F07"
+PCI\VEN_8086&DEV_1F08Desc="Intel(R) Atom(TM) processor C2000 product family SoC Transaction Router - 1F08"
+PCI\VEN_8086&DEV_1F09Desc="Intel(R) Atom(TM) processor C2000 product family SoC Transaction Router - 1F09"
+PCI\VEN_8086&DEV_1F0ADesc="Intel(R) Atom(TM) processor C2000 product family SoC Transaction Router - 1F0A"
+PCI\VEN_8086&DEV_1F0BDesc="Intel(R) Atom(TM) processor C2000 product family SoC Transaction Router - 1F0B"
+PCI\VEN_8086&DEV_1F0CDesc="Intel(R) Atom(TM) processor C2000 product family SoC Transaction Router - 1F0C"
+PCI\VEN_8086&DEV_1F0DDesc="Intel(R) Atom(TM) processor C2000 product family SoC Transaction Router - 1F0D"
+PCI\VEN_8086&DEV_1F0EDesc="Intel(R) Atom(TM) processor C2000 product family SoC Transaction Router - 1F0E"
+PCI\VEN_8086&DEV_1F0FDesc="Intel(R) Atom(TM) processor C2000 product family SoC Transaction Router - 1F0F"
+PCI\VEN_8086&DEV_1F10Desc="Intel(R) Atom(TM) processor C2000 product family PCIe Root Port 1 - 1F10"
+PCI\VEN_8086&DEV_1F11Desc="Intel(R) Atom(TM) processor C2000 product family PCIe Root Port 2 - 1F11"
+PCI\VEN_8086&DEV_1F12Desc="Intel(R) Atom(TM) processor C2000 product family PCIe Root Port 3 - 1F12"
+PCI\VEN_8086&DEV_1F13Desc="Intel(R) Atom(TM) processor C2000 product family PCIe Root Port 4 - 1F13"
+PCI\VEN_8086&DEV_1F14Desc="Intel(R) Atom(TM) processor C2000 product family RAS - 1F14"
+PCI\VEN_8086&DEV_1F15Desc="Intel(R) Atom(TM) processor C2000 product family SMBus 2.0 - 1F15"
+PCI\VEN_8086&DEV_1F16Desc="Intel(R) Atom(TM) processor C2000 product family RCEC - 1F16"
+PCI\VEN_8086&DEV_1F18Desc="Intel(R) Atom(TM) processor C2000 product family nCPM - 1F18"
+PCI\VEN_8086&DEV_1F19Desc="Intel(R) Atom(TM) processor C2000 product family nCPM - 1F19"
+PCI\VEN_8086&DEV_1F38Desc="Intel(R) Atom(TM) processor C2000 product family PCU - 1F38"
+PCI\VEN_8086&DEV_1F39Desc="Intel(R) Atom(TM) processor C2000 product family PCU - 1F39"
+PCI\VEN_8086&DEV_1F3ADesc="Intel(R) Atom(TM) processor C2000 product family PCU - 1F3A"
+PCI\VEN_8086&DEV_1F3BDesc="Intel(R) Atom(TM) processor C2000 product family PCU - 1F3B"
+PCI\VEN_8086&DEV_1F3CDesc="Intel(R) Atom(TM) processor C2000 product family PCU SMBus - 1F3C"
+PCI\VEN_8086&DEV_1F3DDesc="Intel(R) Atom(TM) processor C2000 product family PECI SMBus - 1F3D"
+
+
+
+
+; Copyright (c) 2003-2017 Intel Corporation
+; 
+; ********************************************************************************
+; Intel is making no claims of usability, efficacy or warranty.
+; ********************************************************************************
+; Information in this document is provided in connection with Intel products. No
+; license, express or implied, by estoppel or otherwise, to any intellectual
+; property rights is granted by this document. Intel assumes no liability
+; whatsoever, and Intel disclaims any express or implied warranty, relating to
+; sale and/or use of Intel products including liability or warranties relating to
+; fitness for a particular purpose, merchantability, or infringement of any
+; patent, copyright or other intellectual property right. Intel products are not
+; intended for use in medical, life saving, or life sustaining applications.
+; ********************************************************************************
+; Intel Corporation disclaims all warranties and liabilities for the use of this
+; document and the information contained herein, and assumes no responsibility for
+; any errors which may appear in this document, nor does Intel make a commitment
+; to update the information contained herein. Intel reserves the right to make
+; changes to this document at any time, without notice.
+; ********************************************************************************
+; ********************************************************************************
+; 
+; * Third-party brands and names are the property of their respective owners.

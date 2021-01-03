@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="urn:Microsoft.WindowsPhone/PackageSchema.v8.00"
+   Owner="Intel"
+   OwnerType="SiliconVendor"
+   ReleaseType="Production"
+   Platform="Win32"
+   Component="CPT"
+   SubComponent="Chipset.Driver">
+  <Components>
+      <Driver InfSource="$(TargetDir)\CougarPointSystem.inf"/>
+<Driver InfSource="$(TargetDir)\CougarPointUSB.inf"/>
+  </Components>
+</Package>

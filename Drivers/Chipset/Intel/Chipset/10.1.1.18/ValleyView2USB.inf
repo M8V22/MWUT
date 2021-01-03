@@ -1,0 +1,78 @@
+; ************************************************************
+; ************************************************************
+; **  Filename: ValleyView2USB.inf                          **
+; **  Abstract: Assigns the null driver to devices          **
+; **            for yellow-bang removal and                 **
+; **            brands Intel(R) devices                     ** 
+; ************************************************************
+; ************************************************************
+
+[Version]
+Signature=$WINDOWS NT$
+Class=USB
+ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+Provider=%INTEL%
+CatalogFile=ValleyView2.cat
+DriverVer=04/04/2016, 10.1.1.18
+
+[SourceDisksNames]
+
+[SourceDisksFiles]
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[PackageInfo]
+Name=Chipset
+
+[Manufacturer]
+%INTEL%=INTEL,NT,NTamd64
+
+[INTEL.NT]
+%PCI\VEN_8086&DEV_0F34Desc%=Intel_EHCI.Dev.NT,PCI\VEN_8086&DEV_0F34
+
+[INTEL.NTamd64]
+%PCI\VEN_8086&DEV_0F34Desc%=Intel_EHCI.Dev.NT,PCI\VEN_8086&DEV_0F34
+
+[Intel_EHCI.Dev.NT]
+Include=usbport.inf
+Needs=EHCI.Dev.NT
+
+[Intel_EHCI.Dev.NT.Services]
+Include=usbport.inf
+Needs=EHCI.Dev.NT.Services
+
+[Intel_EHCI.Dev.NT.CoInstallers]
+Include=usbport.inf
+Needs=EHCI.Dev.NT.CoInstallers
+
+[Strings]
+INTEL="INTEL"
+PCI\VEN_8086&DEV_0F34Desc="Intel(R) Atom(TM)/Celeron(R)/Pentium(R) Processor EHCI USB - 0F34"
+
+
+
+
+; Copyright (c) 2003-2016 Intel Corporation
+; 
+; ********************************************************************************
+; Intel is making no claims of usability, efficacy or warranty.
+; ********************************************************************************
+; Information in this document is provided in connection with Intel products. No
+; license, express or implied, by estoppel or otherwise, to any intellectual
+; property rights is granted by this document. Intel assumes no liability
+; whatsoever, and Intel disclaims any express or implied warranty, relating to
+; sale and/or use of Intel products including liability or warranties relating to
+; fitness for a particular purpose, merchantability, or infringement of any
+; patent, copyright or other intellectual property right. Intel products are not
+; intended for use in medical, life saving, or life sustaining applications.
+; ********************************************************************************
+; Intel Corporation disclaims all warranties and liabilities for the use of this
+; document and the information contained herein, and assumes no responsibility for
+; any errors which may appear in this document, nor does Intel make a commitment
+; to update the information contained herein. Intel reserves the right to make
+; changes to this document at any time, without notice.
+; ********************************************************************************
+; ********************************************************************************
+; 
+; * Third-party brands and names are the property of their respective owners.

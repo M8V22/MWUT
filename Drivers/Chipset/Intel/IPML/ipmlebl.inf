@@ -1,0 +1,76 @@
+; Installation inf IPML ACPI driver
+;
+; (c) Copyright 2006~2007 Intel Corporation 
+;
+; Revision 1.0.0.1
+
+[Version]
+Signature = "$CHICAGO$"
+Class=HIDClass
+ClassGUID={745a17a0-74d3-11d0-b6fe-00a0c90f57da}
+;Class = System
+;ClassGUID = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider = %ProviderName%
+CatalogFile = ipmlebl.cat
+DriverVer=09/22/2009,1.1.2.1052
+
+[SourceDisksNames]
+1 = %DiskId%
+;[SourceDisksNames.x86]
+;1 = %DiskId%
+;[SourceDisksNames.amd64]
+;1 = %DiskId%
+
+[SourceDisksFiles]                            
+ipmlebl.sys  = 1
+
+
+[DestinationDirs]
+DefaultDestDir=12
+IPMLEBL_Files = 12
+
+[Manufacturer]
+%MfgName%=IPML, NTamd64
+
+[IPML]
+%DeviceDesc%=IPMLEBL,*IPML200
+;%DeviceDesc%=IPMLEBL,*PNP0C0D
+
+[IPML.NTamd64]
+%DeviceDesc%=IPMLEBL,*IPML200
+
+[IPMLEBL.NTx86]
+CopyFiles=IPMLEBL_Files
+
+[IPMLEBL.NTamd64]
+CopyFiles=IPMLEBL_Files
+
+[IPMLEBL.NTx86.Services]
+Addservice = IPMLEBL, 0x00000002, IPMLEBL_AddService
+
+[IPMLEBL.NTamd64.Services]
+Addservice = IPMLEBL, 0x00000002, IPMLEBL_AddService
+
+[IPMLEBL_AddService]
+DisplayName    = %SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\System32\Drivers\ipmlebl.sys
+AddReg=IPMLEBL_NT_AddReg
+
+[IPMLEBL_NT_AddReg]
+HKR,, "CfgPara", 0x00010001, 0
+
+[IPMLEBL_Files]
+ipmlebl.sys
+
+[Strings]
+ProviderName="Intel Corporation"
+MfgName="Intel Corporation"
+DeviceDesc="Intel IPML ACPI Device"
+SvcDesc="Intel IPML ACPI Device"
+DiskId="IntelIpml"
+
+
+

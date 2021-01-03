@@ -1,0 +1,114 @@
+;*******************************************
+; AMDCIR.inf
+; CIR driver for Consumer infrared device
+; (C) Copyright 2009-2012  AMD, Inc.
+;*******************************************
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=HIDClass
+ClassGuid={745a17a0-74d3-11d0-b6fe-00a0c90f57da}
+Provider=%AMD%
+DriverVer=12/15/2011,3.2.4.0110
+CatalogFile=AMDCIR.cat
+
+
+[SourceDisksFiles]
+AMDCIR.sys=1,,
+AMDCIR64.sys=1,,
+
+[SourceDisksNames]
+1 = %DISK_NAME%,,,
+
+[DestinationDirs]
+AMDCIR.Files = 12
+AMDCIR64.Files = 12
+IR_CoInstaller_CopyFiles = 11
+
+[Manufacturer]
+%AMD_MFG%=AMD, NTamd64
+
+;=======================================================================
+;                 32-Bit NT Driver
+;=======================================================================
+
+[AMD]
+%AMDCIR.DrvDesc%=AMDCIR,*AMDC003
+%AMDCIR.DrvDesc%=AMDCIR,*AMDC002
+%AMDCIR.DrvDesc%=AMDCIR,*AMDC001
+
+[AMDCIR]
+CopyFiles=AMDCIR.Files
+
+[AMDCIR.Files]
+AMDCIR.sys
+
+[AMDCIR.Services]
+AddService=AMDCIR,%SPSVCINST_ASSOCSERVICE%,AMDCIR_Service 
+
+[AMDCIR_Service]
+DisplayName    = %AMDCIR.SvcDesc%                            
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START% 
+ErrorControl   = %SERVICE_ERROR_NORMAL% 
+ServiceBinary  = %12%\AMDCIR.sys 
+
+[AMDCIR.CoInstallers]
+AddReg=IR_CoInstaller_AddReg
+CopyFiles=IR_CoInstaller_CopyFiles
+
+;========================================================================
+;                64-Bit NT Driver
+;========================================================================
+
+[AMD.NTamd64]
+%AMDCIR.DRVDESC%=AMDCIR64,*AMDC003
+%AMDCIR.DRVDESC%=AMDCIR64,*AMDC002
+%AMDCIR.DRVDESC%=AMDCIR64,*AMDC001
+
+
+[AMDCIR64]
+CopyFiles=AMDCIR64.Files
+
+[AMDCIR64.Files]
+AMDCIR64.sys
+
+[AMDCIR64.Services]
+AddService=AMDCIR64,%SPSVCINST_ASSOCSERVICE%,AMDCIR64_Service 
+
+[AMDCIR64_Service]
+DisplayName    = %AMDCIR.SvcDesc%                            
+ServiceType    = %SERVICE_KERNEL_DRIVER%                  
+StartType      = %SERVICE_DEMAND_START%                  
+ErrorControl   = %SERVICE_ERROR_NORMAL% 
+ServiceBinary  = %12%\AMDCIR64.sys 
+
+[AMDCIR64.CoInstallers]
+AddReg=IR_CoInstaller_AddReg
+CopyFiles=IR_CoInstaller_CopyFiles
+
+[IR_CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010008, "CIRCoInst.dll,IRCoInstaller"
+
+[IR_CoInstaller_CopyFiles]
+;
+
+
+[Strings]
+AMD = "Advanced Micro Devices"
+AMD_MFG = "AMD"
+AMDCIR.SvcDesc = "AMD CIR Service"
+AMDCIR.DrvDesc = "AMD CIR Driver"
+DISK_NAME = "AMD CIR Install Disk"
+
+;*******************************************
+;Handy macro substitutions (non-localizable)
+;*******************************************
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_BOOT_START     = 0
+SERVICE_SYSTEM_START   = 1
+SERVICE_DEMAND_START   = 3
+SERVICE_ERROR_NORMAL   = 1
+SERVICE_ERROR_IGNORE   = 0
+SERVICE_ERROR_CRITICAL = 3

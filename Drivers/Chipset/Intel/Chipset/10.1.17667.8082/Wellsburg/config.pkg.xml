@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="urn:Microsoft.WindowsPhone/PackageSchema.v8.00"
+   Owner="Intel"
+   OwnerType="SiliconVendor"
+   ReleaseType="Production"
+   Platform="Win32"
+   Component="WBG"
+   SubComponent="Chipset.Driver">
+  <Components>
+      <Driver InfSource="$(TargetDir)\WellsburgSystem.inf"/>
+<Driver InfSource="$(TargetDir)\WellsburgUSB.inf"/>
+  </Components>
+</Package>

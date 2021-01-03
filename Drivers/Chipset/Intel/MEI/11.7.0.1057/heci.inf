@@ -1,0 +1,322 @@
+;*******************************************************************************
+;*                                                                            **
+;*                     I N T E L   P R O P R I E T A R Y                      **
+;*                                                                            **
+;*   COPYRIGHT (c) 2003-2016 BY INTEL CORPORATION. ALL RIGHTS RESERVED.  NO   **
+;*   PART  OF  THIS  PROGRAM OR PUBLICATION MAY BE REPRODUCED, TRANSMITTED,   **
+;*   TRANSCRIBED, STORED IN A RETRIEVAL  SYSTEM,  OR  TRANSLATED  INTO  ANY   **
+;*   LANGUAGE OR COMPUTER LANGUAGE IN ANY FORM OR BY ANY MEANS, ELECTRONIC,   **
+;*   MECHANICAL, MAGNETIC, OPTICAL, CHEMICAL, MANUAL, OR OTHERWISE, WITHOUT   **
+;*   THE PRIOR WRITTEN PERMISSION OF :                                        **
+;*                                                                            **
+;*                             INTEL CORPORATION                              **
+;*                                                                            **
+;*                          2200 MISSION COLLEGE BLVD                         **
+;*                                                                            **
+;*                     SANTA CLARA, CALIFORNIA 95052-8119                     **
+;*                                                                            **
+;*******************************************************************************
+;
+;
+; File Name: heci.inf
+; Install information file for TeeDriver Driver
+;--------- Version Section ---------------------------------------------------
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGUID={4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider=%Provider%
+DriverVer = 11/19/2017,11.7.0.1057
+CatalogFile=HECI.cat
+
+[ControlFlags]
+; Pnp drivers should not be installable via non-PnP hardware dialogs
+ExcludeFromSelect = *
+
+;--------- DestinationDirs Section -------------------------------------------
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+;--------- SourceDiskNames and SourceDiskFiles Section -----------------------
+; These sections identify source disks and files for installation.
+
+[SourceDisksNames]
+1=%Location%,
+
+[SourceDisksFiles.x86]
+TeeDriver.sys=1,.\x86
+HECI.sys=1,.\x86
+
+[SourceDisksFiles.amd64]
+TeeDriverx64.sys=1,.\x64
+HECIx64.sys=1,.\x64
+
+;--------- Manufacturer and Models Sections ----------------------------------
+
+[Manufacturer]
+%MfgName% = Intel,NTx86.6.1,NTamd64.6.1,NTx86.5.1,ntamd64.5.1,NT.6.2
+
+
+[Intel.NTx86.6.1]
+; DisplayName               Section           DeviceId
+%TEE_DeviceDesc%=TEE_DDI, PCI\VEN_8086&DEV_8C3A   ;ME9.1  - HSW/LPT-H
+%TEE_DeviceDesc%=TEE_DDI, PCI\VEN_8086&DEV_9C3A   ;ME9.5  - HSW/LPT-LP
+%TEE_DeviceDesc%=TEE_DDI, PCI\VEN_8086&DEV_8D3A   ;ME9.1  - HSW/WBG
+%TEE_DeviceDesc%=TEE_DDI, PCI\VEN_8086&DEV_9CBA   ;ME10.x - BDW/WPT-LP
+%TEE_DeviceDesc%=TEE_DDI, PCI\VEN_8086&DEV_8CBA   ;ME9.1  - BDW/LPT-H
+%TEE_DeviceDesc%=TEE_DDI, PCI\VEN_8086&DEV_9D3A   ;ME11.x - SKL/SPT-LP, KBL/SPT-LP
+%TEE_DeviceDesc%=TEE_DDI, PCI\VEN_8086&DEV_A13A   ;ME11.0 - SKL/SPT-H
+%TEE_DeviceDesc%=TEE_DDI, PCI\VEN_8086&DEV_A2BA   ;ME11.6 - KBL/KBP-S
+
+
+[Intel.ntamd64.6.1]
+; DisplayName               Section           DeviceId
+
+%TEE_DeviceDesc%=TEE_DDI_x64, PCI\VEN_8086&DEV_8C3A   ;ME9.1  - HSW/LPT-H
+%TEE_DeviceDesc%=TEE_DDI_x64, PCI\VEN_8086&DEV_9C3A   ;ME9.5  - HSW/LPT-LP
+%TEE_DeviceDesc%=TEE_DDI_x64, PCI\VEN_8086&DEV_8D3A   ;ME9.1  - HSW/WBG
+%TEE_DeviceDesc%=TEE_DDI_x64, PCI\VEN_8086&DEV_9CBA   ;ME10.x - BDW/WPT-LP
+%TEE_DeviceDesc%=TEE_DDI_x64, PCI\VEN_8086&DEV_8CBA   ;ME9.1  - BDW/LPT-H
+%TEE_DeviceDesc%=TEE_DDI_x64, PCI\VEN_8086&DEV_9D3A   ;ME11.x - SKL/SPT-LP, KBL/SPT-LP
+%TEE_DeviceDesc%=TEE_DDI_x64, PCI\VEN_8086&DEV_A13A   ;ME11.0 - SKL/SPT-H
+%TEE_DeviceDesc%=TEE_DDI_x64, PCI\VEN_8086&DEV_A2BA   ;ME11.6 - KBL/KBP-S
+%TEE_DeviceDesc%=TEE_DDI_x64, PCI\VEN_8086&DEV_A1BA   ;ME11.x - Purley WS SKL/LBG - Production
+%TEE_DeviceDesc%=TEE_DDI_x64, PCI\VEN_8086&DEV_A23A   ;ME11.x - Purley WS SKL/LBG - PreProduction
+
+
+; ============== XP Support ==================
+;
+[Intel.NTx86.5.1]
+; DisplayName               Section           DeviceId
+%TEE_DeviceDesc%=TEE_DDI_XP, PCI\VEN_8086&DEV_8C3A   ;ME9.1  - HSW/LPT-H
+%TEE_DeviceDesc%=TEE_DDI_XP, PCI\VEN_8086&DEV_9C3A   ;ME9.5  - HSW/LPT-LP
+%TEE_DeviceDesc%=TEE_DDI_XP, PCI\VEN_8086&DEV_8D3A   ;ME9.1  - HSW/WBG
+%TEE_DeviceDesc%=TEE_DDI_XP, PCI\VEN_8086&DEV_9CBA   ;ME10.x - BDW/WPT-LP
+%TEE_DeviceDesc%=TEE_DDI_XP, PCI\VEN_8086&DEV_8CBA   ;ME9.1  - BDW/LPT-H
+
+
+[Intel.ntamd64.5.1]
+; DisplayName               Section           DeviceId
+%TEE_DeviceDesc%=TEE_DDI_XP_x64, PCI\VEN_8086&DEV_8C3A   ;ME9.1  - HSW/LPT-H
+%TEE_DeviceDesc%=TEE_DDI_XP_x64, PCI\VEN_8086&DEV_9C3A   ;ME9.5  - HSW/LPT-LP
+%TEE_DeviceDesc%=TEE_DDI_XP_x64, PCI\VEN_8086&DEV_8D3A   ;ME9.1  - HSW/WBG
+%TEE_DeviceDesc%=TEE_DDI_XP_x64, PCI\VEN_8086&DEV_9CBA   ;ME10.x - BDW/WPT-LP
+%TEE_DeviceDesc%=TEE_DDI_XP_x64, PCI\VEN_8086&DEV_8CBA   ;ME9.1  - BDW/LPT-H
+
+
+
+[Intel]
+; Empty section, so this INF does not support Windows 2000.
+
+;---------- DDInstall Sections -----------------------------------------------
+; --------- Windows NT -----------------
+
+[TEE_DDI]
+CopyFiles=TEE_Files_Driver
+
+[TEE_DDI_x64]
+CopyFiles=TEE_Files_Driver_x64
+
+
+[TEE_DDI.Services]
+AddService = MEI, %FLG_ADDREG_NOCLOBBER%, TEE_Service, win_32.EventLog
+
+[TEE_DDI_x64.Services]
+AddService = MEIx64, %FLG_ADDREG_NOCLOBBER%, TEE_Service_x64, win_x64.EventLog
+
+
+; --------- Files ----------------------
+[TEE_Files_Driver]
+TeeDriver.sys
+
+[TEE_Files_Driver_x64]
+TeeDriverx64.sys
+
+
+[TEE_NT_AddReg.Security]
+"D:P(A;CI;GA;;;BA)(A;CI;GA;;;SY)(A;CI;GA;;;LS)"
+
+[TEE_NT_WIN10_AddReg.Security]
+"D:P(A;CI;GA;;;BA)(A;CI;GA;;;SY)(A;CI;GA;;;LS)(A;;GRGWGX;;;WD)(A;;GRGWGX;;;S-1-15-2-1)"
+
+[TEE_DDI.HW]
+AddReg=TEE__NT_HW_AddReg
+
+[TEE_DDI_x64.HW]
+AddReg=TEE__NT_HW_AddReg
+
+
+[TEE__NT_HW_AddReg]
+HKR,,DeviceCharacteristics,0x10001,0
+HKR,,Security,,"D:P(A;CI;GA;;;BA)(A;CI;GA;;;SY)(A;CI;GA;;;LS)"
+HKR, Interrupt Management,, 0x00000010
+HKR, Interrupt Management\MessageSignaledInterruptProperties,, 0x00000010
+HKR, Interrupt Management\MessageSignaledInterruptProperties, MSISupported, 0x00010001, 1
+
+; --------- Service ----------------------
+[TEE_Service]
+DisplayName    = %TEE_SvcDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\TeeDriver.sys
+LoadOrderGroup = Extended Base
+AddReg=TEE_NT_AddReg
+
+[TEE_Service_x64]
+DisplayName    = %TEE_SvcDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\TeeDriverx64.sys
+LoadOrderGroup = Extended Base
+AddReg=TEE_NT_AddReg
+
+
+; --------- Registry ----------------------
+
+[TEE_NT_AddReg]
+;reg-root,[subkey],[value-entry-name],[flags],[value]
+HKR,Parameters,WdTimerTic,%REG_DWORD%,120
+HKR,Parameters,BusClients,%REG_MULTI_SZ%,%NCI_GUID%,%IFPS_GUID% 
+
+
+;-----------------------------------------------------------------------------
+; Common base for all drivers for Eventlog and TextModeFlags
+;
+[winxp.EventLog]
+AddReg = winxp.AddEventLog.reg
+
+[winxp.AddEventLog.reg]
+HKR, , EventMessageFile, 0x00020000, %EventLogMessageDllPath_winxp%
+HKR, , TypesSupported,   0x00010001, 7
+
+[winxp_x64.EventLog]
+AddReg = winxp_x64.AddEventLog.reg
+
+[winxp_x64.AddEventLog.reg]
+HKR, , EventMessageFile, 0x00020000, %EventLogMessageDllPath_winxp_x64%
+
+
+[win_32.EventLog]
+AddReg = win_32.AddEventLog.reg
+
+[win_32.AddEventLog.reg]
+HKR, , EventMessageFile, 0x00020000, %EventLogMessageDllPath_win_32%
+HKR, , TypesSupported,   0x00010001, 7
+
+[win_x64.EventLog]
+AddReg = win_x64.AddEventLog.reg
+
+[win_x64.AddEventLog.reg]
+HKR, , EventMessageFile, 0x00020000, %EventLogMessageDllPath_win_x64%
+HKR, , TypesSupported,   0x00010001, 7
+
+
+;
+; ============== XP Support ==================
+;
+[TEE_DDI_XP]
+CopyFiles=HECI_Files_Driver
+AddReg=TEE_NT_AddReg
+
+[TEE_DDI_XP_x64]
+CopyFiles=HECI_Files_Driver_X64
+AddReg=TEE_NT_AddReg
+
+; --------- Files ----------------------
+[HECI_Files_Driver]
+HECI.sys
+
+[HECI_Files_Driver_X64]
+HECIx64.sys
+
+[TEE_DDI_XP.Services]
+AddService = MEI, %FLG_ADDREG_NOCLOBBER%, TEE_Service_xp, winxp.EventLog
+
+[TEE_DDI_XP_x64.Services]
+AddService = MEIx64, %FLG_ADDREG_NOCLOBBER%, TEE_Service_xp_x64, winxp_x64.EventLog
+
+; --------- Service ----------------------
+
+[TEE_Service_xp]
+DisplayName    = %TEE_SvcDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\HECI.sys
+LoadOrderGroup = Extended Base
+
+[TEE_Service_xp_x64]
+DisplayName    = %TEE_SvcDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\HECIx64.sys
+LoadOrderGroup = Extended Base
+
+
+[TEE_DDI.Wdf]
+KmdfService =  MEI, TEEDriver_wdfsect
+
+[TEE_DDI_x64.Wdf]
+KmdfService =  MEIx64, TEEDriver_wdfsect
+
+[TEEDriver_wdfsect]
+KmdfLibraryVersion = 1.11
+
+;--------- Strings Section ---------------------------------------------------
+
+[Strings]
+;---------------------------------------------------------------------------------------------------
+EventLogMessageDllPath_winxp	= "%SystemRoot%\System32\netevent.dll;%SystemRoot%\System32\drivers\HECI.sys"
+EventLogMessageDllPath_winxp_x64	= "%SystemRoot%\System32\netevent.dll;%SystemRoot%\System32\drivers\HECIx64.sys"
+EventLogMessageDllPath_win_32	= "%SystemRoot%\System32\netevent.dll;%SystemRoot%\System32\drivers\TeeDriver.sys"
+EventLogMessageDllPath_win_x64 = "%SystemRoot%\System32\netevent.dll;%SystemRoot%\System32\drivers\TeeDriverx64.sys"
+
+Provider = "Intel"
+MfgName = "Intel"
+TEE_DeviceDesc = "Intel(R) Management Engine Interface "
+TEE_SvcDesc = "Intel(R) Management Engine Interface "
+Location = "Intel(R) Management Engine Interface"
+
+REG_SZ                      = 0x00000000
+REG_MULTI_SZ                = 0x00010000
+REG_EXPAND_SZ               = 0x00020000
+REG_BINARY                  = 0x00000001
+REG_DWORD                   = 0x00010001
+REG_NONE                    = 0x00020001
+
+SERVICE_KERNEL_DRIVER       = 0x00000001
+SERVICE_FILE_SYSTEM_DRIVER  = 0x00000002
+SERVICE_ADAPTER             = 0x00000004
+SERVICE_RECOGNIZER_DRIVER   = 0x00000008
+
+SERVICE_BOOT_START          = 0x0
+SERVICE_SYSTEM_START        = 0x1
+SERVICE_AUTO_START          = 0x2
+SERVICE_DEMAND_START        = 0x3
+SERVICE_DISABLED            = 0x4
+
+SERVICE_ERROR_IGNORE        = 0x00000000
+SERVICE_ERROR_NORMAL        = 0x00000001
+SERVICE_ERROR_SEVERE        = 0x00000002
+SERVICE_ERROR_CRITICAL      = 0x00000003
+
+FLG_ADDREG_NOCLOBBER        = 0x00000002
+FLG_ADDREG_DELVAL           = 0x00000004
+FLG_ADDREG_APPEND           = 0x00000008
+FLG_ADDREG_KEYONLY          = 0x00000010
+FLG_ADDREG_OVERWRITEONLY    = 0x00000020
+FLG_ADDREG_64BITKEY         = 0x00001000
+FLG_ADDREG_KEYONLY_COMMON   = 0x00002000
+FLG_ADDREG_32BITKEY         = 0x00004000
+
+SPSVCINST_STOPSERVICE			= 0x00000200
+SPSVCINST_DELETEEVENTLOGENTRY	= 0x00000004	
+NCI_GUID = "{27B961DB-3057-49BB-BD0D-ACA9FD8FF697}" 
+IFPS_GUID = "{BFD04163-098F-413D-B314-B97A110EC2FC}"
+
+

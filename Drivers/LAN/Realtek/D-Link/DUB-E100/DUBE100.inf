@@ -1,0 +1,182 @@
+;****************************************************************
+; D-Link DUB-E100 USB 2.0 Fast Ethernet Adapter
+;
+; Copyright 2003-2009, D-Link Corporation
+;
+; Version: 3.12.3.2	for windows 7
+;****************************************************************
+[Version]
+Signature  = "$Windows NT$"
+CatalogFile = DUBE100.cat
+Class      = Net
+ClassGUID  = {4d36e972-e325-11ce-bfc1-08002be10318}
+Provider   = %DLINK%
+DriverVer = 07/20/2009, 3.12.3.2
+
+[Manufacturer]
+%DLINK%   = USB
+
+[ControlFlags]
+ExcludeFromSelect = USB\VID_2001&PID_3C05, USB\VID_07D1&PID_3C05
+
+
+
+
+[USB]
+%DUBE100.DeviceDesc% = DUBE100.Ndi,USB\VID_2001&PID_3C05
+%DUBE1002.DeviceDesc% = DUBE100.Ndi,USB\VID_07D1&PID_3C05
+
+;****************************************************************
+[DUBE100.Ndi]
+AddReg          = DUBE100.NT.Reg, DUBE100.Con.Reg
+Characteristics = 0x84
+BusType         = 15
+CopyFiles       = CopyFile.Sys
+*IfType         = 6		; IF_TYPE_ETHERNET_CSMACD 
+*MediaType      = 0		; NdisMedium802_3
+*PhysicalMediaType = 14		; NdisPhysicalMedium802_3
+
+[DUBE100.Ndi.Services]
+AddService = DUBE100, 2, DUBE100.Service, Common.EventLog
+;****************************************************************
+; Driver parameters
+;****************************************************************
+[DUBE100.Con.Reg]
+HKR, ,               ChipCode,   0, "0"
+
+; Connection Type
+HKR,Ndi\params\*SpeedDuplex,ParamDesc,,%ConnectionType%
+HKR,Ndi\params\*SpeedDuplex,default,,"0"
+HKR,Ndi\params\*SpeedDuplex,type,,"enum"
+HKR,Ndi\params\*SpeedDuplex\enum,0,,%AutoSense%
+HKR,Ndi\params\*SpeedDuplex\enum,1,,%10Half%
+HKR,Ndi\params\*SpeedDuplex\enum,2,,%10Full%
+HKR,Ndi\params\*SpeedDuplex\enum,3,,%100Half%
+HKR,Ndi\params\*SpeedDuplex\enum,4,,%100Full%
+
+; Mac Address
+HKR,Ndi\params\NetworkAddress,ParamDesc,0,%NetworkAddress%
+HKR,Ndi\params\NetworkAddress,type,0,"edit"
+HKR,Ndi\params\NetworkAddress,default,0, "000000000000"
+HKR,Ndi\params\NetworkAddress,LimitText,0,"12"
+HKR,Ndi\params\NetworkAddress,UpperCase,0,"1"
+HKR,Ndi\params\NetworkAddress,Optional,0,"1"
+
+; Flow Control
+HKR,Ndi\params\*FlowControl,ParamDesc,,%FlowControl%
+HKR,Ndi\params\*FlowControl,default,,"3"
+HKR,Ndi\params\*FlowControl,type,,"enum"
+HKR,Ndi\params\*FlowControl\enum,0,,%Disable%
+HKR,Ndi\params\*FlowControl\enum,1,,%TxEnable%
+HKR,Ndi\params\*FlowControl\enum,2,,%RxEnable%
+HKR,Ndi\params\*FlowControl\enum,3,,%AllEnable%
+
+; Wake Up
+HKR,Ndi\params\WakeUp,ParamDesc,,%WakeUp%
+HKR,Ndi\params\WakeUp,default,,"0"
+HKR,Ndi\params\WakeUp,type,,"enum"
+HKR,Ndi\params\WakeUp\enum,0,,%Disable%
+HKR,Ndi\params\WakeUp\enum,2,,%LinkUp%
+HKR,Ndi\params\WakeUp\enum,4,,%MagicPacket%
+HKR,Ndi\params\WakeUp\enum,6,,%Both%
+
+; Qos Packet Tagging
+HKR,Ndi\params\QosTag,ParamDesc,,%QoSTagging%
+HKR,Ndi\params\QosTag,default,,"0"
+HKR,Ndi\params\QosTag,type,,"enum"
+HKR,Ndi\params\QosTag\enum,0,,%Disable%
+HKR,Ndi\params\QosTag\enum,1,,%Enable%
+
+
+;****************************************************************
+; Install section for Windows NT 5
+;****************************************************************
+[DUBE100.NT.Reg]
+; Interfaces
+HKR, Ndi\Interfaces, LowerRange, 0, "ethernet"
+HKR, Ndi\Interfaces, UpperRange, 0, "ndis5"
+HKR, Ndi,            Service,    0, "DUBE100"
+
+HKR,,LogErrorMessages, 0, "1"
+
+[DUBE100.Service]
+DisplayName    = %DUBE100.DeviceDesc%
+ServiceType    = 1
+StartType      = 3
+ErrorControl   = 1
+ServiceBinary  = %12%\DUBE100.sys
+LoadOrderGroup = NDIS
+
+[Common.EventLog]
+AddReg = Common.AddEventLog.Reg
+
+[Common.AddEventLog.Reg]
+HKR, , EventMessageFile, 0x00020000,"%%SystemRoot%%\System32\netevent.dll;%%SystemRoot%%\system32\drivers\DUBE100.sys"
+HKR, , TypesSupported  , 0x00010001, 7
+
+[CopyFile.Sys]
+DUBE100.sys,,,2
+
+;****************************************************************
+; WDF Coinstaller installation section
+;****************************************************************
+[DUBE100.Ndi.CoInstallers]
+AddReg=DUBE100.CoInstaller.AddReg
+CopyFiles=DUBE100.CoInstaller.CopyFiles
+[DUBE100.Ndi.CoInstallers]
+AddReg=DUBE100.CoInstaller.AddReg
+CopyFiles=DUBE100.CoInstaller.CopyFiles
+
+[DUBE100.CoInstaller.AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller01009.dll,WdfCoInstaller"
+
+[DUBE100.CoInstaller.CopyFiles]
+WdfCoInstaller01009.dll
+
+[DUBE100.Ndi.Wdf]
+KmdfService = DUBE100, DUBE100.wdfsect
+
+[DUBE100.wdfsect]
+KmdfLibraryVersion = 1.9
+
+;**********************************************************************
+; Destination directories
+;**********************************************************************
+[DestinationDirs]
+CopyFile.Sys	= 12
+DUBE100.CoInstaller.CopyFiles = 11
+
+[SourceDisksNames]
+1=%DUBE100.DiskName%,,
+
+[SourceDisksFiles]
+DUBE100.sys=1,,DUBE100.sys,10000
+WdfCoInstaller01009.dll = 1
+
+;**********************************************************************
+; Localizable strings
+;**********************************************************************
+[Strings]
+USB = "D-Link Corporation"
+DUBE100.DiskName = "D-Link DUB-E100 Driver Diskette"
+DUBE100.DeviceDesc = "D-Link DUB-E100 USB 2.0 to Fast Ethernet Adapter"
+DUBE1002.DeviceDesc = "D-Link DUB-E100 USB 2.0 to Fast Ethernet Adapter"
+
+ConnectionType         = "Connection Type"
+AutoSense              = "AutoSense"
+10Half                 = "10BaseT Half_Duplex"
+10Full                 = "10BaseT Full_Duplex"
+100Half                = "100BaseTx Half_Duplex"
+100Full                = "100BaseTx Full_Duplex"
+NetworkAddress         = "NetworkAddress"
+FlowControl            = "Flow Control"
+Disable                = "Disable"
+Enable                 = "Enable"
+TxEnable               = "Tx Enable"
+RxEnable               = "Rx Enable"
+AllEnable              = "Rx & Tx Enable"
+WakeUp                 = "Wake Up"
+LinkUp                 = "Link Up"
+MagicPacket            = "Magic Packet"
+Both                   = "Both"
+QoSTagging             = "QoS Packet Tagging"

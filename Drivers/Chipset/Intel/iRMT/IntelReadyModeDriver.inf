@@ -1,0 +1,115 @@
+;
+; Intel Never Sleep Device Driver Installation File on Windows
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider=%ManufacturerName%
+CatalogFile=IntelReadyModeDriver.cat
+DriverVer=03/14/2016,1.2.0.0
+
+[DestinationDirs]
+DefaultDestDir = 12
+IntelReadyModeDriver_Device_CoInstaller_CopyFiles = 11
+
+; ================= Class section =====================
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+IntelReadyModeDriver.sys  = 1,,
+WdfCoInstaller01011.dll=1 ; make sure the number matches with SourceDisksNames
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName%=Intel,NTx86
+
+[Intel.NTx86]
+; DisplayName           Section       DeviceId
+; -----------       	-------       --------
+%IntelReadyModeDriver.DeviceDesc%=IntelReadyModeDriver_Device, ACPI\INT3398
+
+[IntelReadyModeDriver_Device.NT]
+CopyFiles=Drivers_Dir
+
+[Drivers_Dir]
+IntelReadyModeDriver.sys
+
+;-------------- Service installation
+[IntelReadyModeDriver_Device.NT.Services]
+AddService = IntelReadyModeDriver,%SPSVCINST_ASSOCSERVICE%, IntelReadyModeDriver_Service_Inst
+
+; -------------- IntelReadyModeDriver driver install sections
+[IntelReadyModeDriver_Service_Inst]
+DisplayName    = %IntelReadyModeDriver.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\IntelReadyModeDriver.sys
+LoadOrderGroup = Extended Base
+
+;
+;--- IntelReadyModeDriver_Device Coinstaller installation ------
+;
+[IntelReadyModeDriver_Device.NT.CoInstallers]
+AddReg=IntelReadyModeDriver_Device_CoInstaller_AddReg
+CopyFiles=IntelReadyModeDriver_Device_CoInstaller_CopyFiles
+
+[IntelReadyModeDriver_Device_CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller01011.dll,WdfCoInstaller"
+
+[IntelReadyModeDriver_Device_CoInstaller_CopyFiles]
+WdfCoInstaller01011.dll
+
+[IntelReadyModeDriver_Device.NT.Wdf]
+KmdfService =  IntelReadyModeDriver, IntelReadyModeDriver_wdfsect
+[IntelReadyModeDriver_wdfsect]
+KmdfLibraryVersion = 1.11
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+ManufacturerName="Intel" ; 
+DiskName = "Intel(R) Ready Mode Technology Software Installation Disk"
+IntelReadyModeDriver.DeviceDesc = "Intel(R) Ready Mode Technology Device"
+IntelReadyModeDriver.SVCDESC = "Intel(R) Ready Mode Technology Service"
+
+
+; ************************************************************
+;
+; Copyright (c) 2011 Intel Corporation
+;
+; ************************************************************
+; Intel is making no claims of usability, efficacy or 
+; warranty.  
+; ************************************************************
+; Information in this document is provided in connection with 
+; Intel products.  No license, express or implied, by estoppel 
+; or otherwise, to any intellectual property rights is granted 
+; by this document.  Intel assumes no liability whatsoever, 
+; and Intel disclaims any express or implied warranty, 
+; relating to sale and/or use of Intel products including 
+; liability or warranties relating to fitness for a particular 
+; purpose, merchantability, or infringement of any patent, 
+; copyright or other intellectual property right.  Intel 
+; products are not intended for use in medical, life saving, 
+; or life sustaining applications.
+
+; ************************************************************
+; Intel Corporation disclaims all warranties and liabilities 
+; for the use of this document and the information contained 
+; herein, and assumes no responsibility for any errors which 
+; may appear in this document, nor does Intel make a 
+; commitment to update the information contained herein. Intel 
+; reserves the right to make changes to this document at any 
+; time, without notice.
+; ************************************************************
+; ************************************************************
+
+; * Third-party brands and names are the property of their 
+; respective owners.

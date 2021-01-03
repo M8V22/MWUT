@@ -1,0 +1,475 @@
+Copyright (c) 2017 ADVANCED MICRO DEVICES, INC. All Rights Reserved. 
+
+Installation Notes:
+-------------------
+Install via Windows Device Manager as outlined in the Readme file
+
+Revision History:
+-----------------
+
+AMDPSP v4.5.0.0 - 
+
+Major changes to this driver package include:
+- Remove co-installer from INF files to comply with DCH for RS3 certifications.
+
+AMDPSP v4.4.0.0 - 
+
+Major changes to this driver package include:
+- Remove tbaseprovisioning service
+- Fix Mullins installation on windows 10 RS2
+
+AMDPSP v4.3.0.0 - 
+
+Major changes to this driver package include:
+- Remove PCI driver interrupt dependency and continously pool for status update from sOS.
+- Update to new testUnit TA build environment, which is part of test_suite.
+
+Notes:
+- Use AMDTEE_test_suite 0.0.0.4 to exercise AMDTEE environment.
+- Use Validation Test Suite (VTS) 5.2 to exercise TEE
+
+AMDPSP v4.2.0.0 - 
+
+Major changes to this driver package include:
+- Added support for Raven platform.
+- Added version information for Raven platform
+
+Notes:
+- Use AMDTEE_test_suite 0.2 to exercise AMDTEE environment.
+- Use Validation Test Suite (VTS) 5.2 to exercise TEE
+- VTS test cases will fail after S4 power state
+- Multiple instances of RSA can cause test failures and intermittent BSOD on Carrizo
+
+AMDPSP v4.1.0.0 - 
+
+Major changes to this driver package include:
+- Updated copyright year.
+
+Notes:
+- Use Validation Test Suite (VTS) 5.2 to exercise TEE
+- VTS test cases will fail after S4 power state
+- Multiple instances of RSA can cause test failures and intermittent BSOD on Carrizo
+
+AMDPSP v4.0.0.0 - 
+
+Major changes to this driver package include:
+- Added support for multiple PSP devices to install AMDPSP driver package.
+
+Notes:
+- Use Validation Test Suite (VTS) 5.2 to exercise TEE
+- VTS test cases will fail after S4 power state
+- Multiple instances of RSA can cause test failures and intermittent BSOD on Carrizo
+
+AMDPSP v3.1.0.0 - 
+
+Major changes to this driver package include:
+- Copyright year updated and removed unsupported files from release package.
+
+Notes:
+- Use Validation Test Suite (VTS) 5.2 to exercise TEE
+- VTS test cases will fail after S4 power state
+- Multiple instances of RSA can cause test failures and intermittent BSOD on Carrizo
+
+AMDPSP v3.0.0.0 - 
+
+Major changes to this driver package include:
+- ZP PSP PCI Host Driver TEE interface via C2PMSG mailbox.
+
+Notes:
+- Added ZP specific MBAR changes and offsets.
+
+AMDPSP v2.23.0.0 - 
+
+Major changes to this driver package include:
+- Update INF files to add support for AM4 ZP PSP hardware
+
+Notes:
+- Added PSP hardware DeviceID of AM4 ZP board.
+
+AMDPSP v2.22.0.0 - 
+
+Major changes to this driver package include:
+- Update NonPagedPool memory allocation for Device Guard Phase 1
+
+Notes:
+- Use Validation Test Suite (VTS) 5.2 to exercise TEE
+- VTS test cases will fail after S4 power state
+- Multiple instances of RSA can cause test failures and intermittent BSOD on Carrizo
+
+
+AMDPSP v2.21.0.0 - 
+
+Major changes to this driver package include:
+- Revert S4 change introduced in AMDPSP 2.17.0.0 causing BSOD during S4 ACPI testing
+
+Notes:
+- Use Validation Test Suite (VTS) 5.2 to exercise TEE
+- VTS test cases will fail after S4 power state
+- Multiple instances of RSA can cause test failures and intermittent BSOD on Carrizo
+
+
+AMDPSP v2.20.0.0 - 
+
+Major changes to this driver package include:
+- Exclude Acer 4-part IDs in INF for Carrizo & Carrizo-L
+
+Notes:
+- Use Validation Test Suite (VTS) 5.1 to exercise TEE
+- Multiple instances of RSA can cause test failures and intermittent BSOD on Carrizo
+
+
+AMDPSP v2.19.0.0 - 
+
+Major changes to this driver package include:
+- Fix invalid memory access violation when upgrading from Win7 to Win10 on Beema
+- Exclude Acer 4-part IDs in INF for Beema & Carrizo-Lite
+
+Notes:
+- Use Validation Test Suite (VTS) 5.1 to exercise TEE
+- Multiple instances of RSA can cause test failures and intermittent BSOD on Carrizo
+
+
+AMDPSP v2.18.0.0 - 
+
+Major changes to this driver package include:
+- Fix TEE trace thread sychronization issue during driver disable
+- Enable tbase trace buffer unmap to Secure World
+
+Notes:
+- Use Validation Test Suite (VTS) 5.1 to exercise TEE
+- Multiple instances of RSA can cause test failures and intermittent BSOD on Carrizo
+
+
+AMDPSP v2.17.0.0 - 
+
+Major changes to this driver package include:
+- Fix VTS failures after resuming from S4 power state
+- Enable tbase trace messages from Secure World
+- Exclude customer 4-part ID in INF
+
+Notes:
+- Use Validation Test Suite (VTS) 5.1 to exercise TEE
+- Multiple instances of RSA can cause test failures and intermittent BSOD on Carrizo
+
+
+AMDPSP v2.16.0.0 - 
+
+Major changes to this driver package include:
+- Security Update for Carrizo
+- Fix version number mismatch found in device manager properties
+
+Notes:
+- Use Validation Test Suite (VTS) 5.1 to exercise TEE
+- Multiple instances of RSA can cause test failures and intermittent BSOD on Carrizo
+
+
+AMDPSP v2.15.0.0 - 
+
+Major changes to this driver package include:
+- Performance improvement in TEE Client WaitForNotification
+
+Notes:
+- Use Validation Test Suite (VTS) 5.1 to exercise TEE
+- Multiple instances of RSA can cause test failures and intermittent BSOD on Carrizo
+
+
+AMDPSP v2.14.0.0 - 
+
+Major changes to this driver package include:
+- Update copyright information 
+
+Notes:
+- Known issues running user mode crypto acceleration on Windows 10
+- Use Validation Test Suite (VTS) 5.1 to exercise TEE
+- Multiple instances of RSA can cause test failures and intermittent BSOD on Carrizo
+
+
+AMDPSP v2.13.0.0 - 
+
+Major changes to this driver package include:
+- Windows 10 support
+
+Notes:
+- Known issues running user mode crypto acceleration on Windows 10
+- Use Validation Test Suite (VTS) 5.1 to exercise TEE
+- Multiple instances of RSA can cause test failures and intermittent BSOD on Carrizo
+
+
+AMDPSP v2.12.0.0 - 
+
+Major changes to this driver package include:
+- Documentation changes to readme and release notes
+
+Known issues:
+- Use VTS 5.0 beta 7 which includes general bug fixes
+- Multiple instances of RSA can cause test failures and intermittent BSOD on Carrizo
+
+
+AMDPSP v2.11.0.0 - 
+
+Major changes to this driver package include:
+- Improvements made to CCP scheduler and interrupt handler on CZ for stress scenarios
+
+Known issues:
+- Use VTS 5.0 beta 7 which includes general bug fixes
+- Multiple instances of RSA can cause test failures and intermittent BSOD on Carrizo
+
+
+AMDPSP v2.10.0.0 -
+
+Major changes to this driver package include:
+- Resolved TEE discrepency between OpenSessionID and AllocatedWSMSessionID
+- Resolved multiple failures related to RNG on Carrizo
+- Modified interrupt handling code for Carrizo
+- Mullins/Beema support added back to INF 
+
+Known issues:
+- Use VTS 5.0 beta 6 which resolves intermittent system hangs during VTS stress and performance tests
+- Crypto functionality in stress scenarios causes BSOD on Carrizo
+
+
+AMDPSP v2.9.0.0 -
+
+Major changes to this driver package include:
+- Crypto functionality produces correct results after S3/S4 resume
+- PoFx enabled in TEE client API
+
+Known issues:
+- Use VTS 5.0 beta 6 which resolves intermittent system hangs during VTS stress and performance tests
+- Crypto functionality in stress scenarios causes BSOD on Carrizo
+
+
+AMDPSP v2.8.0.0 -
+
+Major changes to this driver package include:
+- Build specific to Carrizo family only
+
+Known issues:
+- Intermittent system hang observed during VTS Stress and performance tests
+- Crypto functionality produces incorrect results after S3/S4 resume on Carrizo
+
+
+AMDPSP v2.7.0.0 -
+
+Major changes to this driver package include:
+- Fix W7x86 driver installation issues
+- Fix VTS and crypto test BSOD related failures
+
+Known issues:
+- Intermittent system hang observed during VTS Stress and performance tests
+- Crypto functionality produces incorrect results after S3/S4 resume on Carrizo
+
+
+AMDPSP v2.6.0.0 -
+
+Major changes to this driver package include:
+- Fix W764 driver installation issues
+- Fix W764 HCK BSOD realted issues
+
+Known issues:
+- Intermittent BSOD observed during TEE Validation Test Suite full run
+- Crypto functionality produces incorrect results after S3/S4 resume on Carrizo
+
+
+AMDPSP v2.5.0.0 -
+
+Major changes to this driver package include:
+- Driver implements power management using PoFx framework, resolving Windows Crypto test unresponsive issue
+- INF updated for copying filter driver binaries to Program Files\AMD\psp\amdkmpfd
+
+Known issues:
+- Crypto functionality produces incorrect results after S3/S4 resume on Carrizo
+
+
+AMDPSP v2.4.0.0 -
+
+Major changes to this driver package include:
+- Enablement of Dispatch IRQL for crypto on CZ
+
+
+AMDPSP v2.3.0.0 -
+
+Major changes to this driver package include:
+- Notify PSP FW with crypto busy/idle signaling for PSP DPM
+
+
+AMDPSP v2.2.0.0 -
+
+Major changes to this driver package include:
+- BCrypt interface enabled for CZ
+- Fix memory leak on ECDH and ECDSA algorithms
+- Allocation of DRAM for USB3 FW
+- Bug fix for deleting auth token in tbase registry
+
+
+AMDPSP v2.1.0.0 -
+
+Major changes to this driver package include:
+- Fixed device power management issue which prevented entering idle
+- BCrypt interface enabled for ML, disabled for CZ
+
+
+AMDPSP v2.0.0.0 - 
+
+Major changes to this driver package include:
+- Update PSP co-installers to register AMD as secondary CNG provider
+- Update INF file to enable MSI interrupts in correct registry entry
+- BCrypt interface temporarily disabled
+
+
+AMDPSP v1.22.0.0 - 
+
+Major changes to this driver package include:
+- Add MD2 and MD4 for ECDH
+- Fix Key Import bug 
+
+
+AMDPSP v1.21.0.0 - 
+
+Major changes to this driver package include:
+- Enable TLS and SP800 KDFs
+- Enable MDx hash algorithms for RSA-PSS padding
+- Fix MAC context output for multi-frame AES-GCM
+- Fix page alignment issue for AES
+
+
+AMDPSP v1.20.0.0 - 
+
+Major changes to this driver package include:
+- Enable Win 8.1 x86
+- Fix to tbase registry when opening an invalid root container
+
+
+AMDPSP v1.19.0.0 - 
+
+Major changes to this driver package include:
+- Update PSP co-installers to register AMD as primary CNG provider
+- Fixes to RSA sign/verify
+
+
+AMDPSP v1.18.0.0 -
+
+Major changes to this driver package include:
+- This is a security update to the Tbase provisioning component 
+
+
+AMDPSP v1.17.0.0 -
+
+Major changes to this driver package include:
+- Use BCrypt instead of CCP3.0 for 4K RSA to solve the softlock problem happening for low PSPCLK using User Mode CSP 
+
+
+AMDPSP v1.16.0.0 -
+
+Major changes to this driver package include:
+- Fixes to allow S3/S4 suspend/resume while running crypto
+- Updates to tbaseprovisioning to detect invalid RootPA cert
+- Optimized CMTL detection mechanism
+
+
+AMDPSP v1.15.0.0 -
+
+Major changes to this driver package include:
+- Fixes to AES GCM and Authcipher mode
+- Remote login/telnet working with AMD set as primary CNG provider
+
+
+AMDPSP v1.14.0.0 -
+
+Major changes to this driver package include:
+- Win7 WHCK cert failures resolved
+- Enable kernel mode dispatch IRQL in CSPs
+- Add SDDL information to allow driver full access rights
+- Fixes to AES CCM mode
+
+
+AMDPSP v1.13.0.0 -
+
+Major changes to this driver package include:
+- INF file updated to accomodate WHCK Device Driver INF verification test failure
+- Fix W7-64 installation issues seen on v1.12.0.0
+- Improvements to driver stability and stress
+- Update to RootPA
+
+
+AMDPSP v1.12.0.0 -
+
+Major changes to this driver package include:
+- Fix to resolve memory leaks during driver unload caught by WHCK
+- INF file updated to accomodate WHCK Device Driver INF verification test failure
+- Fix to allow running stress 
+- ECDH passing all MS crypto tests
+- Update to RootPA
+
+
+AMDPSP v1.11.0.0 -
+
+Major changes to this driver package include:
+- Fixes that allow McDrvAPi, MemoryManagement & CM 3 group of VTS to execute
+- CMTL added to driver package
+- Multiple instances of bcrypt user mode working
+- Update to RootPA
+
+
+AMDPSP v1.10.0.0 -
+
+Major changes to this driver package include:
+- INF fixes for installation on Win7 platforms
+- Subtile performance enhancements
+- Fixes for VTS error code mismatches
+- Fixes to RSA algorithm
+
+
+AMDPSP v1.09.0.0 -
+
+Major changes to this driver package include:
+- Power management enabled
+- RootPA & VTS bug fixes for stability
+- AES CFB mode implemented and enabled
+- Updates to Win8.1 co-installers
+
+
+AMDPSP v1.08.0.0 -
+
+Major changes to this driver package include:
+- fix for RSA test cases using 4160-bit keys
+- fix for RSA PKCS decryption
+- fixs for AES, ECC and RSA algorithms
+
+
+AMDPSP v1.07.0.0 -
+
+Major changes to this driver package include:
+- fix for running AES test with MMPTest
+- fix crypto operations after S4 exit
+
+
+AMDPSP v1.06.0.0 -
+
+Major changes to this driver package include:
+- fix for running Validation Test Suite
+
+
+AMDPSP v1.05.1.0 -
+
+Major changes to this driver package include:
+- fix Hash and AES algorithms causing bugchecks
+- fix AES authcipher algorithm test cases
+- fix to reduce cpu utilisation
+- support for D3 power state removed
+
+
+AMDPSP v1.05.0.0 -
+
+Major changes to this driver package include:
+- fix Hash and AES algorithms causing bugchecks
+- fix AES authcipher algorithm test cases
+- fix to reduce cpu utilisation
+
+
+AMDPSP v1.04.0.0 -
+
+Major changes to this driver package include:
+- performance improvements for all crypto algorithms
+- fix AES authcipher algorithm test cases
+- fix ECDSA algorithm test cases
