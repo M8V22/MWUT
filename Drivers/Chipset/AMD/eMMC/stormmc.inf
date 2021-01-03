@@ -34,9 +34,9 @@ stormmc.sys  = 1,,
 ;*****************************************
 
 [Manufacturer]
-%AMD%=Standard,NTx86
+%AMD%=Standard,NTamd64
 
-[Standard.NTx86]
+[Standard.NTamd64]
 %stormmc.DeviceDesc_VEN_1022&DEV_7906%=stormmc_Device, PCI\VEN_1022&DEV_7906
 
 [stormmc_Device.NT]

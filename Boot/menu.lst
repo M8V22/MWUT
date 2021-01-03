@@ -1,4 +1,4 @@
-write (md)0x220+1 !BAT\necho -n -P:0000 $[0107] Matija's Windows Utility Toolkit																											 \0
+write (md)0x220+1 !BAT\necho -n -P:0000 $[0107] Matija's Windows Utility Toolkit																															 \0
 initscript (md)0x220+1
 default 0
 timeout 30
@@ -15,6 +15,11 @@ root
 title Mini Windows 7\n
 find --set-root /Boot/winpe.wim
 chainloader /Boot/bootmgr
+
+title Mini Windows 7 from Network\nNetwork boot over HTTP from 192.168.1.20 using iPXE
+find --set-root /Boot/IPXE.KRN
+kernel /Boot/IPXE.KRN
+initrd /Boot/winpe.ipxe
 
 title
 root
@@ -89,15 +94,15 @@ map --hook
 root (0xff)
 chainloader (0xff)
 
+title More...\n
+root
+
 title Darik's Boot and Nuke\n
 find --set-root /Boot/dban-2.3.0_i586.iso
 map /Boot/dban-2.3.0_i586.iso (0xff) || map --mem /Boot/dban-2.3.0_i586.iso (0xff)
 map --hook
 root (0xff)
 chainloader (0xff)
-
-title More...\n
-root
 
 title iPXE\n
 find --set-root /Boot/IPXE.KRN

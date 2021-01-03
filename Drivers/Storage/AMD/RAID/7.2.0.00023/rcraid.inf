@@ -43,10 +43,10 @@ ExcludeFromSelect = *
 
 ;-----------------------------------------------------------------------------
 [Manufacturer]
-%AMD% = AMD,ntx86
+%AMD% = AMD,ntamd64
 
 ;-----------------------------------------------------------------------------
-[AMD.ntx86]
+[AMD.ntamd64]
 %rcraid_Desc%=rcraid_Inst,PCI\VEN_1022&DEV_7905&subsys_8265103C
 %rcraid_Desc%=rcraid_Inst,PCI\VEN_1022&DEV_7805&subsys_2215103C
 %rcraid_Desc%=rcraid_Inst,PCI\VEN_1022&DEV_7805&subsys_805A103C

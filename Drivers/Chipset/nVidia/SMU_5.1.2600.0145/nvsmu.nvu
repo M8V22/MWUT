@@ -1,0 +1,19 @@
+Set ForceNoReboot=yes
+UninstallService nvpmu
+UninstallService nvsmu
+RemoveDevice pci,VEN_10DE&DEV_0271,System
+RemoveDevice pci,VEN_10DE&DEV_036B,System
+RemoveDevice pci,VEN_10DE&DEV_8353,System
+RemoveDevice pci,VEN_10DE&DEV_03F4,System
+RemoveDevice pci,VEN_10DE&DEV_0447,System
+RemoveDevice pci,VEN_10DE&DEV_0543,System
+RemoveDevice pci,VEN_10DE&DEV_07DA,System
+
+DelOemInfs nv*,Version,Provider,%NV%,Version,CatalogFile,nvpmu.cat
+DelOemInfs nv*,Version,Provider,%NV%,Version,CatalogFile,nvsmu.cat
+Del {windir}\INF\pmuc.inf
+Del {sysdir}\Drivers\nvpmu.sys
+Del {sysdir}\nvcopmu.dll
+Del {windir}\INF\smuc64.inf
+Del {sysdir}\Drivers\nvsmu.sys
+Del {sysdir}\nvcosmu.dll

@@ -35,7 +35,7 @@ CoInstaller_CopyFiles = 11
 ExcludeFromSelect = *
 
 [Manufacturer]
-%Zhaoxin%=Zhaoxin,NTx86
+%Zhaoxin%=Zhaoxin,NTAMD64
 
 [SourceDisksFiles]
 ZhHub3.sys     = 1
@@ -45,7 +45,7 @@ WdfCoInstaller01009.dll = 1 ; make sure the number matches with SourceDisksNames
 1=%DISK_NAME%,
 
 ; For XP and later
-[Zhaoxin.NTx86]
+[Zhaoxin.NTAMD64]
 ; DisplayName      Section      DeviceId
 ; -----------      -------      --------
 %VUSB3\ROOT_HUB30.DeviceDesc% = Zh3Hub, USB\ZH_ROOT_HUB

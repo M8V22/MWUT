@@ -1,4 +1,4 @@
-; NETATx86.INF - Windows Vista x86 NDIS 6.0 Driver
+; NETATx64.INF - Windows Vista 64-bit NDIS 6.0 Driver
 ;
 ; Allied Telesis AT-2450/2700 Series PCI Ethernet Adapters
 ;
@@ -11,193 +11,192 @@ Class       = Net
 ClassGUID   = {4d36e972-e325-11ce-bfc1-08002be10318}
 Provider    = %Allied%
 DriverVer=03/01/2011,6.4.2.0
-CatalogFile = ATNICx86.cat
+CatalogFile = NETATx64.cat
 
 [Manufacturer]
-%Allied% = Allied,NT.6.0
+%Allied% = Allied,NTamd64.6.0
 
 [ControlFlags]
 ExcludeFromSelect = *
 
-[Allied.NT.6.0]
-;%*AT2700.DeviceDesc%=AT2700.ndi.NT.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_27001259
-;%*AT2701.DeviceDesc%=AT2701.ndi.NT.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_27011259
-;%*AT2702.DeviceDesc%=AT2702.ndi.NT.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_27021259
-%*AT2703.DeviceDesc%=AT2703.ndi.NT.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_27031259
-%*AT2704.DeviceDesc%=AT2704.ndi.NT.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_27041259
-;%*AT2745.DeviceDesc%=AT2745.ndi.NT.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_27451259
-;%*AT2450.DeviceDesc%=AT2450.ndi.NT.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_00000000
-;%*AT2454.DeviceDesc%=AT2454.ndi.NT.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_24541259
-;%*AT2455.DeviceDesc%=AT2455.ndi.NT.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_24501259
-%*AT2746.DeviceDesc%=AT2746.ndi.NT.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_27461259
-;%*AT2455.DeviceDesc%=AT2455.ndi.NT.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_24551259
-%*AT2456.DeviceDesc%=AT2456.ndi.NT.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_24561259
+[Allied.NTamd64.6.0]
+;%*AT2700.DeviceDesc%=AT2700.ndi.NTamd64.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_27001259
+;%*AT2701.DeviceDesc%=AT2701.ndi.NTamd64.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_27011259
+;%*AT2702.DeviceDesc%=AT2702.ndi.NTamd64.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_27021259
+%*AT2703.DeviceDesc%=AT2703.ndi.NTamd64.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_27031259
+%*AT2704.DeviceDesc%=AT2704.ndi.NTamd64.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_27041259
+;%*AT2745.DeviceDesc%=AT2745.ndi.NTamd64.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_27451259
+;%*AT2450.DeviceDesc%=AT2450.ndi.NTamd64.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_00000000
+;%*AT2454.DeviceDesc%=AT2454.ndi.NTamd64.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_24541259
+;%*AT2455.DeviceDesc%=AT2455.ndi.NTamd64.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_24501259
+%*AT2746.DeviceDesc%=AT2746.ndi.NTamd64.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_27461259
+;%*AT2455.DeviceDesc%=AT2455.ndi.NTamd64.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_24551259
+%*AT2456.DeviceDesc%=AT2456.ndi.NTamd64.6.0, PCI\VEN_1022&DEV_2000&SUBSYS_24561259
 
 ;****************************************************************************
 ; Allied Telesis AT-2700TX 10/100 PCI Ethernet Adapter
 ;****************************************************************************
-[AT2700.ndi.NT.6.0]
+[AT2700.ndi.NTamd64.6.0]
 Characteristics = 0x84 ; NCF_PHYSICAL | NCF_HAS_UI
 BusType         = 5
 AddReg          = ATNIC.NT.reg, BasicN.reg, MII2700.reg
-CopyFiles       = VistaCopyDriver
 *IfType         = 6		; IF_TYPE_ETHERNET_CSMACD 
 *MediaType      = 0		; NdisMedium802_3
 *PhysicalMediaType = 0		; NdisPhysicalMediumUnspecified
 
-[AT2700.ndi.NT.6.0.Services]
-AddService      = ATNICm6, 2, ATNIC.NT.6.0.Service, ATNIC.NT.6.0.AddEventLog
+[AT2700.ndi.NTamd64.6.0.Services]
+AddService      = ATNICm64, 2, ATNIC.NTamd64.6.0.Service, ATNIC.NTamd64.6.0.AddEventLog
 
 ;****************************************************************************
 ; Allied Telesis AT-2700FX 100Mb PCI Fiber Ethernet Adapter
 ;****************************************************************************
-[AT2701.ndi.NT.6.0]
+[AT2701.ndi.NTamd64.6.0]
 Characteristics = 0x84 ; NCF_PHYSICAL | NCF_HAS_UI
 BusType         = 5
 AddReg          = ATNIC.NT.reg, BasicN.reg, MII2701.reg
-CopyFiles       = VistaCopyDriver
+CopyFiles       = Vista64CopyDriver
 *IfType         = 6		; IF_TYPE_ETHERNET_CSMACD 
 *MediaType      = 0		; NdisMedium802_3
 *PhysicalMediaType = 0		; NdisPhysicalMediumUnspecified
 
-[AT2701.ndi.NT.6.0.Services]
-AddService      = ATNICm6, 2, ATNIC.NT.6.0.Service, ATNIC.NT.6.0.AddEventLog
-
+[AT2701.ndi.NTamd64.6.0.Services]
+AddService      = ATNICm64, 2, ATNIC.NTamd64.6.0.Service, ATNIC.NTamd64.6.0.AddEventLog
 ;****************************************************************************
 ; Allied Telesis AT-2700FTX PCI Ethernet Adapter
 ;****************************************************************************
-[AT2702.ndi.NT.6.0]
+[AT2702.ndi.NTamd64.6.0]
 Characteristics = 0x84 ; NCF_PHYSICAL | NCF_HAS_UI
 BusType         = 5
 AddReg          = ATNIC.NT.reg, BasicN.reg, MII2702.reg
-CopyFiles       = VistaCopyDriver
+CopyFiles       = Vista64CopyDriver
 *IfType         = 6		; IF_TYPE_ETHERNET_CSMACD 
 *MediaType      = 0		; NdisMedium802_3
 *PhysicalMediaType = 0		; NdisPhysicalMediumUnspecified
 
-[AT2702.ndi.NT.6.0.Services]
-AddService      = ATNICm6, 2, ATNIC.NT.6.0.Service, ATNIC.NT.6.0.AddEventLog
+[AT2702.ndi.NTamd64.6.0.Services]
+AddService      = ATNICm64, 2, ATNIC.NTamd64.6.0.Service, ATNIC.NTamd64.6.0.AddEventLog
 
 ;****************************************************************************
 ; Allied Telesis AT-2701FX PCI Ethernet Adapter
 ;****************************************************************************
-[AT2703.ndi.NT.6.0]
+[AT2703.ndi.NTamd64.6.0]
 Characteristics = 0x84 ; NCF_PHYSICAL | NCF_HAS_UI
 BusType         = 5
 AddReg          = ATNIC.NT.reg, BasicN.reg, MII2701.reg
-CopyFiles       = VistaCopyDriver
+CopyFiles       = Vista64CopyDriver
 *IfType         = 6		; IF_TYPE_ETHERNET_CSMACD 
 *MediaType      = 0		; NdisMedium802_3
 *PhysicalMediaType = 0		; NdisPhysicalMediumUnspecified
 
-[AT2703.ndi.NT.6.0.Services]
-AddService      = ATNICm6, 2, ATNIC.NT.6.0.Service, ATNIC.NT.6.0.AddEventLog
+[AT2703.ndi.NTamd64.6.0.Services]
+AddService      = ATNICm64, 2, ATNIC.NTamd64.6.0.Service, ATNIC.NTamd64.6.0.AddEventLog
 
 ;****************************************************************************
 ; Allied Telesis AT-2701FTX PCI Ethernet Adapter
 ;****************************************************************************
-[AT2704.ndi.NT.6.0]
+[AT2704.ndi.NTamd64.6.0]
 Characteristics = 0x84 ; NCF_PHYSICAL | NCF_HAS_UI
 BusType         = 5
 AddReg          = ATNIC.NT.reg, BasicN.reg, MII2702.reg
-CopyFiles       = VistaCopyDriver
+CopyFiles       = Vista64CopyDriver
 *IfType         = 6		; IF_TYPE_ETHERNET_CSMACD 
 *MediaType      = 0		; NdisMedium802_3
 *PhysicalMediaType = 0		; NdisPhysicalMediumUnspecified
 
-[AT2704.ndi.NT.6.0.Services]
-AddService      = ATNICm6, 2, ATNIC.NT.6.0.Service, ATNIC.NT.6.0.AddEventLog
+[AT2704.ndi.NTamd64.6.0.Services]
+AddService      = ATNICm64, 2, ATNIC.NTamd64.6.0.Service, ATNIC.NTamd64.6.0.AddEventLog
 
 ;****************************************************************************
 ; Allied Telesis AT-2745FX PCI Ethernet Adapter
 ;****************************************************************************
-[AT2745.ndi.NT.6.0]
+[AT2745.ndi.NTamd64.6.0]
 Characteristics = 0x84 ; NCF_PHYSICAL | NCF_HAS_UI
 BusType         = 5
 AddReg          = ATNIC.NT.reg, BasicN.reg, MII2745.reg
-CopyFiles       = VistaCopyDriver
+CopyFiles       = Vista64CopyDriver
 *IfType         = 6		; IF_TYPE_ETHERNET_CSMACD 
 *MediaType      = 0		; NdisMedium802_3
 *PhysicalMediaType = 0		; NdisPhysicalMediumUnspecified
 
-[AT2745.ndi.NT.6.0.Services]
-AddService      = ATNICm6, 2, ATNIC.NT.6.0.Service, ATNIC.NT.6.0.AddEventLog
+[AT2745.ndi.NTamd64.6.0.Services]
+AddService      = ATNICm64, 2, ATNIC.NTamd64.6.0.Service, ATNIC.NTamd64.6.0.AddEventLog
 
 ;****************************************************************************
 ; Allied Telesis AT-2746FX PCI Ethernet Adapter
 ;****************************************************************************
-[AT2746.ndi.NT.6.0]
+[AT2746.ndi.NTamd64.6.0]
 Characteristics = 0x84 ; NCF_PHYSICAL | NCF_HAS_UI
 BusType         = 5
 AddReg          = ATNIC.NT.reg, BasicN.reg, MII2745.reg
-CopyFiles       = VistaCopyDriver
+CopyFiles       = Vista64CopyDriver
 *IfType         = 6		; IF_TYPE_ETHERNET_CSMACD 
 *MediaType      = 0		; NdisMedium802_3
 *PhysicalMediaType = 0		; NdisPhysicalMediumUnspecified
 
-[AT2746.ndi.NT.6.0.Services]
-AddService      = ATNICm6, 2, ATNIC.NT.6.0.Service, ATNIC.NT.6.0.AddEventLog
+[AT2746.ndi.NTamd64.6.0.Services]
+AddService      = ATNICm64, 2, ATNIC.NTamd64.6.0.Service, ATNIC.NTamd64.6.0.AddEventLog
 
 ;****************************************************************************
 ; Allied Telesis AT-2450 PCI Ethernet Adapter
 ;****************************************************************************
-[AT2450.ndi.NT.6.0]
+[AT2450.ndi.NTamd64.6.0]
 Characteristics = 0x84 ; NCF_PHYSICAL | NCF_HAS_UI
 BusType         = 5
 AddReg          = ATNIC.NT.reg, BasicP.reg
-CopyFiles       = VistaCopyDriver
+CopyFiles       = Vista64CopyDriver
 *IfType         = 6		; IF_TYPE_ETHERNET_CSMACD 
 *MediaType      = 0		; NdisMedium802_3
 *PhysicalMediaType = 0		; NdisPhysicalMediumUnspecified
 
-[AT2450.ndi.NT.6.0.Services]
-AddService      = ATNICm6, 2, ATNIC.NT.6.0.Service, ATNIC.NT.6.0.AddEventLog
+[AT2450.ndi.NTamd64.6.0.Services]
+AddService      = ATNICm64, 2, ATNIC.NTamd64.6.0.Service, ATNIC.NTamd64.6.0.AddEventLog
 
 ;****************************************************************************
 ; Allied Telesis AT-2450v4 PCI Ethernet Adapter
 ;****************************************************************************
-[AT2454.ndi.NT.6.0]
+[AT2454.ndi.NTamd64.6.0]
 Characteristics = 0x84 ; NCF_PHYSICAL | NCF_HAS_UI
 BusType         = 5
 AddReg          = ATNIC.NT.reg, BasicN.reg, MII2454.reg
-CopyFiles       = VistaCopyDriver
+CopyFiles       = Vista64CopyDriver
 *IfType         = 6		; IF_TYPE_ETHERNET_CSMACD 
 *MediaType      = 0		; NdisMedium802_3
 *PhysicalMediaType = 0		; NdisPhysicalMediumUnspecified
 
-[AT2454.ndi.NT.6.0.Services]
-AddService      = ATNICm6, 2, ATNIC.NT.6.0.Service, ATNIC.NT.6.0.AddEventLog
+[AT2454.ndi.NTamd64.6.0.Services]
+AddService      = ATNICm64, 2, ATNIC.NTamd64.6.0.Service, ATNIC.NTamd64.6.0.AddEventLog
 
 ;****************************************************************************
 ; Allied Telesis AT-2450FTX PCI Ethernet Adapter
 ;****************************************************************************
 
-[AT2455.ndi.NT.6.0]
+; Vista 64-bit Extended section
+[AT2455.ndi.NTamd64.6.0]
 Characteristics = 0x84 ; NCF_PHYSICAL | NCF_HAS_UI
 BusType         = 5
 AddReg          = ATNIC.NT.reg, BasicN.reg, MII2455.reg
-CopyFiles       = VistaCopyDriver
+CopyFiles       = Vista64CopyDriver
 *IfType         = 6		; IF_TYPE_ETHERNET_CSMACD 
 *MediaType      = 0		; NdisMedium802_3
 *PhysicalMediaType = 0		; NdisPhysicalMediumUnspecified
 
-[AT2455.ndi.NT.6.0.Services]
-AddService      = ATNICm6, 2, ATNIC.NT.6.0.Service, ATNIC.NT.6.0.AddEventLog
+[AT2455.ndi.NTamd64.6.0.Services]
+AddService      = ATNICm64, 2, ATNIC.NTamd64.6.0.Service, ATNIC.NTamd64.6.0.AddEventLog
 
 ;****************************************************************************
-; Allied Telesis AT-2456FTX PCI Ethernet Adapter
+; Allied Telesis AT-2450FTX PCI Ethernet Adapter
 ;****************************************************************************
-[AT2456.ndi.NT.6.0]
+[AT2456.ndi.NTamd64.6.0]
 Characteristics = 0x84 ; NCF_PHYSICAL | NCF_HAS_UI
 BusType         = 5
 AddReg          = ATNIC.NT.reg, BasicN.reg, MII2456.reg
-CopyFiles       = VistaCopyDriver
+CopyFiles       = Vista64CopyDriver
 *IfType         = 6		; IF_TYPE_ETHERNET_CSMACD 
 *MediaType      = 0		; NdisMedium802_3
 *PhysicalMediaType = 0		; NdisPhysicalMediumUnspecified
 
-[AT2456.ndi.NT.6.0.Services]
-AddService      = ATNICm6, 2, ATNIC.NT.6.0.Service, ATNIC.NT.6.0.AddEventLog
+[AT2456.ndi.NTamd64.6.0.Services]
+AddService      = ATNICm64, 2, ATNIC.NTamd64.6.0.Service, ATNIC.NTamd64.6.0.AddEventLog
 
 ;-------------------------------------------------------------------------------
 ; Common Section for NT5.0 and Win9x.
@@ -366,37 +365,36 @@ HKR, Ndi,            Service,    0, "ATNIC"
 HKR, Ndi\Interfaces, UpperRange, 0, "ndis5"
 HKR, Ndi\Interfaces, LowerRange, 0, "ethernet"
 
-
-[ATNIC.NT.6.0.Service]
-DisplayName     = %ATNIC.NT.6.0.Service.DispName%
+[ATNIC.NTamd64.6.0.Service]
+DisplayName     = %ATNIC.NTamd64.6.0.Service.DispName%
 ServiceType     = 1 ;%SERVICE_KERNEL_DRIVER%
 StartType       = 3 ;%SERVICE_DEMAND_START%
 ErrorControl    = 1 ;%SERVICE_ERROR_NORMAL%
-ServiceBinary   = %12%\atnicm60.sys
+ServiceBinary   = %12%\atnicm64.sys
 LoadOrderGroup  = NDIS
 
-[ATNIC.NT.6.0.AddEventLog]
-AddReg = ATNIC.NT.6.0.AddEventLog.reg
+[ATNIC.NTamd64.6.0.AddEventLog]
+AddReg = ATNIC.NTamd64.6.0.AddEventLog.reg
 
-[ATNIC.NT.6.0.AddEventLog.reg]
-HKR,,EventMessageFile,0x00020000,%%SystemRoot%%\System32\drivers\atnicm60.sys
+[ATNIC.NTamd64.6.0.AddEventLog.reg]
+HKR,,EventMessageFile,0x00020000,%%SystemRoot%%\System32\drivers\atnicm64.sys
 HKR,,TypesSupported,0x00010001,7
 
 ;-------------------------------------------------------------------------------
 ; DestinationDirs
 ;
 [DestinationDirs]
-DefaultDestDir   = 12
-VistaCopyDriver  = 12
+DefaultDestDir     = 12
+Vista64CopyDriver  = 12
 
-[VistaCopyDriver]
-atnicm60.sys,,,2
+[Vista64CopyDriver]
+atnicm64.sys,,,2
 
 [SourceDisksNames]
 1 = %SourceDisk%,,,
 
 [SourceDisksFiles]
-atnicm60.sys  = 1
+atnicm64.sys  = 1
 
 ;-------------------------------------------------------------------------------
 ; Localizable Strings
@@ -469,4 +467,4 @@ TRACE                    = "Trace"
 *AT2455.DeviceDesc       = "Allied Telesis AT-2450FTX PCI Ethernet Adapter"
 *AT2456.DeviceDesc       = "Allied Telesis AT-2451FTX PCI Ethernet Adapter"
 
-ATNIC.NT.6.0.Service.DispName        = "Allied Telesis NDIS 6.0 (x86)"
+ATNIC.NTamd64.6.0.Service.DispName   = "Allied Telesis NDIS 6.0 (x64)"

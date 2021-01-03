@@ -1,6 +1,6 @@
-; This INF file installs the Silicon Image 3531 SATA Controller
-; for the SiI 3531 controller on systems running Windows 2000/XP
-; Windows Server 2003, and Windows Vista.
+; This INF file installs the Silicon Image Serial ATA 3531 SATA Controller driver
+; for the SiI 3531 controller on systems using the AMD 64-bit
+; processor.
 ;
 ; Copyright (C) 2009 by Silicon Image, Inc.
 ; All rights reserved
@@ -13,10 +13,10 @@ Provider=%SI%
 CatalogFile=Si3531.cat
 DriverVer=06/04/2009, 1.5.20.1
 
-[SourceDisksNames]
+[SourceDisksNames.amd64]
 1=%DISKNAME%,Si3531.sys,,
 
-[SourceDisksFiles]
+[SourceDisksFiles.amd64]
 Si3531.sys = 1
 SilSupp.dll  = 1
 SiWinAcc.sys = 1
@@ -26,10 +26,7 @@ SiRemFil.sys = 1
 DefaultDestDir	= 12
 DllFiles		= 11
 
-[DriverFiles_NT_2K]
-Si3531.sys,,,0x20
-
-[DriverFiles_XP]
+[DriverFiles]
 Si3531.sys,,,0x20
 SiWinAcc.sys,,,0x20
 SiRemFil.sys,,,0x20
@@ -38,37 +35,9 @@ SiRemFil.sys,,,0x20
 SilSupp.dll,,,0x20
 
 [Manufacturer]
-%SI%=SI_HDC,NTx86.5.1
+%SI%=SI_HDC,NTamd64
 
-[SI_HDC]
-%PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531, PCI\VEN_1095&DEV_3531&SUBSYS_35311095
-%PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531, PCI\VEN_1095&DEV_3531&SUBSYS_14981043
-%PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531, PCI\VEN_1095&DEV_3531&SUBSYS_82501043
-%PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531, PCI\VEN_1095&DEV_3531&SUBSYS_320A1462
-%PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531, PCI\VEN_1095&DEV_3531&SUBSYS_30D4103C
-%PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531, PCI\VEN_1095&DEV_3531&SUBSYS_11071734
-%PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531, PCI\VEN_1095&DEV_3531&SUBSYS_90A01019
-%PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531, PCI\VEN_1095&DEV_3531&SUBSYS_30d4103c
-%PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531, PCI\VEN_1095&DEV_3531&SUBSYS_8958152D
-%PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531, PCI\VEN_1095&DEV_3531&SUBSYS_408317C0
-%PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531, PCI\VEN_1095&DEV_3531&SUBSYS_0690107B
-%PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531, PCI\VEN_1095&DEV_3531&SUBSYS_111F1734
-%PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531, PCI\VEN_1095&DEV_3531&SUBSYS_2F121509
-%PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531, PCI\VEN_1095&DEV_3531&SUBSYS_3FAD1462
-%PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531, PCI\VEN_1095&DEV_3531&SUBSYS_30DE103C
-%PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531, PCI\VEN_1095&DEV_3531&SUBSYS_408517C0
-%PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531, PCI\VEN_1095&DEV_3531&SUBSYS_2001103C
-%PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531, PCI\VEN_1095&DEV_3531&SUBSYS_11411734
-%PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531, PCI\VEN_1095&DEV_3531&SUBSYS_11421734
-%PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531, PCI\VEN_1095&DEV_3531&SUBSYS_11441734
-%PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531, PCI\VEN_1095&DEV_3531&SUBSYS_11451734
-%PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531, PCI\VEN_1095&DEV_3531&SUBSYS_11461734
-%PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531, PCI\VEN_1095&DEV_3531&SUBSYS_11471734
-%PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531, PCI\VEN_1095&DEV_3531&SUBSYS_01781025
-%PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531, PCI\VEN_1095&DEV_3531&SUBSYS_008C1B0A
-%PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531, PCI\VEN_1095&DEV_3531&SUBSYS_2B00103C
-
-[SI_HDC.NTx86.5.1]
+[SI_HDC.NTamd64]
 %PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531_XP, PCI\VEN_1095&DEV_3531&SUBSYS_35311095
 %PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531_XP, PCI\VEN_1095&DEV_3531&SUBSYS_14981043
 %PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531_XP, PCI\VEN_1095&DEV_3531&SUBSYS_82501043
@@ -96,34 +65,22 @@ SilSupp.dll,,,0x20
 %PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531_XP, PCI\VEN_1095&DEV_3531&SUBSYS_008C1B0A
 %PCI\VEN_1095&DEV_3531.DeviceDesc%=SI_3531_XP, PCI\VEN_1095&DEV_3531&SUBSYS_2B00103C
 
-;; Windows NT4.0 and Windows 2000 install sections
+[ControlFlags]
+ExcludeFromSelect.ntx86=*
+
 ;;
-[SI_3531.NTX86]
-Copyfiles=DriverFiles_NT_2K, DllFiles
+;; Driver install sections
+;;
+[SI_3531_XP.NTamd64]
+Copyfiles=DriverFiles, DllFiles
 CopyInf=sippd.inf
 
-[SI_3531.NTX86.Services]
-AddService=Si3531,0x00000002,SI_3531_Service_Install, Miniport_EventLog_Inst
-
-[SI_3531.NTX86.CoInstallers]
-Copyfiles=DllFiles
-AddReg = SI_3531_CoInstall_AddReg
-
-[SI_3531.NTX86.HW]
-AddReg = ShutdownNotify_AddReg
-
-;; Windows XP install sections
-;;
-[SI_3531_XP]
-CopyINF=sippd.inf
-Copyfiles=DriverFiles_XP, DllFiles
-
-[SI_3531_XP.Services]
+[SI_3531_XP.NTamd64.Services]
 AddService=Si3531,0x00000002,SI_3531_Service_Install, Miniport_EventLog_Inst
 AddService=SiFilter,0x00000000,FilterService_Install
 AddService=SiRemFil, 0, RemovableDevFilter_Install
 
-[SI_3531_XP.CoInstallers]
+[SI_3531_XP.NTamd64.CoInstallers]
 Copyfiles=DllFiles
 AddReg = SI_3531_CoInstall_AddReg
 
@@ -132,7 +89,7 @@ HKR,,CoInstallers32,0x00010000,"SilSupp.dll, CoInstHandler"
 
 ; This will assure the Class driver sends down a Sync Cache before writting the
 ; hibernation file.
-[SI_3531_XP.HW]
+[SI_3531_XP.NTamd64.HW]
 AddReg=SI_3531_AddHackMask.AddReg
 AddReg = ShutdownNotify_AddReg
 
@@ -176,13 +133,14 @@ AddReg=RemovableDevFilter_AddReg
 HKLM, System\CurrentControlSet\Control\Class\{4d36e967-e325-11ce-bfc1-08002be10318}, UpperFilters, 0x00010008, SiRemFil
 HKLM, System\CurrentControlSet\Control\Class\{4d36e965-e325-11ce-bfc1-08002be10318}, UpperFilters, 0x00010008, SiRemFil
 
+
 ; Mark device as supporting Plug & Play on the PCI(5) bus.
 [PnPSupport_AddReg]
 HKR,Parameters\PnPInterface,5,0x00010001,1
 
 [PortConfigure_AddReg]
 HKR,Parameters\Device,MaximumSGList,0x00010001, 33
-HKR,Parameters\Device,NumberOfRequests,0x00010001, 124
+HKR,Parameters\Device,NumberOfRequests,0x00010001, 132
 
 ; Set controller's bus type to SATA.
 [BusType_AddReg]
@@ -205,8 +163,7 @@ HKR,ProblemDevices, %ProblemDev6Name%, 0, %ProblemDev6Value%
 HKR,ProblemDevices, %ProblemDev7Name%, 0, %ProblemDev7Value%
 HKR,ProblemDevices, %ProblemDev8Name%, 0, %ProblemDev8Value%
 
-
-; List of controller subsystem IDs to be supported by the Si3531.sys driver.
+; List of controller subsystem IDs to be supported by the Si3531.sys driver
 [SupportedSubSystemIds_AddReg]
 HKR,SupportedSubsystemIDs,%PCI\VEN_1095&DEV_3531.DeviceDesc%,0x00010001, 0x35311095
 HKR,SupportedSubsystemIDs,"%PCI\VEN_1095&DEV_3531.DeviceDesc% (ASUS 1498)",0x00010001, 0x14981043
@@ -237,31 +194,31 @@ HKR,SupportedSubsystemIDs,"%PCI\VEN_1095&DEV_3531.DeviceDesc% (HP)", 0x00010001,
 
 [ChanConfigOverrides_AddReg]
 HKR, ChannelConfigurations, %PCI\VEN_1095&DEV_3531.DeviceDesc%, 0x00010001, 0x00000001
-HKR, ChannelConfigurations, "%PCI\VEN_1095&DEV_3531.DeviceDesc% (ASUS 1498)", 0x00010001, 0x00000001
-HKR, ChannelConfigurations, "%PCI\VEN_1095&DEV_3531.DeviceDesc% (ASUS 8250)", 0x00010001, 0x00000001
-HKR, ChannelConfigurations, "%PCI\VEN_1095&DEV_3531.DeviceDesc% (MSI 73x0)", 0x00010001, 0x00000001
-HKR, ChannelConfigurations, "%PCI\VEN_1095&DEV_3531.DeviceDesc% (Hewlitt Packard 30D4)", 0x00010001, 0x00000001
-HKR, ChannelConfigurations, "%PCI\VEN_1095&DEV_3531.DeviceDesc% (ECS/Fujitsu 1107)", 0x00010001, 0x00000001
-HKR, ChannelConfigurations, "%PCI\VEN_1095&DEV_3531.DeviceDesc% (ECS/Fujitsu 90A0)", 0x00010001, 0x00000001
-HKR, ChannelConfigurations, "%PCI\VEN_1095&DEV_3531.DeviceDesc% (Inventec/HP)", 0x00010001, 0x00000001
-HKR, ChannelConfigurations, "%PCI\VEN_1095&DEV_3531.DeviceDesc% (Quanta/Dell)", 0x00010001, 0x00000001
-HKR, ChannelConfigurations, "%PCI\VEN_1095&DEV_3531.DeviceDesc% (WISTRON)", 0x00010001, 0x00000001
-HKR, ChannelConfigurations, "%PCI\VEN_1095&DEV_3531.DeviceDesc% (WISTRON 107B/0690)", 0x00010001, 0x00000001
-HKR, ChannelConfigurations, "%PCI\VEN_1095&DEV_3531.DeviceDesc% (FIC 1734/111F)", 0x00010001,0x00000001
-HKR, ChannelConfigurations, "%PCI\VEN_1095&DEV_3531.DeviceDesc% (FIC 1509/2F12)", 0x00010001,0x00000001
-HKR, ChannelConfigurations, "%PCI\VEN_1095&DEV_3531.DeviceDesc% (MSI/3FAD)", 0x00010001, 0x00000001
-HKR, ChannelConfigurations, "%PCI\VEN_1095&DEV_3531.DeviceDesc% (Inventec Corp)", 0x00010001, 0x00000001
-HKR, ChannelConfigurations, "%PCI\VEN_1095&DEV_3531.DeviceDesc%  (Wistron/4085)", 0x00010001, 0x00000001
-HKR, ChannelConfigurations, "%PCI\VEN_1095&DEV_3531.DeviceDesc% (Arima/HP)", 0x00010001, 0x00000001
-HKR, ChannelConfigurations, "%PCI\VEN_1095&DEV_3531.DeviceDesc% (Inventec/Fujitsu-Siemens 1141)", 0x00010001, 0x00000001
-HKR, ChannelConfigurations, "%PCI\VEN_1095&DEV_3531.DeviceDesc% (Inventec/Fujitsu-Siemens 1142)", 0x00010001, 0x00000001
-HKR, ChannelConfigurations, "%PCI\VEN_1095&DEV_3531.DeviceDesc% (Inventec/Fujitsu-Siemens 1144)", 0x00010001, 0x00000001
-HKR, ChannelConfigurations, "%PCI\VEN_1095&DEV_3531.DeviceDesc% (Inventec/Fujitsu-Siemens 1145)", 0x00010001, 0x00000001
-HKR, ChannelConfigurations, "%PCI\VEN_1095&DEV_3531.DeviceDesc% (Inventec/Fujitsu-Siemens 1146)", 0x00010001, 0x00000001
-HKR, ChannelConfigurations, "%PCI\VEN_1095&DEV_3531.DeviceDesc% (Inventec/Fujitsu-Siemens 1147)", 0x00010001, 0x00000001
-HKR, ChannelConfigurations, "%PCI\VEN_1095&DEV_3531.DeviceDesc% (MSI/Acer)", 0x00010001, 0x00000001
-HKR, ChannelConfigurations, "%PCI\VEN_1095&DEV_3531.DeviceDesc% (Asus/Pegatron)", 0x00010001, 0x00000001
-HKR, ChannelConfigurations, "%PCI\VEN_1095&DEV_3531.DeviceDesc% (HP)", 0x00010001, 0x00000001
+HKR, ChannelConfigurations,"%PCI\VEN_1095&DEV_3531.DeviceDesc% (ASUS 1498)",0x00010001, 0x00000001
+HKR, ChannelConfigurations,"%PCI\VEN_1095&DEV_3531.DeviceDesc% (ASUS 8250)",0x00010001, 0x00000001
+HKR, ChannelConfigurations,"%PCI\VEN_1095&DEV_3531.DeviceDesc% (MSI 73x0)", 0x00010001, 0x00000001
+HKR, ChannelConfigurations,"%PCI\VEN_1095&DEV_3531.DeviceDesc% (Hewlitt Packard 30D4)", 0x00010001, 0x00000001
+HKR, ChannelConfigurations,"%PCI\VEN_1095&DEV_3531.DeviceDesc% (ECS/Fujitsu-Siemens 1107)", 0x00010001, 0x00000001
+HKR, ChannelConfigurations,"%PCI\VEN_1095&DEV_3531.DeviceDesc% (ECS/Fujitsu-Siemens 90A0)", 0x00010001, 0x00000001
+HKR, ChannelConfigurations,"%PCI\VEN_1095&DEV_3531.DeviceDesc% (Inventec/HP)", 0x00010001, 0x00000001
+HKR, ChannelConfigurations,"%PCI\VEN_1095&DEV_3531.DeviceDesc% (Quanta/Dell)", 0x00010001, 0x00000001
+HKR, ChannelConfigurations,"%PCI\VEN_1095&DEV_3531.DeviceDesc% (WISTRON)", 0x00010001, 0x00000001
+HKR, ChannelConfigurations,"%PCI\VEN_1095&DEV_3531.DeviceDesc% (WISTRON 107B/0690)", 0x00010001, 0x00000001
+HKR, ChannelConfigurations,"%PCI\VEN_1095&DEV_3531.DeviceDesc% (FIC 1734/111F)", 0x00010001, 0x00000001
+HKR, ChannelConfigurations,"%PCI\VEN_1095&DEV_3531.DeviceDesc% (FIC 1509/2F12)", 0x00010001, 0x00000001
+HKR, ChannelConfigurations,"%PCI\VEN_1095&DEV_3531.DeviceDesc% (MSI/3FAD)", 0x00010001,0x00000001 
+HKR, ChannelConfigurations,"%PCI\VEN_1095&DEV_3531.DeviceDesc% (Inventec Corp)", 0x00010001, 0x00000001
+HKR, ChannelConfigurations,"%PCI\VEN_1095&DEV_3531.DeviceDesc% (Wistron/4085)", 0x00010001, 0x00000001
+HKR, ChannelConfigurations,"%PCI\VEN_1095&DEV_3531.DeviceDesc% (Arima/HP)", 0x00010001, 0x00000001
+HKR, ChannelConfigurations,"%PCI\VEN_1095&DEV_3531.DeviceDesc% (Inventec/Fujitsu-Siemens 1141)", 0x00010001, 0x00000001
+HKR, ChannelConfigurations,"%PCI\VEN_1095&DEV_3531.DeviceDesc% (Inventec/Fujitsu-Siemens 1142)", 0x00010001, 0x00000001
+HKR, ChannelConfigurations,"%PCI\VEN_1095&DEV_3531.DeviceDesc% (Inventec/Fujitsu-Siemens 1144)", 0x00010001, 0x00000001
+HKR, ChannelConfigurations,"%PCI\VEN_1095&DEV_3531.DeviceDesc% (Inventec/Fujitsu-Siemens 1145)", 0x00010001, 0x00000001
+HKR, ChannelConfigurations,"%PCI\VEN_1095&DEV_3531.DeviceDesc% (Inventec/Fujitsu-Siemens 1146)", 0x00010001, 0x00000001
+HKR, ChannelConfigurations,"%PCI\VEN_1095&DEV_3531.DeviceDesc% (Inventec/Fujitsu-Siemens 1147)", 0x00010001, 0x00000001
+HKR, ChannelConfigurations,"%PCI\VEN_1095&DEV_3531.DeviceDesc% (MSI/Acer)", 0x00010001, 0x00000001
+HKR, ChannelConfigurations,"%PCI\VEN_1095&DEV_3531.DeviceDesc% (Asus/Pegatron)", 0x00010001, 0x00000001
+HKR, ChannelConfigurations,"%PCI\VEN_1095&DEV_3531.DeviceDesc% (HP)", 0x00010001, 0x00000001
 
 ;*************************************************************
 ;The NT EventLog entries are the same for all SCSI miniports.

@@ -1,1 +1,1 @@
-winsetup.exe -p -s
+winsetup64.exe -p -s

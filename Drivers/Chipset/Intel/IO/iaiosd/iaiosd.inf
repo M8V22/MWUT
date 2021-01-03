@@ -1,0 +1,114 @@
+;/*++
+;
+;Copyright (c) 2009-2014 Intel Corporation All rights Reserved
+;
+;Module Name:
+;    iaiosd.inf
+;
+;Abstract:
+;    INF file for installing the Intel Processor SD Host Controller
+;
+;--*/
+[Version]
+Signature="$WINDOWS NT$"
+Class=SCSIAdapter
+ClassGUID={4D36E97B-E325-11CE-BFC1-08002BE10318}
+Provider=%INTEL%
+CatalogFile=iaiosd.cat
+DriverVer=06/15/2015,1.2.3.1010
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+; ================= Class section =====================
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+iaiosd.sys  = 1,,
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%INTEL%=INTEL,NTamd64
+
+[INTEL.NTamd64]
+;Baytrail 
+%iaiosd.DeviceDesc%=iaiosd_Device, PCI\VEN_8086&DEV_0F16
+%iaioeMMC.DeviceDesc%=iaioeMMC_Device, PCI\VEN_8086&DEV_0F50
+;Braswell
+%iaiosd.DeviceDesc%=iaiosd_Device, PCI\VEN_8086&DEV_2296
+%iaioeMMC.DeviceDesc%=iaioeMMC_Device, PCI\VEN_8086&DEV_2294
+
+[iaiosd_Device.NT]
+CopyFiles=Drivers_Dir
+
+[iaioeMMC_Device.NT]
+CopyFiles=Drivers_Dir 
+ 
+[iaiosdboot_Device.NT]
+CopyFiles=Drivers_Dir
+
+[iaioeMMCboot_Device.NT]
+CopyFiles=Drivers_Dir
+
+[Drivers_Dir]
+iaiosd.sys
+
+;-------------- Service installation
+[iaiosd_Device.NT.Services]
+AddService = iaiosd, %SPSVCINST_ASSOCSERVICE%, iaiosd_Service_Inst
+
+[iaioeMMC_Device.NT.Services]
+AddService = iaiosd,%SPSVCINST_ASSOCSERVICE%, iaiosd_Service_Inst
+
+; -------------- SD driver install sections
+[iaiosd_Service_Inst]
+DisplayName    = %iaiosd.SVCDESC%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_BOOT_START%  ; 0 - Always load SD/eMMC driver during Boot
+ErrorControl   = %SERVICE_ERROR_NORMAL% 
+ServiceBinary  = %12%\iaiosd.sys
+LoadOrderGroup = SCSI Miniport
+AddReg         = iaiosd_Services_AddReg
+
+[iaiosd_Services_AddReg]
+HKR,    "Parameters",   "BusType",   %REG_DWORD%,    0x0000000C  
+
+[iaiosd_Device.NT.HW]
+AddReg=iaiosdBoot_Services_AddReg
+
+[iaioeMMC_Device.NT.HW]
+AddReg=iaioeMMCBoot_Services_AddReg 
+
+;Set last value to 0x01 to enable boot on that device
+;e.g HKLM,<key path>, "SDBoot"/"EMMCBoot",  <type>,    0x01
+
+[iaiosdBoot_Services_AddReg]
+HKLM,"System\CurrentControlSet\Services\iaiosd\Parameters\Device",   "SDBoot",  %REG_DWORD%,    0x01
+ 
+[iaioeMMCBoot_Services_AddReg]
+HKLM,"System\CurrentControlSet\Services\iaiosd\Parameters\Device",   "EMMCBoot",  %REG_DWORD%,    0x01
+
+
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+INTEL = "Intel Corporation"
+DiskName = "Intel(R) Atom(TM)/Celeron(R)/Pentium(R) Processor SD/eMMC Host Controller Installation Disk"
+iaiosd.SVCDESC = "Intel(R) Atom(TM)/Celeron(R)/Pentium(R) Processor SD/eMMC Host Controller"
+iaiosd.DeviceDesc = "Intel(R) Atom(TM)/Celeron(R)/Pentium(R) Processor SD Host Controller"
+iaioeMMC.DeviceDesc = "Intel(R) Atom(TM)/Celeron(R)/Pentium(R) Processor eMMC Host Controller"
+
+SERVICE_KERNEL_DRIVER = 1
+SERVICE_BOOT_START    = 0
+SERVICE_SYSTEM_START  = 1
+SERVICE_DEMAND_START  = 3
+SERVICE_ERROR_NORMAL  = 1
+SERVICE_ERROR_IGNORE  = 0
+REG_EXPAND_SZ         = 0x00020000
+REG_DWORD             = 0x00010001
+REG_SZ                = 0x00000000

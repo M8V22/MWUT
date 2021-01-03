@@ -10,12 +10,12 @@ DriverVer   = 05/22/2009,7.003.0522.2009
 CatalogFile.NT = DGE660T.cat
 
 [Manufacturer]
-%D-Link% = D-Link, NTx86
+%D-Link% = D-Link, NTamd64
 
 [ControlFlags]
 ExcludeFromSelect     = *
 
-[D-Link.NTx86]
+[D-Link.NTamd64]
 %EthDriver.DeviceDesc% = EthDriver.ndi, PCI\VEN_10EC&DEV_8169&SUBSYS_43011186
 
 ;

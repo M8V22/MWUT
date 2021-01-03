@@ -30,10 +30,10 @@ DriverVer=11/08/2016,8.1.0.00026
 ;*****************************************
 
 [Manufacturer]
-%AMD% = AMD,ntx86
+%AMD% = AMD,ntamd64
 
 ;-----------------------------------------------------------------------------
-[AMD.ntx86]
+[AMD.ntamd64]
 %rcbottom_Desc%=rcbottom_Inst,PCI\VEN_1022&DEV_7905&CC_0104
 %rcbottom_Desc%=rcbottom_Inst,PCI\VEN_1022&DEV_43BD&CC_0104
 %rcbottom_Desc%=rcbottom_Inst,PCI\VEN_1022&DEV_7916&CC_0104

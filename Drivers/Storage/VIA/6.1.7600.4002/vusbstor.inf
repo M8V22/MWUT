@@ -31,10 +31,10 @@ DefaultDestDir = 12
 ; ================= Device section =====================
 
 [Manufacturer]
-%VIA%=VIA,NTx86
+%VIA%=VIA,NTAMD64
 
 ; For XP and later
-[VIA.NTx86]
+[VIA.NTAMD64]
 %VIAUAS.DeviceDesc%        =vusbstor.Dev, USB_VIA\Class_08&SubClass_06&Prot_62
 %VIABOT.DeviceDesc%        =vusbstor.Dev, USB_VIA\Class_08&SubClass_06&Prot_50
 %VIA711.DeviceDesc%        =vusbstor.Dev, USB\VID_2109&PID_0711

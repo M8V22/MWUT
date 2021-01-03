@@ -1,0 +1,97 @@
+; 
+; Copyright (C) 2009    NVIDIA Corporation
+;
+ 
+ 
+ 
+[Version] 
+Signature = "$Windows NT$" 
+Class=System
+ClassGUID={4d36e97d-e325-11ce-bfc1-08002be10318} 
+Provider=%NV% 
+CatalogFile=nvsmu64.cat
+DriverVer= 06/29/2009,5.1.2600.0171 ;Changelist 4263372
+
+[DestinationDirs] 
+DefaultDestDir = 11
+SMU51.Files.x86_12 = 12 
+Uninstall.CoInst.FileList = 11
+
+[SourceDisksNames]
+0=%Desc_x860%
+
+[SourceDisksFiles]
+nvsmu.sys=0
+NVCOSMU.DLL=0
+nvusmu.exe=0
+nvsmu.nvu=0
+
+[Manufacturer] 
+%NV%=NV,NTamd64
+
+[NV.NTamd64]
+%SMU51Desc%=SMU51_Inst,PCI\VEN_10DE&DEV_0AA3&SUBSYS_2A83103C
+%SMU51Desc%=SMU51_Inst,PCI\VEN_10DE&DEV_0753&SUBSYS_2A6E103C
+%SMU51Desc%=SMU51_Inst,PCI\VEN_10DE&DEV_0753&SUBSYS_2A81103C
+%SMU51Desc%=SMU51_Inst,PCI\VEN_10DE&DEV_0753&SUBSYS_2A93103C
+%SMU51Desc%=SMU51_Inst,PCI\VEN_10DE&DEV_0AA3&SUBSYS_2A95103C
+%SMU51Desc%=SMU51_Inst,PCI\VEN_10DE&DEV_0AA3&SUBSYS_2AA1103C
+%SMU51Desc%=SMU51_Inst,PCI\VEN_10DE&DEV_0753&SUBSYS_2A7A103C
+%SMU51Desc%=SMU51_Inst,PCI\VEN_10DE&DEV_0AA3&SUBSYS_2A7C103C
+%SMU51Desc%=SMU51_Inst,PCI\VEN_10DE&DEV_0753&SUBSYS_2A9E103C
+
+[SMU51_Inst]
+CopyFiles = SMU51.Files.x86_12
+
+[SMU51_Inst.Services] 
+AddService = nvsmu,0x00000002,SMU51_Service_Instx86,
+
+[SMU51_Service_Instx86] 
+ServiceType = %SERVICE_KERNEL_DRIVER% 
+StartType = %SERVICE_DEMAND_START% 
+ErrorControl = %SERVICE_ERROR_IGNORE% 
+ServiceBinary = %12%\nvsmu.sys
+
+
+[SMU51_Inst.CoInstallers]
+AddReg=Uninstall.CoInst.AddReg
+CopyFiles=Uninstall.CoInst.FileList
+ 
+[Uninstall.CoInst.AddReg]
+HKR,,CoInstallers32,0x00010000,	"NVCOSMU.DLL,NVCoInstaller"
+HKR, Uninstall, Script,      0, "nvsmu.nvu"
+HKR, Uninstall, Name,        0, "NVIDIA SMU Driver"
+HKR, Uninstall, INFSrcDir,   0, %01% 
+HKR, Uninstall, Uninstaller, 0, "nvuSMU.exe"
+
+[Uninstall.CoInst.FileList]
+NVCOSMU.DLL
+nvusmu.exe
+nvsmu.nvu
+
+[SMU51.Files.x86_12] 
+nvsmu.sys
+
+[Strings] 
+
+;  *******Localizable Strings******* 
+NV= "NVIDIA" 
+Desc_x860= "NVIDIA SMU Drivers" 
+SMU51Desc= "NVIDIA nForce System Management Controller" 
+
+;  *******Non Localizable Strings******* 
+
+SERVICE_BOOT_START = 0x0 
+SERVICE_SYSTEM_START = 0x1 
+SERVICE_AUTO_START = 0x2 
+SERVICE_DEMAND_START = 0x3 
+SERVICE_DISABLED = 0x4 
+
+SERVICE_KERNEL_DRIVER = 0x1 
+SERVICE_ERROR_IGNORE = 0x0 
+SERVICE_ERROR_NORMAL = 0x1 
+SERVICE_ERROR_SEVERE = 0x2 
+SERVICE_ERROR_CRITICAL = 0x3 
+
+REG_EXPAND_SZ = 0x00020000 
+REG_DWORD = 0x00010001 

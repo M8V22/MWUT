@@ -34,7 +34,7 @@ DefaultDestDir  = 12
 ExcludeFromSelect = *
 
 [Manufacturer]
-%VIA%=VIA,NTx86
+%VIA%=VIA,NTAMD64
 
 [SourceDisksFiles]
 ViaHub3.sys     = 1
@@ -43,7 +43,7 @@ ViaHub3.sys     = 1
 1=%DISK_NAME%,
 
 ; For XP and later
-[VIA.NTx86]
+[VIA.NTAMD64]
 ; DisplayName      Section      DeviceId
 ; -----------      -------      --------
 %VUSB3\ROOT_HUB30.DeviceDesc% = VUSB3HUB, USB\VIA_ROOT_HUB

@@ -1,0 +1,32 @@
+UninstallService nvpmu
+UninstallService nvsmu
+
+Del {sysdir}\nvcopmu.dll
+
+if {LeaveDriverStoreCache}=No then RemoveDevice pci,VEN_10DE&DEV_0271,System
+if {LeaveDriverStoreCache}=No then RemoveDevice pci,VEN_10DE&DEV_036B,System
+if {LeaveDriverStoreCache}=No then RemoveDevice pci,VEN_10DE&DEV_8353,System
+if {LeaveDriverStoreCache}=No then RemoveDevice pci,VEN_10DE&DEV_03F4,System
+if {LeaveDriverStoreCache}=No then RemoveDevice pci,VEN_10DE&DEV_0447,System
+if {LeaveDriverStoreCache}=No then RemoveDevice pci,VEN_10DE&DEV_0543,System
+if {LeaveDriverStoreCache}=No then RemoveDevice pci,VEN_10DE&DEV_0753,System
+if {LeaveDriverStoreCache}=No then RemoveDevice pci,VEN_10DE&DEV_07DA,System
+if {LeaveDriverStoreCache}=No then RemoveDevice pci,VEN_10DE&DEV_0AA3,System
+if {LeaveDriverStoreCache}=No then RemoveDevice pci,VEN_10DE&DEV_0BBC,System
+if {LeaveDriverStoreCache}=No then RemoveDevice pci,VEN_10DE&DEV_0C56,System
+if {LeaveDriverStoreCache}=No then RemoveDevice pci,VEN_10DE&DEV_0C96,System
+
+if {LeaveDriverStoreCache}=No then DelOemInfs nv*,Version,Provider,%NV%,Version,CatalogFile,nvpmu.cat
+if {LeaveDriverStoreCache}=No then DelOemInfs nv*,Version,Provider,%NV%,Version,CatalogFile,nvsmu.cat
+
+
+Del {windir}\INF\pmuc.inf
+Del {sysdir}\Drivers\nvpmu.sys
+Del {windir}\INF\smuc64.inf
+Del {sysdir}\Drivers\nvsmu.sys
+
+set DelCmd=delbootquiet
+if {LeaveDriverStoreCache}=No then set DelCmd=delboot
+{DelCmd} {sysdir}\nvcosmu.dll
+
+

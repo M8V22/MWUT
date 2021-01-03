@@ -1,0 +1,103 @@
+[version]
+signature="$Windows NT$"
+Class=CypressUsbConsoleWindowsDriver
+ClassGuid={FFEC7336-10CD-41cf-BF82-5EEF9AAA1B64}
+Provider=%Cypress%
+catalogfile=CypressUsbAndBus.cat
+DriverVer=03/01/2013,3.0.12.12
+
+[SourceDisksNames]
+1=%Cypress.Disk%,,,
+
+[ControlFlags]
+
+[SourceDisksFiles]
+CypressUsbConsoleWindowsDriver64.sys=1
+CypressUsbConsoleCoInstaller64.dll=1
+
+[DestinationDirs]
+DefaultDestDir=12
+CoInstaller_CopyFiles_64 = 11 ; System Dir( system32 on NT )
+
+[Manufacturer]
+%Cypress%=Cypress,NTamd64
+
+[Cypress.NTamd64]
+%CypressBus% = CypressBus.NTamd64, root\CypressBus
+%CypressUsb% = CypressUsb.NTamd64, USB\VID_04B4&PID_0008
+%CypressUsbSerial% = CypressUsb.NTamd64, USB\VID_04B4&PID_0005
+%CypressUsbSerial% = CypressUsb.NTamd64, USB\VID_04B4&PID_0003
+
+;****************** Class Sections *********************************
+[ClassInstall32]
+
+; **************** CypressBus section - virtual bus driver **************
+
+[CypressBus.NTamd64]
+;CopyFiles = CopyFileSection
+AddReg = CypressBusAddReg
+
+[CypressBusAddReg]
+
+[CypressBus.NTamd64.Services]
+AddService = CypressSerial, 0x00000002, CypressSerial_Service_Inst_64
+
+[CypressSerial_Service_Inst_64]
+DisplayName = %CypressPort%
+ServiceType = 1
+StartType = 3
+ErrorControl = 0
+ServiceBinary = %12%\CypressUsbConsoleWindowsDriver64.sys
+AddReg = CypressBusAddReg_Service
+
+[CypressBusAddReg_Service]
+; InitialNumComPorts is the number of virtual COM ports that should be created when the driver is loaded for the first time.
+; After that this value is erased to 0, so that no more additional ports will be added when the driver restarted (for example during system reboot).
+; After that there are two ways to add more ports:
+; 1. Plug more Cypress USB devices than there are COM ports. Additional COM  ports will be added autoatically.
+; 2. Manually edit InitialNumComPorts value in the registry (at HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\CypressSerial), then restart the driver.
+; To remove unneeded ports, launch Device Manager from the Control Panel, select the COM port (under Ports), right click and select Uninstall.
+HKR,,InitialNumComPorts,0x00010001,0
+
+; **************** CypressUsb section - USB driver **************
+[CypressUsb.NTamd64]
+CopyFiles=CypressUsb.NTamd64.Copy
+AddReg=CypressUsb.NTamd64.AddReg
+
+[CypressUsb.NTamd64.Copy]
+CypressUsbConsoleWindowsDriver64.sys
+
+[CypressUsb.NTamd64.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,CypressUsbConsoleWindowsDriver64.sys
+
+[CypressUsb.NTamd64.Services]
+AddService = CypressSerial, 0x00000002, Serial_Service_Inst_64
+
+[Serial_Service_Inst_64]
+DisplayName    = %CypressPort%
+ServiceType    = 1            
+StartType      = 3            
+ErrorControl   = 0            
+ServiceBinary  = %12%\CypressUsbConsoleWindowsDriver64.sys ; %12% == %windir%\system32\drivers
+;LoadOrderGroup = Base
+
+;-------------- Coinstaller installation
+
+[CypressUsb.NTamd64.CoInstallers]
+AddReg=CoInstaller_AddReg_64
+CopyFiles=CoInstaller_CopyFiles_64
+
+[CoInstaller_CopyFiles_64]
+CypressUsbConsoleCoInstaller64.dll
+
+[CoInstaller_AddReg_64]
+HKR,,CoInstallers32,0x00010000,"CypressUsbConsoleCoInstaller64.dll,CypressUsbConsoleWindowsDriverCoInstaller"
+
+[Strings]
+Cypress = "Cypress"
+Cypress.Disk="Cypress Disk"
+CypressUsb = "Cypress USB to UART adapter"
+CypressUsbSerial = "Cypress USB to SERIAL adapter"
+CypressPort = "CypressPort"
+CypressBus = "Cypress Bus enumerator"

@@ -1,0 +1,297 @@
+############################Release Notes#################################
+
+(c) Copyright 2009-2019 Advanced Micro Devices, Inc.  All rights reserved.  
+
+LIMITATION OF LIABILITY:  THE MATERIALS ARE PROVIDED AS IS WITHOUT ANY EXPRESS OR
+IMPLIED WARRANTY OF ANY KIND INCLUDING WARRANTIES OF MERCHANTABILITY, 
+NONINFRINGEMENT OF THIRD-PARTY INTELLECTUAL PROPERTY, OR FITNESS FOR ANY PARTICULAR
+PURPOSE. IN NO EVENT SHALL AMD OR ITS SUPPLIERS BE LIABLE FOR ANY DAMAGES 
+WHATSOEVER (INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF PROFITS, BUSINESS
+INTERRUPTION, LOSS OF INFORMATION) ARISING OUT OF THE USE OF OR INABILITY TO USE
+THE MATERIALS, EVEN IF AMD HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+BECAUSE SOME JURISDICTIONS PROHIBIT THE EXCLUSION OR LIMITATION OF LIABILITY FOR
+CONSEQUENTIAL OR INCIDENTAL DAMAGES, THE ABOVE LIMITATION MAY NOT APPLY TO YOU.
+AMD does not assume any responsibility for any errors which may appear in the 
+Materials nor any responsibility to support or update the Materials.  AMD
+retains the right to make changes to its test specifications at any time, 
+without notice.  NO SUPPORT OBLIGATION: AMD is not obligated to furnish, support, 
+or make any further information, software, technical information, know-how, or 
+show-how available to you.
+U.S. GOVERNMENT RESTRICTED RIGHTS: The Materials and documentation are provided 
+with RESTRICTED RIGHTS.  Use, duplication or disclosure by the Government is 
+subject to restrictions as set forth in FAR52.227014 and DFAR252.227-7013, et
+seq., or its successor.  Use of the Materials by the Government constitutes
+acknowledgment of AMD’s proprietary rights in them.
+
+
+===========================================================================
+                                                                         
+            AMD USB 3.0 drivers for Hudson-3/Bolton/Avalon/KernCZ family chipsets            
+                         Version 1.1.0.0276                               
+                      Release date 12/04/2018
+
+ Contents
+
+  1  Introduction
+  2  System Requirements
+  3  Supported Operating Systems
+  4  Included Files
+  5  Installing And Uninstalling Instructions For The Driver
+  6  Troubleshooting
+  7  Revision History
+
+===========================================================================
+
+
+1. Introduction
+===============
+
+The driver package includes drivers for AMD USB 3.0 xHC host controller and hubs 
+that attach to the host controller. The drivers are for Hudson-3 family chipsets.
+
+
+2. System Requirements
+======================
+
+Ensure that you are using a supported operating system and have the required files.
+
+
+3. Supported Operating Systems
+==============================
+
+Win7, 32-bit and 64-bit.
+
+
+4. Included Files
+=================
+
+amdxhc.inf        Installation script for xHC host controller
+amdxhc.cat        Signature file
+amdhub30.inf      Installation script for attached hub devices
+amdhub30.cat      Signature file
+x86\amdxhc.sys    32-bit driver file for xHC host controller
+x86\amdhub30.sys  32-bit driver file for attached hub devices
+x64\amdxhc.sys    64-bit driver file for xHC host controller
+x64\amdhub30.sys  64-bit driver file for attached hub devices
+
+
+5. Installing And Uninstalling Instructions For The Driver
+==========================================================
+
+To install, in Windows Device Manager, right click target device and select 
+"Install Driver..." or "Update Driver...".
+
+To uninstall, in Windows Device Manager, right click target device and select
+"Uninstall".
+
+
+6. Troubleshooting
+==================
+
+If you encounter any problems, uninstall the driver and reboot the computer.
+
+
+7. Revision History
+===================
+Version 1.1.0.0210 (2016/10/19)
+	Fixed : Intermittent BSOD during ACPI in Win7x64 with BCCode D1
+	
+Version 1.1.0.0207 (12/09/2015)
+	Fixed : Hub driver to guarantee the Idle IRP cancel and callback routine sequence follows MSDN
+
+Version 1.1.0.0185 (06/01/2015)
+	Fixed :  EpHalted Issue with USB 3.0 Camera
+	
+Version 1.1.0.0167 (01/21/2015)
+	Fixed :[Win7]Ramos AR BSOD 0x9F
+	Fixed :[CZ] usb3.0 port lost device when running S4 on the Win7-32bit
+	Fixed :  Audio goes off while system resume from S3 on W7 OS
+	Add xHC device id for  the new chipset support
+	
+Version 1.1.0.0153 (10/29/2013)
+    Fix BUG: USB3.0/2.0 Hub connected to xHCI port will show in "Device and Printer" as unspecified device.
+    Fix OBS: USB service Interval(>4ms) does not supported. Make a WA for this issue.
+    Fix BUG: server build does not contain temporary signature.
+    Refine: Restrict workarounds, instead of all upcoming all A0 chipset. 
+
+Version 1.1.0.0145 (03/12/2013)
+    Fixed BUG :Copy right date of sys file needs to be updated to 2013
+    Fixed BUG :customer device can not enumerate after S4 resume 
+    Fixed OBS :enumeration failure - ¡°error message device not recognized¡± 
+    
+Version 1.1.0.0140 (11/28/2012)
+    Fixed BUG :Duplicate "string" section in amdhub30.inf file for client os. 
+    Fixed BUG :BSODx7E after uninstall of XHC Driver and unplug USB-KB con. to XHCport
+    Fixed OBS :Devices not entering U states in Win7 x64.
+    Fixed BUG :BSOD E6 while doing xHCI backwards compatibility test.
+    Merge Version.
+    Fixed BUG :BSOD D1 with Realtek webcam connected behind external USB 3.0 Hub
+    Fixed BUG :Unable to load xHC server driver during server OS installation. 
+    Fixed BUG :System cannot resume when placed into S3 during mouse quickly clicking.  
+
+Version 1.1.0.0128 (08/16/2012)
+    fix BUG:BSOD 0xD5 intermittently when hot unplug and plug in compatibility test.
+    fix OBS:some USB3 device Dissappears after Disable / Enable from DeviceManager
+    Fix OBS:Headset no function issue
+    HW workaround for S3/S4 remote wakeup. 
+
+Version 1.1.0.0118 (07/6/2012)
+
+    Support added for new Device ID:7814
+    Fixed the overflow BSOD of USB-IF Logo Test.
+    Fixed the BSOD 0x7F by refine the TBC/TLBC feature.
+    Refine the USB2.0 HW LPM feature.
+    Fixed the BSOD 0x9F
+    Replace calling the root hub pdo with the next hub pdo make USB filter driver track IRP easliy.
+    Fixed the bug that driver may issue a Set Feature (DEVICE_REMOTE_WAKEUP) request even though system transitions to a power state which does not support remote wake.
+    Fixed the bug that video capture/stop test fails with USB 2.0 camera.
+    Fixed the bug that BSOD may occur when moving USB 3.0 Dynadock from xHCI port to EHCI port.
+    Fixed the bug that BSOD may occur upon device detach/re-attach with Driver Verifier Low Resource Simulation option.
+    Fixed the bug that hub is reset and re-enumerated upon resume from selective suspend.
+    Fixed the bug that BSOD may occur during Stress Test of Plug and Play Driver Test.
+    Fixed the bug BSOD may occur when connecting a wireless USB dongle.
+
+Version 1.1.0.0090 (04/20/2012)
+
+    Add/merge xHCI1.0 features base on revision 11750(build 1.0.0.0080) 
+    Update driver version from 1.0.x.xxxx to 1.1.x.xxxx
+    Replace with AMD VID&PID in port/port_pnp.c
+
+
+Version 1.0.0.0080 (03/29/2012)
+
+    Implemented workarounds for the following issues:
+        Some full-speed device may be detected as low-speed after remote wake.
+        Some USB 3.0 hub has an issue that downstream port transitions to SS.Inactive when putting it to U3.
+        Some USB 3.0 hub transitions its downstream ports to SS.Disabled by itself.
+        Some application does not work with Android smartphone.
+        System freeze after active detach of some audio devices.
+        Some device disappears after disabling it via device manager.
+        Keyboard with embedded hub cannot be enumerated.
+    Fixed the following bugs:
+        Some function driver specifies incorrect StartFrame for Isoch transfers.
+        System freeze occurs upon active detach of Creative sound blaster X-Fi surround 5.1.
+        BSOD may occur when over current is detected.
+        Driver was returning incorrect bandwidth information for SS and HS periodic endpoints. 
+        xHCI driver issues an Address Device Command with an incorrect speed value even though different speed is detected after the second port reset from the original speed detected after the first port reset.
+        When wake event is received from device before suspending the host controller, the driver may halt the host controller and transition it to D3 while root hub port is in U0.
+        External SS hub may not be re-enumerated after suspend/resume in some condition, i.e. new connection was established but C_PORT_CONNECTION is not notified.
+        Device's operation mode is not initialized to the default value specified by registry parameter "DefaultOpMode".
+        Bit 0 of device's operation mode was effective even in the case of resume from selective suspend.
+        Hub driver's operation mode bit 0x8 does not work correctly with SuperSpeed device.
+        Occasional BSOD in select interface operation.
+
+
+Version 1.0.0.0072 (01/03/2012)
+
+    Implemented workarounds for the following issues:
+        Some full-speed device cannot be enumerated.
+        ASMedia device removed and reenumerated after suspend/resume.
+    Fixed the following bugs:
+        USB to DVI device cannot be detected after S4 resume.
+        Audio 8 DJ not removed upon detach.
+        BSOD in WLK CommonScenarioWithIO test with external hub connected.
+        Remote wake from hybrid sleep does not work with wireless mouse.
+        BSOD when SuperSpeed device returns invalid descriptor set.
+        Potential problem that transfer may not be executed after adding transfer ring segment.
+        Max Exit Latency is set to larger of U1 exit latency and U2 exit latency even though both U1 and U2 are disabled.
+        Isochronous transfers do not work after one transfer fails due to invalid start frame.
+
+
+Version 1.0.0.0066 (10/25/2011)
+
+    Modified log messages of hub driver.
+    Modified the hub driver to start enumeration even when the link is in U1 or U2.
+    Modified the hub driver to always use the U1/U2 timeout value if it is explicitly specified by registry parameter.
+    Modified the hub driver so that FDO forwards a URB to underlying PDO.
+    Changed handling of host system error in the xHCI driver.
+    Fixed the following bugs:
+        iPad is not detected by iTunes after suspend and resume.
+        BSOD upon shutdown with BT module connected.
+        File transfer does not complete to BT device.
+        USB 3.0 storage is not detected after resume if it is moved from xHCI port to EHCI port during suspend.
+        MSD cannot be operating after suspend and resume in gold trees of multi-host environment.
+        USB to DVI device cannot be detected after S4 resume.
+        U2 is not enabled when U2 system exit latency is too small.
+        BSOD upon detach and attach of USB 3.0 hub with USB flash drive attached.
+
+
+Version 1.0.0.0063 (10/10/2011)
+
+    Fixed an issue that Full-speed device may not be enumerated after suspend/resume.
+    Fixed an issue that Device results in code 47 after suspend/resume if safe removal is applied to the device before suspend and another device is attached to that port during suspend.
+    Fixed Unexpected U1 timeout value.
+    Fixed an issue that SS hub selective suspend does not work after suspend/resume.
+    fixed an issue that some system cannot suspend with external hub connected on Windows XP.
+    Enabled selective suspend function for root hub.
+
+
+Version 1.0.0.0060 (07/15/2011)
+
+    Fixed an issue with ISO devices caused by improper Frame ID limitation.
+    Fixed a BSOD during installing Catalyst package.
+
+
+Version 1.0.0.0055 (05/23/2011)
+
+    Modified the Extended USB Driver Interface for SuperSpeed Bulk transfers.
+    Modified enumeration procedures.
+    Dynamically update U1/U2 settings without re-connecting devices when it is enabled or disabled via the Host Controller Utility Program.
+    Performance enhancement and code optimization.
+    Implemented dynamic Transfer Ring size reduction (disabled by default).
+    Implemented Root Hub and Host Controller?s selective suspend function (disabled by default).
+    Implementation change based on the behavior of Windows 7 USB stack.
+    Fixed the following bugs:
+        Unnecessary icon is displayed in Devices and Printers.
+        PnP driver test program ?Test Rebalance? ¨C ?Fail Restart? sometimes fails.
+        BlackBerry device cannot be enumerated.
+        BSOD during WLK 1.6 CHAOStest.
+        Customer?s application does not work correctly.
+        Device tree may not be enumerated if it is detached and re-attached quickly.
+        Device with serial number is detected as another device without serial number if it is detached and attached to another port during system suspend.
+        BT file transfer issue.
+        BSOD caused by memory corruption with low system resource condition.
+
+
+Version 1.0.0.0053 (03/28/2011)
+
+    Modified the Host Controller Driver to fail the IRP_MN_START_DEVICE request if it fails to read some registers.
+    Added an optional feature to make the Host Controller Driver always to reset the hardware upon resume regardless of the result of restore operation.
+    Fixed the following bugs:
+        Windows recovery operation fails from external USB 3.0 hard disk drive.
+        BSOD occurred in the HID class driver when processing a URB asynchronously completed by Hub Driver?s system thread after the device is disconnected.
+        Resume operation does not complete when docking station (including USB 3.0 host controller) is detached during system suspend with ISDN-USB device connected.
+
+
+Version 1.0.0.0052 (03/17/2011)
+
+    Added support for MOD(Microsoft OS Descriptors).
+
+
+Version 1.0.0.0048 (01/07/2011)
+
+    Changed interrupter mapping to share the same interrupter for Bulk and Interrupt transfers.
+    Changed Interrupt Moderation Interval for SuperSpeed Bulk transfers to 0x30.
+    Disable SMI
+    Issue warm reset instead of host reset when re-enumerating the device after enumeration failure.
+    Inserted some delay before considering the device has been disconnected upon system resume.
+    Supported IRP_MN_QUERY_DEVICE_TEXT with type DeviceTextLocationInformation.
+    Added a per-device registry parameter DisableSSLinkPM.
+    Fixed the following bugs:
+        Winstar Ethernet Controller stops working after S4 resume.
+        Remote wake capable device may not be removed if it is detached during suspend and another device is connected to the same port.
+        Resume process does not complete when a device is detached during suspend.
+        Host does not send PING TP when performing Isochronous transfer.
+        BSOD while repeating hybrid sleep and resume operations.
+        BSOD due to URB access after setting the event object to notify URB completion. Fixed by setting the event object after finishing all the URB access.
+        BSOD when attaching TD-SCDMA RX-310.
+        BSOD when the host controller is removed immediately after it is started.
+        Transfer not resumed after transfer cancel when multiple transfer requests are overlapped.
+        Media player may freeze on active detach of Express Card.
+        IR transceiver enumeration failure.
+        Media center does not work with Microsoft IR device.
+        SuperSpeed port may not transition to U0 upon system resume.
+        BSOD occurs when xHC has more than or equal to 8 ports.
+        Different function value returned when completing abort pipe URB.
+
+

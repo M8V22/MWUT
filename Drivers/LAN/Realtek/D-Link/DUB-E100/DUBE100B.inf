@@ -3,7 +3,7 @@
 ;
 ; Copyright 2003-2007, D-Link Corporation
 ;
-; Version: 3.8.3.6	for windows vista
+; Version: 3.10.3.6	for windows vista
 ;******************************************************************
 [Version]
 Signature  = "$Windows NT$"
@@ -11,16 +11,16 @@ CatalogFile = DUBE100Bex.cat
 Class      = Net
 ClassGUID  = {4d36e972-e325-11ce-bfc1-08002be10318}
 Provider   = %USB%
-DriverVer = 04/04/2007, 3.8.3.6
+DriverVer = 04/04/2007, 3.10.3.6
 
 [Manufacturer]
-%USB%   = USB
+%USB%   = USB, NTamd64
 
 [ControlFlags]
 ExcludeFromSelect = USB\VID_07D1&PID_3C05
 ExcludeFromSelect = USB\VID_2001&PID_3C05
 
-[USB]
+[USB.NTamd64]
 %DUBE100B_1.DeviceDesc% = DUBE100B.Ndi,USB\VID_07D1&PID_3C05
 %DUBE100B_2.DeviceDesc% = DUBE100B.Ndi,USB\VID_2001&PID_3C05
 

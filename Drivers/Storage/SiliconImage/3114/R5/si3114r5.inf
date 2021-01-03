@@ -1,8 +1,8 @@
 ; This INF file installs the Silicon Image Serial ATA Raid 5 driver
-; for the SiI 3114 controller on systems running Windows 2000/XP
-; Windows Server 2003, and Windows Vista.
+; for the SiI 3114 controller on systems using the AMD 64-bit
+; processor.
 ;
-; Copyright (C) 2008 by Silicon Image, Inc.
+; Copyright (C) 2006 by Silicon Image, Inc.
 ; All rights reserved
 
 [Version]
@@ -13,10 +13,10 @@ Provider=%SI%
 CatalogFile=Si3114r5.cat
 DriverVer=04/21/2009, 1.5.20.3
 
-[SourceDisksNames]
-1=%DISKNAME%,Si3114r5.sys,,
+[SourceDisksNames.amd64]
+1=%DISKNAME%,Si3114r5.inf,\amd64,
 
-[SourceDisksFiles]
+[SourceDisksFiles.amd64]
 Si3114r5.sys = 1
 SilSupp.dll  = 1
 SiWinAcc.sys = 1
@@ -26,10 +26,7 @@ SiRemFil.sys = 1
 DefaultDestDir	= 12
 DllFiles		= 11
 
-[DriverFiles_NT_2K]
-Si3114r5.sys,,,0x20
-
-[DriverFiles_XP]
+[DriverFiles]
 Si3114r5.sys,,,0x20
 SiWinAcc.sys,,,0x20
 SiRemFil.sys,,,0x20
@@ -38,34 +35,9 @@ SiRemFil.sys,,,0x20
 SilSupp.dll,,,0x20
 
 [Manufacturer]
-%SI%=SI_HDC,NTx86.5.1
+%SI%=SI_HDC,NTamd64
 
-[SI_HDC]
-%PCI\VEN_1095&DEV_3114.DeviceDesc%=SI_3114, PCI\VEN_1095&DEV_3114&SUBSYS_71141095
-%PCI\VEN_1095&DEV_3114.DeviceDesc%=SI_3114, PCI\VEN_1095&DEV_3114&SUBSYS_71148086
-%PCI\VEN_1095&DEV_3114.DeviceDesc%=SI_3114, PCI\VEN_1095&DEV_3114&SUBSYS_81361043
-%PCI\VEN_1095&DEV_3114.DeviceDesc%=SI_3114, PCI\VEN_1095&DEV_3114&SUBSYS_81671043
-%PCI\VEN_1095&DEV_3114.DeviceDesc%=SI_3114, PCI\VEN_1095&DEV_3114&SUBSYS_902A1695
-%PCI\VEN_1095&DEV_3114.DeviceDesc%=SI_3114, PCI\VEN_1095&DEV_3114&SUBSYS_310215BD
-%PCI\VEN_1095&DEV_3114.DeviceDesc%=SI_3114, PCI\VEN_1095&DEV_3114&SUBSYS_052FA0A0
-%PCI\VEN_1095&DEV_3114.DeviceDesc%=SI_3114, PCI\VEN_1095&DEV_3114&SUBSYS_104A147B
-%PCI\VEN_1095&DEV_3114.DeviceDesc%=SI_3114, PCI\VEN_1095&DEV_3114&SUBSYS_104B147B
-%PCI\VEN_1095&DEV_3114.DeviceDesc%=SI_3114, PCI\VEN_1095&DEV_3114&SUBSYS_B0041458
-%PCI\VEN_1095&DEV_3114.DeviceDesc%=SI_3114, PCI\VEN_1095&DEV_3114&SUBSYS_71001462
-%PCI\VEN_1095&DEV_3114.DeviceDesc%=SI_3114, PCI\VEN_1095&DEV_3114&SUBSYS_71251462
-%PCI\VEN_1095&DEV_3114.DeviceDesc%=SI_3114, PCI\VEN_1095&DEV_3114&SUBSYS_72291462
-%PCI\VEN_1095&DEV_3114.DeviceDesc%=SI_3114, PCI\VEN_1095&DEV_3114&SUBSYS_471015D5
-%PCI\VEN_1095&DEV_3114.DeviceDesc%=SI_3114, PCI\VEN_1095&DEV_3114&SUBSYS_0C25105B
-%PCI\VEN_1095&DEV_3114.DeviceDesc%=SI_3114, PCI\VEN_1095&DEV_3114&SUBSYS_0CC1105B
-%PCI\VEN_1095&DEV_3114.DeviceDesc%=SI_3114, PCI\VEN_1095&DEV_3114&SUBSYS_0CCA105B
-%PCI\VEN_1095&DEV_3114.DeviceDesc%=SI_3114, PCI\VEN_1095&DEV_3114&SUBSYS_0CCB105B
-%PCI\VEN_1095&DEV_3114.DeviceDesc%=SI_3114, PCI\VEN_1095&DEV_3114&SUBSYS_0CCC105B
-%PCI\VEN_1095&DEV_3114.DeviceDesc%=SI_3114, PCI\VEN_1095&DEV_3114&SUBSYS_0CCD105B
-%PCI\VEN_1095&DEV_3114.DeviceDesc%=SI_3114, PCI\VEN_1095&DEV_3114&SUBSYS_0CCE105B
-%PCI\VEN_1095&DEV_3114.DeviceDesc%=SI_3114, PCI\VEN_1095&DEV_3114&SUBSYS_0CCF105B
-%PCI\VEN_1095&DEV_3114.DeviceDesc%=SI_3114, PCI\VEN_1095&DEV_3114&SUBSYS_71141458
-
-[SI_HDC.NTx86.5.1]
+[SI_HDC.NTamd64]
 %PCI\VEN_1095&DEV_3114.DeviceDesc%=SI_3114_XP, PCI\VEN_1095&DEV_3114&SUBSYS_71141095
 %PCI\VEN_1095&DEV_3114.DeviceDesc%=SI_3114_XP, PCI\VEN_1095&DEV_3114&SUBSYS_71148086
 %PCI\VEN_1095&DEV_3114.DeviceDesc%=SI_3114_XP, PCI\VEN_1095&DEV_3114&SUBSYS_81361043
@@ -90,43 +62,34 @@ SilSupp.dll,,,0x20
 %PCI\VEN_1095&DEV_3114.DeviceDesc%=SI_3114_XP, PCI\VEN_1095&DEV_3114&SUBSYS_0CCF105B
 %PCI\VEN_1095&DEV_3114.DeviceDesc%=SI_3114_XP, PCI\VEN_1095&DEV_3114&SUBSYS_71141458
 
-;; Windows NT4.0 and Windows 2000 install sections
+[ControlFlags]
+ExcludeFromSelect.ntx86=*
+
 ;;
-[SI_3114.NTX86]
-Copyfiles=DriverFiles_NT_2K, DllFiles
-CopyInf=sippd.inf
-
-[SI_3114.NTX86.Services]
-AddService=Si3114r5,0x00000002,SI_3114_Service_Install, Miniport_EventLog_Inst
-
-[SI_3114.NTX86.CoInstallers]
-Copyfiles=DllFiles
-AddReg = SI_3114_CoInstall_AddReg
-
-[SI_3114.NTX86.HW]
-AddReg = ShutdownNotify_AddReg
-
-;; Windows XP install sections
+;; Driver install sections
 ;;
-[SI_3114_XP]
-Copyfiles=DriverFiles_XP, DllFiles
+[SI_3114_XP.NTamd64]
+Copyfiles=DriverFiles, DllFiles
 CopyINF=sippd.inf
 
-[SI_3114_XP.Services]
+[SI_3114_XP.NTamd64.Services]
 AddService=Si3114r5,0x00000002,SI_3114_Service_Install, Miniport_EventLog_Inst
 AddService=SiFilter,0x00000000,FilterService_Install
 AddService=SiRemFil, 0, RemovableDevFilter_Install
 
-[SI_3114_XP.CoInstallers]
+[SI_3114_XP.NTamd64.CoInstallers]
 Copyfiles=DllFiles
 AddReg = SI_3114_CoInstall_AddReg
+
+[SI_3114_XP.NTamd64.HW]
+HKR, ScsiPort, NeedsSystemShutdownNotification, 0x00010001, 1
 
 [SI_3114_CoInstall_AddReg]
 HKR,,CoInstallers32,0x00010000,"SilSupp.dll, CoInstHandler"
 
 ; This will assure the Class driver sends down a Sync Cache before writting the
 ; hibernation file.
-[SI_3114_XP.HW]
+[SI_3114_XP.NTamd64.HW]
 AddReg=SI_3114_AddHackMask.AddReg
 AddReg = ShutdownNotify_AddReg
 
@@ -182,6 +145,7 @@ HKR,Parameters\Device,NumberOfRequests,0x00010001, 124
 [BusType_AddReg]
 HKR, Parameters, BusType, 0x00010001, 8
 
+
 ; Ensure controller is shutdown properly
 [ShutdownNotify_AddReg]
 HKR, ScsiPort, NeedsSystemShutdownNotification, 0x00010001, 1
@@ -197,10 +161,8 @@ HKR,ProblemDevices, %ProblemDev4Name%, 0, %ProblemDev4Value%
 HKR,ProblemDevices, %ProblemDev5Name%, 0, %ProblemDev5Value%
 HKR,ProblemDevices, %ProblemDev6Name%, 0, %ProblemDev6Value%
 HKR,ProblemDevices, %ProblemDev7Name%, 0, %ProblemDev7Value%
-HKR,ProblemDevices, %ProblemDev8Name%, 0, %ProblemDev8Value%
 
-; List of controller subsystem IDs to be supported by the Si3114r5.sys driver on
-; NT/Win2K/XP systems.
+; List of controller subsystem IDs to be supported by the Si3114r5.sys driver
 [SupportedSubSystemIds_AddReg]
 HKR,SupportedSubsystemIDs,%PCI\VEN_1095&DEV_3114.DeviceDesc%,0x00010001, 0x71141095
 HKR,SupportedSubsystemIDs,"%PCI\VEN_1095&DEV_3114.DeviceDesc% (Intel 8086)",0x00010001, 0x71148086
@@ -266,6 +228,3 @@ ProblemDev6Value="DisableSataQueueing"
 
 ProblemDev7Name="HTS541080G9SA00                         MB4OC60D"
 ProblemDev7Value="DisableSataQueueing"
-
-ProblemDev8Name="HTS541010G9SA00                         MBZOC60D"
-ProblemDev8Value="DisableSataQueueing"

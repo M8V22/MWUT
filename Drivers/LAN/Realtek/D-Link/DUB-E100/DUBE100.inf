@@ -3,7 +3,7 @@
 ;
 ; Copyright 2003-2009, D-Link Corporation
 ;
-; Version: 3.12.3.2	for windows 7
+; Version: 3.14.3.2	for windows 7 64-bit
 ;****************************************************************
 [Version]
 Signature  = "$Windows NT$"
@@ -11,10 +11,10 @@ CatalogFile = DUBE100.cat
 Class      = Net
 ClassGUID  = {4d36e972-e325-11ce-bfc1-08002be10318}
 Provider   = %DLINK%
-DriverVer = 07/20/2009, 3.12.3.2
+DriverVer = 06/10/2009, 3.14.3.2
 
 [Manufacturer]
-%DLINK%   = USB
+%DLINK%   = USB, NTamd64
 
 [ControlFlags]
 ExcludeFromSelect = USB\VID_2001&PID_3C05, USB\VID_07D1&PID_3C05
@@ -22,7 +22,12 @@ ExcludeFromSelect = USB\VID_2001&PID_3C05, USB\VID_07D1&PID_3C05
 
 
 
-[USB]
+
+
+
+
+
+[USB.NTamd64]
 %DUBE100.DeviceDesc% = DUBE100.Ndi,USB\VID_2001&PID_3C05
 %DUBE1002.DeviceDesc% = DUBE100.Ndi,USB\VID_07D1&PID_3C05
 
@@ -38,6 +43,19 @@ CopyFiles       = CopyFile.Sys
 
 [DUBE100.Ndi.Services]
 AddService = DUBE100, 2, DUBE100.Service, Common.EventLog
+
+
+
+
+
+
+
+
+
+
+
+
+
 ;****************************************************************
 ; Driver parameters
 ;****************************************************************
@@ -88,6 +106,74 @@ HKR,Ndi\params\QosTag\enum,0,,%Disable%
 HKR,Ndi\params\QosTag\enum,1,,%Enable%
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ;****************************************************************
 ; Install section for Windows NT 5
 ;****************************************************************
@@ -123,9 +209,10 @@ DUBE100.sys,,,2
 [DUBE100.Ndi.CoInstallers]
 AddReg=DUBE100.CoInstaller.AddReg
 CopyFiles=DUBE100.CoInstaller.CopyFiles
-[DUBE100.Ndi.CoInstallers]
-AddReg=DUBE100.CoInstaller.AddReg
-CopyFiles=DUBE100.CoInstaller.CopyFiles
+
+
+
+
 
 [DUBE100.CoInstaller.AddReg]
 HKR,,CoInstallers32,0x00010000, "WdfCoInstaller01009.dll,WdfCoInstaller"
@@ -135,6 +222,9 @@ WdfCoInstaller01009.dll
 
 [DUBE100.Ndi.Wdf]
 KmdfService = DUBE100, DUBE100.wdfsect
+
+
+
 
 [DUBE100.wdfsect]
 KmdfLibraryVersion = 1.9
@@ -162,6 +252,10 @@ DUBE100.DiskName = "D-Link DUB-E100 Driver Diskette"
 DUBE100.DeviceDesc = "D-Link DUB-E100 USB 2.0 to Fast Ethernet Adapter"
 DUBE1002.DeviceDesc = "D-Link DUB-E100 USB 2.0 to Fast Ethernet Adapter"
 
+
+
+
+
 ConnectionType         = "Connection Type"
 AutoSense              = "AutoSense"
 10Half                 = "10BaseT Half_Duplex"
@@ -178,5 +272,11 @@ AllEnable              = "Rx & Tx Enable"
 WakeUp                 = "Wake Up"
 LinkUp                 = "Link Up"
 MagicPacket            = "Magic Packet"
+
+
+
+
+
 Both                   = "Both"
 QoSTagging             = "QoS Packet Tagging"
+

@@ -25,13 +25,13 @@ DefaultDestDir = 12
 [SourceDisksNames]
 1 = %DiskId1%
 
-[SourceDisksFiles.x86]
+[SourceDisksFiles.amd64]
 amdi2c.sys = 1,
 
 [Manufacturer]
-%AMD%=AMD,NTx86.6.1
+%AMD%=AMD,NTamd64.6.1
 
-[AMD.NTx86.6.1]
+[AMD.NTamd64.6.1]
 %amdi2c.DeviceDesc%=amdi2c_Device, ACPI\AMD0010
 
 [amdi2c_Device.NT]

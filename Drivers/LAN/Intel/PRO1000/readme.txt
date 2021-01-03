@@ -1,5 +1,6 @@
 The driver package files in this folder can be used to install drivers for Intel(R) Ethernet Gigabit Adapters and Connections on the following Operating Systems:
-  *  Microsoft* Windows* 7 (32-bit)
+  *  Microsoft* Windows* 7 (x64 Edition)
+  *  Microsoft Windows Server* 2008 R2 (x64 Edition)
 
 NDIS 6.2 introduced new RSS data structures and interfaces. Because of this, you cannot enable RSS on teams that contain a mix of adapters that support NDIS 6.2 RSS and adapters that do not. The e1e6232 driver does not support NDIS 6.2 RSS. If you team one of these devices with a device supported by another driver, the operating system will warn you about the RSS incompatibility. This applies to the following devices:
   *  Intel(R) PRO/1000 EB and EB1 Network Connections

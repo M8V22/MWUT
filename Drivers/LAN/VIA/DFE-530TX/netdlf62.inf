@@ -18,12 +18,12 @@ Compatible  = 1
 DriverVer   = 10/12/2009, 1.12.0.1
 
 [Manufacturer]
-%Manuf%     = MANUF, NTX86
+%Manuf%     = MANUF, NTAMD64
 
 [ControlFlags]
 ExcludeFromSelect = *
 
-[MANUF.NTX86]
+[MANUF.NTAMD64]
 %VT3106SFX.DeviceDesc% = VT3106SFX.ndi, PCI\VEN_1106&DEV_3053&SUBSYS_14101186
 %VT3106DX.DeviceDesc% = VT3106J.ndi, PCI\VEN_1106&DEV_3106&SUBSYS_14081186
 %VT3106F1.DeviceDesc% = VT3106J.ndi, PCI\VEN_1106&DEV_3106&SUBSYS_14071186
@@ -39,85 +39,85 @@ ExcludeFromSelect = *
 ;-------------------------------------------------------------------------------
 ; ndi for 3106SFX D-Link
 ;-------------------------------------------------------------------------------
-[VT3106SFX.ndi.NTX86]
+[VT3106SFX.ndi.NTAMD64]
 Characteristics = 0x84 ; NCF_PHYSICAL + NCF_HAS_UI
 BusType         = 5
 DelReg          = FET.delreg
 AddReg          = VT3106S.reg, FET.reg, ConnTypeFX.reg, FlowCtrl.reg, AI.reg, Wakeup.reg, pQ.reg, ChecksumOffload.reg
-CopyFiles       = FET.CopyFiles.NTX86
+CopyFiles       = FET.CopyFiles.NTAMD64
 *IfType            = 6 ; IF_TYPE_ETHERNET_CSMACD
 *MediaType         = 0 ; NdisMedium802_3
-*PhysicalMediaType = 0 ; NdisPhysicalMedium802_3
+*PhysicalMediaType = 0 ; NdisPhysicalMediumUnspecified
 
-[VT3106SFX.ndi.NTX86.Services]
-AddService      = FETND62, 2, FET.Service, FET.EventLog
+[VT3106SFX.ndi.NTAMD64.Services]
+AddService      = FETND62, 2, FET_NTAMD64.Service, FET.EventLog
 
 ;-------------------------------------------------------------------------------
 ; ndi for 3106S D-Link
 ;-------------------------------------------------------------------------------
-[VT3106S.ndi.NTX86]
+[VT3106S.ndi.NTAMD64]
 Characteristics = 0x84 ; NCF_PHYSICAL + NCF_HAS_UI
 BusType         = 5
 DelReg          = FET.delreg
 AddReg          = VT3106S.reg, FET.reg, FlowCtrl.reg, AI.reg, Wakeup.reg, pQ.reg, ChecksumOffload.reg
-CopyFiles       = FET.CopyFiles.NTX86
+CopyFiles       = FET.CopyFiles.NTAMD64
 *IfType            = 6 ; IF_TYPE_ETHERNET_CSMACD
 *MediaType         = 0 ; NdisMedium802_3
 *PhysicalMediaType = 0 ; NdisPhysicalMedium802_3
 
-[VT3106S.ndi.NTX86.Services]
-AddService      = FETND62, 2, FET.Service, FET.EventLog
+[VT3106S.ndi.NTAMD64.Services]
+AddService      = FETND62, 2, FET_NTAMD64.Service, FET.EventLog
 
 ;-------------------------------------------------------------------------------
 ; ndi for 3106J D-Link
 ;-------------------------------------------------------------------------------
-[VT3106J.ndi.NTX86]
+[VT3106J.ndi.NTAMD64]
 Characteristics = 0x84 ; NCF_PHYSICAL + NCF_HAS_UI
 BusType         = 5
 DelReg          = FET.delreg
 AddReg          = VT3106J.reg, FET.reg, FlowCtrl.reg, AI.reg, Wakeup.reg
-CopyFiles       = FET.CopyFiles.NTX86
+CopyFiles       = FET.CopyFiles.NTAMD64
 *IfType            = 6 ; IF_TYPE_ETHERNET_CSMACD
 *MediaType         = 0 ; NdisMedium802_3
 *PhysicalMediaType = 0 ; NdisPhysicalMedium802_3
 
-[VT3106J.ndi.NTX86.Services]
-AddService      = FETND62, 2, FET.Service, FET.EventLog
+[VT3106J.ndi.NTAMD64.Services]
+AddService      = FETND62, 2, FET_NTAMD64.Service, FET.EventLog
 
 ;-------------------------------------------------------------------------------
 ; ndi for 3065 D-Link
 ;-------------------------------------------------------------------------------
-[VT3065.ndi.NTX86]
+[VT3065.ndi.NTAMD64]
 Characteristics = 0x84 ; NCF_PHYSICAL + NCF_HAS_UI
 BusType         = 5
 DelReg          = FET.delreg
 AddReg          = VT3065.reg, FET.reg, FlowCtrl.reg, AI.reg, Wakeup.reg
-CopyFiles       = FET.CopyFiles.NTX86
+CopyFiles       = FET.CopyFiles.NTAMD64
 *IfType            = 6 ; IF_TYPE_ETHERNET_CSMACD
 *MediaType         = 0 ; NdisMedium802_3
 *PhysicalMediaType = 0 ; NdisPhysicalMedium802_3
 
-[VT3065.ndi.NTX86.Services]
-AddService      = FETND62, 2, FET.Service, FET.EventLog
+[VT3065.ndi.NTAMD64.Services]
+AddService      = FETND62, 2, FET_NTAMD64.Service, FET.EventLog
 
 ;-------------------------------------------------------------------------------
 ; ndi for 3043 D-Link
 ;-------------------------------------------------------------------------------
-[VT3043.ndi.NTX86]
+[VT3043.ndi.NTAMD64]
 Characteristics = 0x84 ; NCF_PHYSICAL + NCF_HAS_UI
 BusType         = 5
 DelReg          = FET.delreg
 AddReg          = VT3043.reg, FET.reg
-CopyFiles       = FET.CopyFiles.NTX86
+CopyFiles       = FET.CopyFiles.NTAMD64
 *IfType            = 6 ; IF_TYPE_ETHERNET_CSMACD
 *MediaType         = 0 ; NdisMedium802_3
 *PhysicalMediaType = 0 ; NdisPhysicalMedium802_3
 
-[VT3043.ndi.NTX86.Services]
-AddService      = FETND62, 2, FET.Service, FET.EventLog
+[VT3043.ndi.NTAMD64.Services]
+AddService      = FETND62, 2, FET_NTAMD64.Service, FET.EventLog
 
 
-;-------------------------------------------------------------------------------
+;===============================================================================
 ; VT3106S specific
 ;
 [VT3106S.reg]
@@ -292,15 +292,15 @@ HKR, Ndi\params\Wakeup\enum,                    "3",              0, %All%
 ; Installation for NT
 ;
 
-[FET.CopyFiles.NTX86]
-DLF62X86.SYS,,,2
+[FET.CopyFiles.NTAMD64]
+DLF62X64.SYS,,,2
 
-[FET.Service]
+[FET_NTAMD64.Service]
 DisplayName     = %FET.Service.DispName%
 ServiceType     = 1 ;%SERVICE_KERNEL_DRIVER%
 StartType       = 3 ;%SERVICE_DEMAND_START%
 ErrorControl    = 1 ;%SERVICE_ERROR_NORMAL%
-ServiceBinary   = %12%\DLF62X86.SYS
+ServiceBinary   = %12%\DLF62X64.SYS
 LoadOrderGroup  = NDIS
 
 [FET.EventLog]
@@ -314,13 +314,13 @@ HKR, , TypesSupported,   0x00010001, 7
 ; DestinationDirs
 ;
 [DestinationDirs]
-FET.CopyFiles.NTX86     = 12
+FET.CopyFiles.NTAMD64     = 12
 
 [SourceDisksNames]
 1 = %DiskName%,,
 
 [SourceDisksFiles]
-DLF62X86.SYS = 1
+DLF62X64.SYS = 1
 
 ;-------------------------------------------------------------------------------
 ; Uninstall/DelFiles/DelReg

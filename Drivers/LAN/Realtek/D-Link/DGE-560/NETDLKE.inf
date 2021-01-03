@@ -7,15 +7,15 @@ Class       = Net
 ClassGUID   = {4d36e972-e325-11ce-bfc1-08002be10318}
 Provider    = %D-Link%
 DriverVer   = 07/06/2011,7.047.0706.2011
-CatalogFile.NT = DLKRTE32.cat
+CatalogFile.NT = DLKRTE64.cat
 
 [Manufacturer]
-%D-Link% = D-Link, NTx86
+%D-Link% = D-Link, NTamd64
 
 [ControlFlags]
 ExcludeFromSelect     = *
 
-[D-Link.NTx86]
+[D-Link.NTamd64]
 %EthDriver.DeviceDesc% = EthDriver.ndi, PCI\VEN_1186&DEV_4300&SUBSYS_4B101186
 
 ;
@@ -45,7 +45,7 @@ HKR, "Interrupt Management\MessageSignaledInterruptProperties", MSISupported, 0x
 HKR, "Interrupt Management\MessageSignaledInterruptProperties", MessageNumberLimit, 0x00010001, 1
 
 [EthDriver.ndi.NT.Services]
-AddService = DLKRTE32, 2, EthDriver.Service, common.EventLog
+AddService = DLKRTE64, 2, EthDriver.Service, common.EventLog
 
 
 ;-----------------------------------------------------------------------------
@@ -450,7 +450,7 @@ HKR,,*LsoV1IPv4
 ;
 
 [EthDriver.reg]
-HKR, Ndi,                       Service,    0, "DLKRTE32"
+HKR, Ndi,                       Service,    0, "DLKRTE64"
 ; use ndis5 as the upper bound because NT supports it
 HKR, Ndi\Interfaces,            UpperRange, 0, "ndis5"
 HKR, Ndi\Interfaces,            LowerRange, 0, "ethernet"
@@ -461,7 +461,7 @@ DisplayName     = %EthDriver.Service.DispName%
 ServiceType     = 1 ;%SERVICE_KERNEL_DRIVER%
 StartType       = 3 ;%SERVICE_DEMAND_START%
 ErrorControl    = 1 ;%SERVICE_ERROR_NORMAL%
-ServiceBinary   = %12%\DLKRTE32.sys
+ServiceBinary   = %12%\DLKRTE64.sys
 LoadOrderGroup  = NDIS
 
 
@@ -476,17 +476,17 @@ HKR, , TypesSupported,   0x00010001, 7
 ; DestinationDirs
 ;
 [EthDriver.CopyFiles]
-DLKRTE32.sys,,,2
+DLKRTE64.sys,,,2
 
 [RTLDLL.CopyFiles]
 RtNicProp.dll,,,0x02
 
 [SourceDisksNames]
-1 = %DiskDescription%,DLKRTE32.sys,,
+1 = %DiskDescription%,DLKRTE64.sys,,
 
 
 [SourceDisksFiles]
-DLKRTE32.sys = 1,, ; on distribution disk 1
+DLKRTE64.sys = 1,, ; on distribution disk 1
 RtNicProp.dll = 1,, ; on distribution disk 1
 
 

@@ -34,7 +34,7 @@ DefaultDestDir  = 12
 ExcludeFromSelect = *
 
 [Manufacturer]
-%VIA%=VIA,NTx86
+%VIA%=VIA,NTAMD64
 
 [SourceDisksFiles]
 xhcdrv.sys     = 1
@@ -43,7 +43,7 @@ xhcdrv.sys     = 1
 1=%DISK_NAME%,
 
 ; For XP and later
-[VIA.NTx86]
+[VIA.NTAMD64]
 ; DisplayName      Section      DeviceId
 ; -----------      -------      --------
 %XHC.DRVDESC% = xHC_Inst, PCI\VEN_1106&DEV_3432

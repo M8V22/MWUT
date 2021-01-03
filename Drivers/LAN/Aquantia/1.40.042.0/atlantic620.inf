@@ -18,12 +18,12 @@ CatalogFile = atlantic620.cat
 
 
 [Manufacturer]
-%Mft% = Mft,NTx86.6.1
+%Mft% = Mft,NTamd64.6.1
 
 [Mft]
 ; Empty section to block legacy operating systems that don't understand TargetOSVersion
 
-[Mft.NTx86.6.1]
+[Mft.NTamd64.6.1]
 %Jamaica10G.DeviceDesc%      = Jamaica10G.ndi,		PCI\VEN_1D6A&DEV_0001&SUBSYS_00011D6A&REV_01
 %Atlantic10G.DeviceDesc%     = Atlantic10G.ndi,		PCI\VEN_1D6A&DEV_0001&SUBSYS_00011D6A&REV_02
 

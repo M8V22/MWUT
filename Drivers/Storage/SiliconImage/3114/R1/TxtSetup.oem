@@ -1,24 +1,33 @@
-; This file installs the SiI 3114 serial ATA RAID driver as part of
-; text mode setup on Windows 2000, Windows XP, Windows Server 2003 and Windows Vista.
+; This file installs the SiI 3114 serial ATA RAID driver as part of text
+; mode setup on 64-bit versions of Windows XP and Windows Server 2003.
 ;
 ; Copyright (C) 2003-2007 by Silicon Image, Inc.
 ; All rights reserved
 
 
 [Disks]
-disk1 = "Silicon Image SiI 3114 SATARaid Driver Installation Disk",\Si3114r.sys,\
+disk1 = "Silicon Image SiI 3114 SATARaid Driver Installation Disk",\ia64\Si3114r.inf,\ia64
+disk2 = "Silicon Image SiI 3114 SATARaid Driver Installation Disk",\ext64\Si3114r.inf,\ext64
 
 
 [Defaults]
-SCSI = Si3114r_XP
+SCSI = Si3114r_AMD64
 
 
 [SCSI]                  ; HwComponent section
-Si3114r_XP = "Silicon Image SiI 3114 SATARaid Controller for Windows XP/Server 2003/Vista"
-Si3114r_2k = "Silicon Image SiI 3114 SATARaid Controller for Windows 2000"
+Si3114r_AMD64 = "Silicon Image SiI 3114 SATARaid Controller (64-bit Extended)"
+Si3114r_IA64 = "Silicon Image SiI 3114 SATARaid Controller (Itanium)"
 
 
-[Files.SCSI.Si3114r_XP]
+[Files.SCSI.Si3114r_AMD64]
+driver = disk2,si3114r.sys, Si3114r
+driver = disk2,SiWinAcc.sys, SiFilter
+inf = disk2,SI3114r.inf
+dll = disk2,SilSupp.dll
+catalog = disk2, Si3114r.cat
+
+
+[Files.SCSI.Si3114r_IA64]
 driver = disk1,si3114r.sys, Si3114r
 driver = disk1,SiWinAcc.sys, SiFilter
 inf = disk1,SI3114r.inf
@@ -26,16 +35,10 @@ dll = disk1,SilSupp.dll
 catalog = disk1, Si3114r.cat
 
 
-[Files.SCSI.Si3114r_2k]
-driver = disk1,si3114r.sys, Si3114r
-inf = disk1,SI3114r.inf
-dll = disk1,SilSupp.dll
-catalog = disk1, Si3114r.cat
-                                                           
-
-[HardwareIds.SCSI.Si3114r_XP]
+[HardwareIds.SCSI.Si3114r_AMD64]
 id = "PCI\VEN_1095&DEV_3114&SUBSYS_61141095", "Si3114r"
 id = "PCI\VEN_1095&DEV_3114&SUBSYS_288510F1", "Si3114r"
+id = "PCI\VEN_1095&DEV_3114&SUBSYS_81361043", "Si3114r"
 id = "PCI\VEN_1095&DEV_3114&SUBSYS_047AA0A0", "Si3114r"
 id = "PCI\VEN_1095&DEV_3114&SUBSYS_0478A0A0", "Si3114r"
 id = "PCI\VEN_1095&DEV_3114&SUBSYS_0479A0A0", "Si3114r"
@@ -54,13 +57,12 @@ id = "PCI\VEN_1095&DEV_3114&SUBSYS_1025147B", "Si3114r"
 id = "PCI\VEN_1095&DEV_3114&SUBSYS_1001147B", "Si3114r"
 id = "PCI\VEN_1095&DEV_3114&SUBSYS_130A147B", "Si3114r"
 id = "PCI\VEN_1095&DEV_3114&SUBSYS_1C0A147B", "Si3114r"
-id = "PCI\VEN_1095&DEV_3114&SUBSYS_81361043", "Si3114r"
 id = "PCI\VEN_1095&DEV_3114&SUBSYS_2A1E103C", "Si3114r"
 
-
-[HardwareIds.SCSI.Si3114r_2K]
+[HardwareIds.SCSI.Si3114r_IA64]
 id = "PCI\VEN_1095&DEV_3114&SUBSYS_61141095", "Si3114r"
 id = "PCI\VEN_1095&DEV_3114&SUBSYS_288510F1", "Si3114r"
+id = "PCI\VEN_1095&DEV_3114&SUBSYS_81361043", "Si3114r"
 id = "PCI\VEN_1095&DEV_3114&SUBSYS_047AA0A0", "Si3114r"
 id = "PCI\VEN_1095&DEV_3114&SUBSYS_0478A0A0", "Si3114r"
 id = "PCI\VEN_1095&DEV_3114&SUBSYS_0479A0A0", "Si3114r"
@@ -79,17 +81,8 @@ id = "PCI\VEN_1095&DEV_3114&SUBSYS_1025147B", "Si3114r"
 id = "PCI\VEN_1095&DEV_3114&SUBSYS_1001147B", "Si3114r"
 id = "PCI\VEN_1095&DEV_3114&SUBSYS_130A147B", "Si3114r"
 id = "PCI\VEN_1095&DEV_3114&SUBSYS_1C0A147B", "Si3114r"
-id = "PCI\VEN_1095&DEV_3114&SUBSYS_81361043", "Si3114r"
 id = "PCI\VEN_1095&DEV_3114&SUBSYS_2A1E103C", "Si3114r"
 
-
-
-; NOTE:	In order to install Windows 2000 onto a drive that is attached
-;	to this controller you must delete the line that reads:
-;
-;	value = Parameters\PnpInterface, "5", REG_DWORD, 1
-;
-;	from the [Config.Si3114r] section below.
 
 [Config.Si3114r]
 value = Parameters\PnpInterface, "5", REG_DWORD, 1

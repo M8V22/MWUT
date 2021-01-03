@@ -42,10 +42,10 @@ ExcludeFromSelect = *
 
 ;-----------------------------------------------------------------------------
 [Manufacturer]
-%AMD% = AMD,ntx86
+%AMD% = AMD,ntamd64
 
 ;-----------------------------------------------------------------------------
-[AMD.ntx86]
+[AMD.ntamd64]
 %rccfg_Desc% = rccfg_Inst, SCSI\ProcessorAMD-RAIDConfiguration___V8.0
 %multi_Desc% = rccfg_Inst, SCSI\ProcessorAMD-RAIDMultiCard_______V8.0
 

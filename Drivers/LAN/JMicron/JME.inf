@@ -2,7 +2,7 @@
 ; ** COPYRIGHT (C) JMICRON 2007-2010                                         **
 ; **                                                                         **
 ; ** JMC25x/JMC26x NDIS 6.20 MINIPORT DRIVER INF FILE                        **
-; ** INF file for Windows Win7                                               **
+; ** INF file for Windows Win7(64)                                           **
 ; ****************************************************************************/
 
 [Version]
@@ -15,12 +15,12 @@ Compatible        = 1
 DriverVer         = 11/17/2011, 6.0.33.3
 
 [Manufacturer]
-%JMICRON%         = JMICRON, NTx86.6.1
+%JMICRON%         = JMICRON, NTamd64.6.1
 
 [ControlFlags]
 ExcludeFromSelect = *
 
-[JMICRON.NTx86.6.1]
+[JMICRON.NTamd64.6.1]
 %PCI\VEN_197B&DEV_0250.DeviceDesc% = JMC25x,   PCI\VEN_197B&DEV_0250                    ; JMicron PCI Express Gigabit Ethernet Adapter
 %PCI\VEN_197B&DEV_0250.DeviceDesc% = JMC25x,   PCI\VEN_197B&DEV_0250&SUBSYS_19051043    ; ASUS
 %PCI\VEN_197B&DEV_0250.DeviceDesc% = JMC25x,   PCI\VEN_197B&DEV_0250&SUBSYS_839C1043    ; ASUS_China
@@ -113,7 +113,7 @@ ExcludeFromSelect = *
 
 
 ;-----------------------------------------------------------------------------
-; Windows Win7 (NDIS6.20) specific section for JMC25x
+; Windows Win7(64) (NDIS6.20) specific section for JMC25x
 ;-----------------------------------------------------------------------------
 [JMC25x]
 Characteristics     = 0x84                          ; NCF_HAS_UI | NCF_PHYSICAL
@@ -138,7 +138,7 @@ AddService          = JME, 2, JME_Service_Sec, JME_EventLog_Sec
 
 
 ;-----------------------------------------------------------------------------
-; Windows Win7 (NDIS6.20) specific section for JMC26x
+; Windows Win7(64) (NDIS6.20) specific section for JMC26x
 ;-----------------------------------------------------------------------------
 [JMC26x]
 Characteristics     = 0x84                          ; NCF_HAS_UI | NCF_PHYSICAL
@@ -438,7 +438,7 @@ HKR, Ndi\Interfaces,                            LowerRange, 0, "ethernet"
 
 
 ;-----------------------------------------------------------------------------
-; Windows Win7 Services for JMC25x/JMC26x
+; Windows Win7(64) Services for JMC25x/JMC26x
 ;-----------------------------------------------------------------------------
 [JME_Service_Sec]
 DisplayName     = %JME_Service_DispName%
@@ -540,6 +540,6 @@ RSS                                 = "Receive Side Scaling"
 
 PCI\VEN_197B&DEV_0250.DeviceDesc    = "JMicron PCI Express Gigabit Ethernet Adapter"
 PCI\VEN_197B&DEV_0260.DeviceDesc    = "JMicron PCI Express Fast Ethernet Adapter"
-JME_Service_DispName                = "JMicron Ethernet Adapter NDIS6.20 Driver"
+JME_Service_DispName                = "JMicron Ethernet Adapter NDIS6.20 Driver (Amd64 Bits)"
 
 DiskDescription                     = "JMicron(R) Driver Disk 1"

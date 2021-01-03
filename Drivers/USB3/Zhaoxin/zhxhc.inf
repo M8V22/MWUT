@@ -34,7 +34,7 @@ DefaultDestDir  = 12
 ExcludeFromSelect = *
 
 [Manufacturer]
-%Zhaoxin%=Zhaoxin,NTx86
+%Zhaoxin%=Zhaoxin,NTAMD64
 
 [SourceDisksFiles]
 zhxhc.sys     = 1
@@ -43,7 +43,7 @@ zhxhc.sys     = 1
 1=%DISK_NAME%,
 
 ; For XP and later
-[Zhaoxin.NTx86]
+[Zhaoxin.NTAMD64]
 ; DisplayName      Section      DeviceId
 ; -----------      -------      --------
 %XHC.DRVDESC% = xHC_Inst, PCI\VEN_1D17&DEV_9202

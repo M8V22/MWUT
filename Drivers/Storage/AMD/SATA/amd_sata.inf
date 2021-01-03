@@ -30,9 +30,9 @@ DefaultDestDir   = 12
 ;******************************************************************************
 
 [Manufacturer]
-%AMD%   = AMD,NTx86.6.1
+%AMD%   = AMD,NTAMD64.6.1
 
-[AMD.NTx86.6.1]
+[AMD.NTAMD64.6.1]
 %AMDSATA.DeviceDesc% = amd_sata_inst, PCI\VEN_1002&DEV_4391&CC_0106
 %AMDSATA.DeviceDesc% = amd_sata_inst, PCI\VEN_1002&DEV_4394&CC_0106
 %AMDSATA.DeviceDesc% = amd_sata_inst, PCI\VEN_1022&DEV_7801&CC_0106

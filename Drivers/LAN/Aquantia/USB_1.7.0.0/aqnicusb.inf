@@ -18,9 +18,9 @@ DriverVer = 01/22/2019,1.7.0.0
 ; Install Section
 
 [Manufacturer]
-%Aquantia%=HW, NTx86
+%Aquantia%=HW, NTamd64
 
-[HW.NTx86]
+[HW.NTamd64]
 ; DisplayName                  Section                    DeviceID
 ; ----------------------------------------------------------------------------------------
 %FijiDongle.DevDesc%           = AQC111U,                 USB\VID_2ECA&PID_C101, \

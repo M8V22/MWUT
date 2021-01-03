@@ -31,10 +31,10 @@ ExcludeFromSelect=*
 
 
 [Manufacturer]
-%Intel% = Intel,NTx86.6.1
+%Intel% = Intel,NTamd64.6.1
 
 
-[Intel.NTx86.6.1]
+[Intel.NTamd64.6.1]
 ; DisplayName           Section       DeviceId
 ; -----------       	-------       --------
 %Irstrt.DeviceDesc%=GenericIrstrt_Inst, ACPI\INT3392

@@ -19,9 +19,9 @@ mtistorp.sys=1
 mtispflt.sys=1
 
 [Manufacturer]
-%MICRON%=MTI_SSD,ntx86
+%MICRON%=MTI_SSD,ntamd64
 
-[MTI_SSD.ntx86]
+[MTI_SSD.ntamd64]
 %DELL_P320h_25_175GB.DeviceDesc%=MTI_Inst, PCI\VEN_1344&DEV_5150&SUBSYS_00081344
 %DELL_P320h_25_350GB.DeviceDesc%=MTI_Inst, PCI\VEN_1344&DEV_5150&SUBSYS_10081344
 %DELL_P420m_25_175GB.DeviceDesc%=MTI_Inst, PCI\VEN_1344&DEV_5161&SUBSYS_00081344
@@ -75,10 +75,10 @@ mtispflt.sys=1
 %IBM_P420m_HHHL_700GB.DeviceDesc%=MTI_Inst, PCI\VEN_1344&DEV_5161&SUBSYS_22061344
 %IBM_P420m_HHHL_1400GB.DeviceDesc%=MTI_Inst, PCI\VEN_1344&DEV_5161&SUBSYS_32061344
 
-[MTI_Inst.ntx86]
+[MTI_Inst.ntamd64]
 CopyFiles = MTI_copyfile
 
-[MTI_Inst.ntx86.HW] ; device specific registry entries
+[MTI_Inst.ntamd64.HW] ; device specific registry entries
 AddReg = MTI_Hw_AddReg
 AddReg = Filter_Hw_AddReg
 
@@ -86,7 +86,7 @@ AddReg = Filter_Hw_AddReg
 mtistorp.sys,,,2
 mtispflt.sys,,,2
 
-[MTI_Inst.ntx86.Services]
+[MTI_Inst.ntamd64.Services]
 AddService = mtistorp, %SPSVCINST_ASSOCSERVICE%, MTI_Service_Inst, Miniport_EventLog_Inst
 AddService = mtispflt, , Filter_Service_Inst
 

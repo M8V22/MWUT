@@ -1,5 +1,6 @@
 ; This INF file installs the Silicon Image Serial ATA Raid 5 driver
-; for the SiI 3124 controller on systems running Windows 2000, and Windows XP.
+; for the SiI 3124 controller on systems using the AMD 64-bit
+; processor.
 ;
 ; Copyright (C) 2006 by Silicon Image, Inc.
 ; All rights reserved
@@ -12,10 +13,10 @@ Provider=%SI%
 CatalogFile=Si3124r5.cat
 DriverVer=07/29/2011, 1.5.24.0
 
-[SourceDisksNames]
-1=%DISKNAME%,Si3124r5.sys,,
+[SourceDisksNames.amd64]
+1=%DISKNAME%,Si3124r5.inf,\amd64,
 
-[SourceDisksFiles]
+[SourceDisksFiles.amd64]
 Si3124r5.sys = 1
 SilSupp.cpl  = 1
 SiWinAcc.sys = 1
@@ -25,10 +26,7 @@ SiRemFil.sys = 1
 DefaultDestDir	= 12
 DllFiles		= 11
 
-[DriverFiles_NT_2K]
-Si3124r5.sys,,,0x20
-
-[DriverFiles_XP]
+[DriverFiles]
 Si3124r5.sys,,,0x20
 SiWinAcc.sys,,,0x20
 SiRemFil.sys,,,0x20
@@ -37,41 +35,28 @@ SiRemFil.sys,,,0x20
 SilSupp.cpl,,,0x20
 
 [Manufacturer]
-%SI%=SI_HDC,NTx86.5.1
+%SI%=SI_HDC,NTamd64
 
-[SI_HDC]
-%PCI\VEN_1095&DEV_3124.DeviceDesc%=SI_3124, PCI\VEN_1095&DEV_3124&SUBSYS_71241095
-%PCI\VEN_1095&DEV_3124.DeviceDesc%=SI_3124, PCI\VEN_1095&DEV_3124&SUBSYS_71248086
-
-[SI_HDC.NTx86.5.1]
+[SI_HDC.NTamd64]
 %PCI\VEN_1095&DEV_3124.DeviceDesc%=SI_3124_XP, PCI\VEN_1095&DEV_3124&SUBSYS_71241095
 %PCI\VEN_1095&DEV_3124.DeviceDesc%=SI_3124_XP, PCI\VEN_1095&DEV_3124&SUBSYS_71248086
 
-;; Windows NT4.0 and Windows 2000 install sections
+[ControlFlags]
+ExcludeFromSelect.ntx86=*
+
 ;;
-[SI_3124.NTX86]
-Copyfiles=DriverFiles_NT_2K, DllFiles
+;; Driver install sections
+;;
+[SI_3124_XP.NTamd64]
+Copyfiles=DriverFiles, DllFiles
 CopyINF=sippd.inf
 
-[SI_3124.NTX86.Services]
-AddService=Si3124r5,0x00000002,SI_3124_Service_Install, Miniport_EventLog_Inst
-
-[SI_3124.NTX86.CoInstallers]
-Copyfiles=DllFiles
-AddReg = SI_3124_CoInstall_AddReg
-
-;; Windows XP install sections
-;;
-[SI_3124_XP]
-Copyfiles=DriverFiles_XP, DllFiles
-CopyINF=sippd.inf
-
-[SI_3124_XP.Services]
+[SI_3124_XP.NTamd64.Services]
 AddService=Si3124r5,0x00000002,SI_3124_Service_Install, Miniport_EventLog_Inst
 AddService=SiFilter,0x00000000,FilterService_Install
 AddService=SiRemFil, 0, RemovableDevFilter_Install
 
-[SI_3124_XP.CoInstallers]
+[SI_3124_XP.NTamd64.CoInstallers]
 Copyfiles=DllFiles
 AddReg = SI_3124_CoInstall_AddReg
 
@@ -80,7 +65,7 @@ HKR,,CoInstallers32,0x00010000,"SilSupp.cpl, CoInstHandler"
 
 ; This will assure the Class driver sends down a Sync Cache before writting the
 ; hibernation file.
-[SI_3124_XP.HW]
+[SI_3124_XP.NTamd64.HW]
 AddReg=SI_3124_AddHackMask.AddReg
 
 [SI_3124_AddHackMask.AddReg]
@@ -146,8 +131,7 @@ HKR,ProblemDevices, %ProblemDev5Name%, 0, %ProblemDev5Value%
 HKR,ProblemDevices, %ProblemDev6Name%, 0, %ProblemDev6Value%
 HKR,ProblemDevices, %ProblemDev7Name%, 0, %ProblemDev7Value%
 
-; List of controller subsystem IDs to be supported by the Si3124r5.sys driver on
-; NT/Win2K/XP systems.
+; List of controller subsystem IDs to be supported by the Si3124r5.sys driver
 [SupportedSubSystemIds_AddReg]
 HKR,SupportedSubsystemIDs,%PCI\VEN_1095&DEV_3124.DeviceDesc%,0x00010001, 0x71241095
 HKR,SupportedSubsystemIDs,"%PCI\VEN_1095&DEV_3124.DeviceDesc% (Intel 8086)", 0x00010001, 0x71248086

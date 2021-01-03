@@ -14,9 +14,9 @@ JRAID.Copy     = 12
 JRAID.Del      = 12
 
 [Manufacturer]
-%JMICRON%=JM.Mfg
+%JMICRON%=JM.Mfg,NTamd64
 
-[JM.Mfg]
+[JM.Mfg.NTamd64]
 %GBT.DeviceDesc% = JM , PCI\VEN_197B&DEV_2360
 %GBT.DeviceDesc% = JM , PCI\VEN_197B&DEV_2361
 %GBT.DeviceDesc% = JM , PCI\VEN_197B&DEV_2362

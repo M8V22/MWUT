@@ -25,16 +25,16 @@ DefaultDestDir = 12
 [SourceDisksNames]
 1 = AMD GPIO Installation Disk
 
-[SourceDisksFiles.x86]
+[SourceDisksFiles.amd64]
 AmdGpio2.sys = 1,
 
 [ControlFlags]
 ExcludeFromSelect = *
 
 [Manufacturer]
-%AMD%=Amd,NTx86.6.1
+%AMD%=Amd,NTamd64.6.1
 
-[Amd.NTx86.6.1]
+[Amd.NTamd64.6.1]
 %GPIO.DeviceDesc% = GPIO_Inst,ACPI\AMD0030
 
 [GPIO_Inst.NT]

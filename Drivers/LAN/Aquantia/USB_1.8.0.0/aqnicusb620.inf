@@ -18,9 +18,9 @@ DriverVer = 05/13/2019,1.8.0.0
 ; Install Section
 
 [Manufacturer]
-%Aquantia%=HW, NTx86.6.1, NTx86.6.2
+%Aquantia%=HW, NTamd64.6.1, NTamd64.6.2
 
-[HW.NTx86.6.1]
+[HW.NTamd64.6.1]
 ; DisplayName                  Section                    DeviceID
 ; ----------------------------------------------------------------------------------------
 %FijiDongle.DevDesc%           = AQC111U,                 USB\VID_2ECA&PID_C101, \
@@ -33,7 +33,7 @@ DriverVer = 05/13/2019,1.8.0.0
                                                           USB\VID_1C04&PID_0016
 ; ----------------------------------------------------------------------------------------
 
-[HW.NTx86.6.2]
+[HW.NTamd64.6.2]
 ; Empty section to prevent installing on Win8.0 and higher
 
 ;*************************************************************************

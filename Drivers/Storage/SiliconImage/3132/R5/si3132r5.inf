@@ -1,8 +1,8 @@
 ; This INF file installs the Silicon Image Serial ATA Raid 5 driver
-; for the SiI 3132 controller on systems running Windows 2000, Windows XP
-; and Windows 2003.
+; for the SiI 3132 controller on systems using the AMD 64-bit
+; processor.
 ;
-; Copyright (C) 2006 by Silicon Image, Inc.
+; Copyright (C) 2008 by Silicon Image, Inc.
 ; All rights reserved
 
 [Version]
@@ -13,10 +13,10 @@ Provider=%SI%
 CatalogFile=Si3132r5.cat
 DriverVer=04/21/2009, 1.5.19.0
 
-[SourceDisksNames]
-1=%DISKNAME%,Si3132r5.sys,,
+[SourceDisksNames.amd64]
+1=%DISKNAME%,Si3132r5.inf,\amd64,
 
-[SourceDisksFiles]
+[SourceDisksFiles.amd64]
 Si3132r5.sys = 1
 SilSupp.dll  = 1
 SiWinAcc.sys = 1
@@ -26,10 +26,7 @@ SiRemFil.sys = 1
 DefaultDestDir	= 12
 DllFiles		= 11
 
-[DriverFiles_NT_2K]
-Si3132r5.sys,,,0x20
-
-[DriverFiles_XP]
+[DriverFiles]
 Si3132r5.sys,,,0x20
 SiWinAcc.sys,,,0x20
 SiRemFil.sys,,,0x20
@@ -38,45 +35,9 @@ SiRemFil.sys,,,0x20
 SilSupp.dll,,,0x20
 
 [Manufacturer]
-%SI%=SI_HDC,NTx86.5.1
+%SI%=SI_HDC,NTamd64
 
-[SI_HDC]
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_71321095
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_71328086
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_81771043
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_820F1043
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_71001462
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_71601462
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_71581462
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_72201462
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_B0031458
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_902C1695
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_056EA0A0
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_0CAA105B
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_0CAC105B
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_0CAE105B
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_0C8E105B
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_0C8C105B
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_0C8A105B
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_0C88105B
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_0C86105B
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_0D11105B
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_105B147B
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_105C147B
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_105D147B
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_105E147B
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_300A148C
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_1B741019
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_1B751019
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_53081019
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_2C0A17F2
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_2A49103C
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_0011182D
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_8177103c
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132, PCI\VEN_1095&DEV_3132&SUBSYS_F001147B
-
-
-[SI_HDC.NTx86.5.1]
+[SI_HDC.NTamd64]
 %PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132_XP, PCI\VEN_1095&DEV_3132&SUBSYS_71321095
 %PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132_XP, PCI\VEN_1095&DEV_3132&SUBSYS_71328086
 %PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132_XP, PCI\VEN_1095&DEV_3132&SUBSYS_81771043
@@ -106,44 +67,30 @@ SilSupp.dll,,,0x20
 %PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132_XP, PCI\VEN_1095&DEV_3132&SUBSYS_1B751019
 %PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132_XP, PCI\VEN_1095&DEV_3132&SUBSYS_53081019
 %PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132_XP, PCI\VEN_1095&DEV_3132&SUBSYS_2C0A17F2
-%PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132_XP, PCI\VEN_1095&DEV_3132&SUBSYS_2A49103C
 %PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132_XP, PCI\VEN_1095&DEV_3132&SUBSYS_0011182D
 %PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132_XP, PCI\VEN_1095&DEV_3132&SUBSYS_8177103c
 %PCI\VEN_1095&DEV_3132.DeviceDesc%=SI_3132_XP, PCI\VEN_1095&DEV_3132&SUBSYS_F001147B
 
+[ControlFlags]
+ExcludeFromSelect.ntx86=*
 
-;; Windows NT4.0 and Windows 2000 install sections
 ;;
-[SI_3132.NTX86]
-Copyfiles=DriverFiles_NT_2K, DllFiles
-CopyInf=sippd.inf
-
-[SI_3132.NTX86.Services]
-AddService=Si3132r5,0x00000002,SI_3132_Service_Install, Miniport_EventLog_Inst
-
-[SI_3132.NTX86.CoInstallers]
-Copyfiles=DllFiles
-AddReg = SI_3132_CoInstall_AddReg
-
-[SI_3132.NTX86.HW]
-HKR, ScsiPort, NeedsSystemShutdownNotification, 0x00010001, 1
-
-;; Windows XP install sections
+;; Driver install sections
 ;;
-[SI_3132_XP]
-Copyfiles=DriverFiles_XP, DllFiles
+[SI_3132_XP.NTamd64]
+Copyfiles=DriverFiles, DllFiles
 CopyINF=sippd.inf
 
-[SI_3132_XP.Services]
+[SI_3132_XP.NTamd64.Services]
 AddService=Si3132r5,0x00000002,SI_3132_Service_Install, Miniport_EventLog_Inst
 AddService=SiFilter,0x00000000,FilterService_Install
 AddService=SiRemFil, 0, RemovableDevFilter_Install
 
-[SI_3132_XP.CoInstallers]
+[SI_3132_XP.NTamd64.CoInstallers]
 Copyfiles=DllFiles
 AddReg = SI_3132_CoInstall_AddReg
 
-[SI_3132_XP.HW]
+[SI_3132_XP.NTamd64.HW]
 HKR, ScsiPort, NeedsSystemShutdownNotification, 0x00010001, 1
 
 [SI_3132_CoInstall_AddReg]
@@ -151,7 +98,7 @@ HKR,,CoInstallers32,0x00010000,"SilSupp.dll, CoInstHandler"
 
 ; This will assure the Class driver sends down a Sync Cache before writting the
 ; hibernation file.
-[SI_3132_XP.HW]
+[SI_3132_XP.NTamd64.HW]
 AddReg=SI_3132_AddHackMask.AddReg
 
 [SI_3132_AddHackMask.AddReg]
@@ -200,7 +147,7 @@ HKR,Parameters\PnPInterface,5,0x00010001,1
 
 [PortConfigure_AddReg]
 HKR,Parameters\Device,MaximumSGList,0x00010001, 33
-HKR,Parameters\Device,NumberOfRequests,0x00010001, 124
+HKR,Parameters\Device,NumberOfRequests,0x00010001, 132
 
 ; Set controller's bus type to RAID.
 [BusType_AddReg]
@@ -217,8 +164,7 @@ HKR,ProblemDevices, %ProblemDev5Name%, 0, %ProblemDev5Value%
 HKR,ProblemDevices, %ProblemDev6Name%, 0, %ProblemDev6Value%
 HKR,ProblemDevices, %ProblemDev7Name%, 0, %ProblemDev7Value%
 
-; List of controller subsystem IDs to be supported by the Si3132r5.sys driver on
-; NT/Win2K/XP systems.
+; List of controller subsystem IDs to be supported by the Si3132r5.sys driver
 [SupportedSubSystemIds_AddReg]
 HKR,SupportedSubsystemIDs,%PCI\VEN_1095&DEV_3132.DeviceDesc%,0x00010001, 0x71321095
 HKR,SupportedSubsystemIDs,"%PCI\VEN_1095&DEV_3132.DeviceDesc% (Intel 7132)",0x00010001, 0x71328086
@@ -248,16 +194,15 @@ HKR,SupportedSubsystemIDs,"%PCI\VEN_1095&DEV_3132.DeviceDesc% (TUL 300A)",0x0001
 HKR,SupportedSubsystemIDs,"%PCI\VEN_1095&DEV_3132.DeviceDesc% (ECS 1B74)",0x00010001, 0x1B741019
 HKR,SupportedSubsystemIDs,"%PCI\VEN_1095&DEV_3132.DeviceDesc% (ECS 1B75)",0x00010001, 0x1B751019
 HKR,SupportedSubsystemIDs,"%PCI\VEN_1095&DEV_3132.DeviceDesc% (ECS 5308)",0x00010001, 0x53081019
-HKR,SupportedSubsystemIDs,"%PCI\VEN_1095&DEV_3132.DeviceDesc% (Albatron PX-975Pro)",0x00010001, 0x2C0A17F2
-HKR,SupportedSubsystemIDs,"%PCI\VEN_1095&DEV_3132.DeviceDesc% (HP 2A49)",0x00010001, 0x2A49103C
+HKR,SupportedSubsystemIDs,"%PCI\VEN_1095&DEV_3132.DeviceDesc% (Albatron PX-975PRO)",0x00010001, 0x2C0A17F2
 HKR,SupportedSubsystemIDs,"%PCI\VEN_1095&DEV_3132.DeviceDesc% (SITECOM)", 0x00010001, 0x0011182D
 HKR,SupportedSubsystemIDs,"%PCI\VEN_1095&DEV_3132.DeviceDesc% (ASUS/HP 8177)", 0x00010001, 0x8177103c
 HKR,SupportedSubsystemIDs,"%PCI\VEN_1095&DEV_3132.DeviceDesc% (Abit F001)", 0x00010001, 0xF001147B
 
-
 [ChanConfigOverrides_AddReg]
 HKR, ChannelConfigurations, %PCI\VEN_1095&DEV_3132.DeviceDesc%, 0x00010001, 0x00000001
-HKR, ChannelConfigurations,"%PCI\VEN_1095&DEV_3132.DeviceDesc% (Abit F001)", 0x00010001, 0x0000011
+HKR, ChannelConfigurations, "%PCI\VEN_1095&DEV_3132.DeviceDesc% (Abit F001)", 0x00010001, 0x00000011
+
 ;*************************************************************
 ;The NT EventLog entries are the same for all SCSI miniports.
 [Miniport_EventLog_Inst]

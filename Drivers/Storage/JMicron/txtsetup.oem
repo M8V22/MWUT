@@ -14,7 +14,7 @@ scsi = J_I386
 ;----------- Component Section -----------
 
 [scsi]
-J_I386          =  "Storage Driver for JMicron JMB36X Controller (x32)"
+J_Amd64         =  "Storage Driver for JMicron JMB36X Controller (x64)"
 
 ;-------------------------------------------
 

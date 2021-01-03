@@ -11,7 +11,7 @@ ClassGuid = {4d36e97d-e325-11ce-bfc1-08002be10318}
 Provider=%SI%
 CatalogFile=Si3124r5.cat
 LayoutFile=layout.inf
-DriverVer=07/29/2010, 1.5.24.0
+DriverVer=07/29/2011, 1.5.24.0
 
 [SourceDisksNames]
 
