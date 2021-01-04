@@ -5,25 +5,33 @@ MWUT is a Windows PE bootable CD used for easier installation and repair of Wind
   - Windows PE utilities:
 	- WinNTSetup
 	- Macrium Reflect
+	- Multi Commander
 	- ImgDrive
 	- Macrorit Partition Expert
 	- 7-Zip File Manager
+	- MSDaRT tools (Microsoft Diagnostic and Repair Toolset, formerly ERD Commander)
+	  - Computer Management
+	  - Disk Commander
+	  - Locksmith
+	  - SFC Scan
+	  - Hotfix Uninstall
+	  - Disk Wipe
 	- BOOTICE
 	- ProduKey
 	- HWiNFO
 	- TestDisk
 	- Mozilla Firefox
-	- InfraRecorder
+	- AnyBurn
 	- Holger's PE Network Manager
 	- NTPWEdit
-	- Process Explorer
+	- GImageX
   - Bootable utilities (from "More tools" menu, legacy only)
-	- MSDaRT (Microsoft Diagnostic and Repair Toolset, formerly ERD Commander, not included)
 	- Acronis TrueImage Home 2012 (not included)
-	- MemTest86
+	- MemTest86+
 	- Plop Boot Manager
 	- HDD Regenerator 2011 (not included)
 	- Darik's Boot and Nuke
+	- netboot.xyz
 	- iPXE
 
 ## System requirements:
