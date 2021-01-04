@@ -1,0 +1,8 @@
+#!ipxe
+
+dhcp
+kernel http://192.168.1.20/wimboot
+initrd http://192.168.1.20/bcd			BCD
+initrd http://192.168.1.20/boot.sdi		boot.sdi
+initrd http://192.168.1.20/winpe.wim	boot.wim
+boot

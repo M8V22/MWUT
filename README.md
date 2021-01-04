@@ -20,7 +20,7 @@ MWUT is a Windows PE bootable CD used for easier installation and repair of Wind
   - Bootable utilities (from "More tools" menu, legacy only)
 	- MSDaRT (Microsoft Diagnostic and Repair Toolset, formerly ERD Commander, not included)
 	- Acronis TrueImage Home 2012 (not included)
-	- MemTest86+
+	- MemTest86
 	- Plop Boot Manager
 	- HDD Regenerator 2011 (not included)
 	- Darik's Boot and Nuke

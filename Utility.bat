@@ -26,7 +26,7 @@ if %choice%==e Dism /Set-ScratchSpace:128 /Image:"D:\Servis\My Projects\MWUT\Tem
 if %choice%==f Dism /Set-ScratchSpace:256 /Image:"D:\Servis\My Projects\MWUT\Temp"
 if %choice%==g Dism /Set-ScratchSpace:512 /Image:"D:\Servis\My Projects\MWUT\Temp"
 if %choice%==h Dism /Add-Driver /Driver:"D:\Servis\My Projects\MWUT\Drivers" /Recurse /Image:"D:\Servis\My Projects\MWUT\Temp"
-if %choice%==i "C:\program Files\Windows AIK\Tools\amd64\Oscdimg.exe" -b"D:\Servis\My Projects\MWUT\Boot\grldr_cd.bin" -u1 -udfver102 -l"Matija's Windows Utility Toolkit" "D:\Servis\My Projects\MWUT\ISO" "D:\Servis\My Projects\MWUT\MWUT 1.5 x64.iso"
+if %choice%==i "C:\program Files\Windows AIK\Tools\amd64\Oscdimg.exe" -b"D:\Servis\My Projects\MWUT\Boot\grldr_cd.bin" -u1 -udfver102 -l"Matija's Windows Utility Toolkit" "D:\Servis\My Projects\MWUT\ISO" "D:\Servis\My Projects\MWUT\MWUT 2.0 x64.iso"
 if %choice%==j goto NVMe
 goto choice
 
