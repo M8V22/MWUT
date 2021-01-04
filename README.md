@@ -36,10 +36,6 @@ MWUT is a Windows PE bootable CD used for easier installation and repair of Wind
 
 ## System requirements:
   - Minimum:
-    - CPU: Intel Pentium 3 (or Celeron), AMD Athlon XP (or Sempron)
-	- RAM 512 MB
-	- DVD drive
-  - Recommended:
 	- CPU: Intel Pentium 4 (or Celeron), AMD Athlon 64 (or Sempron) with SSE2
 	- RAM: 2 GB
 	- DVD drive
