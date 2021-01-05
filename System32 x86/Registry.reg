@@ -1,0 +1,30 @@
+Windows Registry Editor Version 5.00
+
+;Fix for empty Browse for folder dialog, requires ExplorerFrame.dll, ExplorerFrame.dll.mui, edputil.dll (on some versions of Win 10)
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{AE054212-3535-4430-83ED-D501AA6680E6}]
+@="Shell Name Space ListView"
+
+;Fix for empty Browse for folder dialog, requires ExplorerFrame.dll, ExplorerFrame.dll.mui, edputil.dll (on some versions of Win 10)
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{AE054212-3535-4430-83ED-D501AA6680E6}\InProcServer32]
+;hex = REG_EXPAND_SZ type value containing data %SystemRoot%\system32\explorerframe.dll
+@=hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,\
+  00,5c,00,73,00,79,00,73,00,74,00,65,00,6d,00,33,00,32,00,5c,00,65,00,78,00,\
+  70,00,6c,00,6f,00,72,00,65,00,72,00,66,00,72,00,61,00,6d,00,65,00,2e,00,64,\
+  00,6c,00,6c,00,00,00
+"ThreadingModel"="Apartment"
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"Hidden"=dword:00000001
+"HideFileExt"=dword:00000000
+"SuperHidden"=dword:00000000
+"ShowSuperHidden"=dword:00000001
+
+;Remove "Send To" from the Context Menu
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\AllFilesystemObjects\shellex\ContextMenuHandlers\SendTo]
+@=""
+;Remove "Send To" from the Context Menu
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\UserLibraryFolder\shellex\ContextMenuHandlers\SendTo]
+@=""
+
+[HKEY_LOCAL_MACHINE\Software\Macrium\RescuePE]
+"InstallDir"="X:\\Program Files\\Macrium Reflect"

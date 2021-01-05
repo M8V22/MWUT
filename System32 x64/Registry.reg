@@ -1,0 +1,115 @@
+Windows Registry Editor Version 5.00
+
+;Fix for empty Browse for folder dialog, requires ExplorerFrame.dll, ExplorerFrame.dll.mui, edputil.dll (on some versions of Win 10)
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{AE054212-3535-4430-83ED-D501AA6680E6}]
+@="Shell Name Space ListView"
+
+;Fix for empty Browse for folder dialog, requires ExplorerFrame.dll, ExplorerFrame.dll.mui, edputil.dll (on some versions of Win 10)
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{AE054212-3535-4430-83ED-D501AA6680E6}\InProcServer32]
+;hex = REG_EXPAND_SZ type value containing data %SystemRoot%\system32\explorerframe.dll
+@=hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,\
+  00,5c,00,73,00,79,00,73,00,74,00,65,00,6d,00,33,00,32,00,5c,00,65,00,78,00,\
+  70,00,6c,00,6f,00,72,00,65,00,72,00,66,00,72,00,61,00,6d,00,65,00,2e,00,64,\
+  00,6c,00,6c,00,00,00
+"ThreadingModel"="Apartment"
+
+;Fix for Drag and Drop, requires d3d11.dll, DataExchange.dll, dcomp.dll, dxgi.dll, ksuser.dll, Only PE 10
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{9FC8E510-A27C-4B3B-B9A3-BF65F00256A8}]
+
+;Fix for Drag and Drop, requires d3d11.dll, DataExchange.dll, dcomp.dll, dxgi.dll, ksuser.dll, Only PE 10
+;hex = REG_EXPAND_SZ type value containing data %SystemRoot%\system32\dataexchange.dll
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{9FC8E510-A27C-4B3B-B9A3-BF65F00256A8}\InProcServer32]
+@=hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,\
+  00,5c,00,73,00,79,00,73,00,74,00,65,00,6d,00,33,00,32,00,5c,00,64,00,61,00,\
+  74,00,61,00,65,00,78,00,63,00,68,00,61,00,6e,00,67,00,65,00,2e,00,64,00,6c,\
+  00,6c,00,00,00
+"ThreadingModel"="Both"
+
+;Fix for Drag and Drop, requires d3d11.dll, DataExchange.dll, dcomp.dll, dxgi.dll, ksuser.dll, Only PE 10
+;The following key has restricted permissions (owned by TrustedInstaller)
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Ole\Extensions]
+"DragDropExtension"="{9FC8E510-A27C-4B3B-B9A3-BF65F00256A8}"
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"Hidden"=dword:00000001
+"HideFileExt"=dword:00000000
+"SuperHidden"=dword:00000000
+"ShowSuperHidden"=dword:00000001
+
+;Remove "Open with" from the Context Menu, Only PE 10
+[-HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers\Open With]
+
+;Remove "Send To" from the Context Menu
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\AllFilesystemObjects\shellex\ContextMenuHandlers\SendTo]
+@=""
+
+;Remove "Send To" from the Context Menu
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\UserLibraryFolder\shellex\ContextMenuHandlers\SendTo]
+@=""
+
+;Remove Mount ISO from the Context Menu, Only PE 10
+[-HKEY_CLASSES_ROOT\Windows.IsoFile\shell\mount]
+
+;Remove Mount VHD from the Context Menu, Only PE 10
+[-HKEY_CLASSES_ROOT\Windows.VhdFile\shell\mount]
+
+;Remove Desktop From This PC, Only PE 10
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}]
+
+;Remove Documents From This PC, Only PE 10
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{A8CDFF1C-4878-43be-B5FD-F8091C1C60D0}]
+
+;Remove Downloads From This PC, Only PE 10
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{374DE290-123F-4565-9164-39C4925E467B}]
+
+;Remove Music From This PC, Only PE 10
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{1CF1260C-4DD0-4ebb-811F-33C572699FDE}]
+
+;Remove Pictures From This PC, Only PE 10
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{3ADD1653-EB32-4cb0-BBD7-DFA0ABB5ACCA}]
+
+;Remove Videos From This PC, Only PE 10
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{A0953C92-50DC-43bf-BE83-3742FED03C9C}]
+
+;Remove 3D objects From This PC, Only PE 10
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{0DB7E03F-FC29-4DC6-9020-FF41B59E513A}]
+
+[-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace]
+
+;Hide Libraries menu, Only PE 10
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{031E4825-7B94-4dc3-B131-E946B44C8DD5}\ShellFolder]
+"Attributes"=dword:a9400100
+
+;Hide Favorites menu, Only PE 10
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{323CA680-C24D-4099-B94D-446DD2D7249E}\ShellFolder]
+"Attributes"=dword:a9400100
+
+;Hide Control Panel, Only PE 10
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"NoControlPanel"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\Software\Macrium\RescuePE]
+"InstallDir"="X:\\Program Files\\Macrium Reflect"
+
+[HKEY_LOCAL_MACHINE\Software\Mozilla\Mozilla Firefox\78.6.0 ESR (x64 en-US)\Main]
+"Install Directory"="X:\\Program Files\\Mozilla Firefox"
+"PathToExe"="X:\\Program Files\\Mozilla Firefox\\firefox.exe"
+
+[HKEY_LOCAL_MACHINE\Software\Mozilla\Mozilla Firefox\78.6.0 ESR (x64 en-US)]
+@="78.6.0 ESR (x64 en-US)"
+"ESR"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\Software\Mozilla\Mozilla Firefox 78.6.0 ESR\bin]
+"PathToExe"="X:\\Program Files\\Mozilla Firefox\\firefox.exe"
+
+[HKEY_LOCAL_MACHINE\Software\Mozilla\Mozilla Firefox 78.6.0 ESR\extensions]
+"Components"="X:\\Program Files\\Mozilla Firefox\\components"
+"Plugins"="X:\\Program Files\\Mozilla Firefox\\plugins"
+
+[HKEY_LOCAL_MACHINE\Software\Mozilla\Mozilla Firefox 78.6.0 ESR]
+"GeckoVer"="78.6.0"
+"ESR"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\Software\Mozilla\Mozilla Firefox ESR]
+@="78.6.0"
+"CurrentVersion"="78.6.0 ESR (x64 en-US)"

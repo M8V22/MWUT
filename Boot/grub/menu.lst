@@ -13,13 +13,6 @@ chainloader /bootmgr (bd)
 title
 root
 
-title Acronis True Image 2012\n
-find --set-root /Boot/ATIH2012_en-US.iso
-map /Boot/ATIH2012_en-US.iso (0xff) || map --mem /Boot/ATIH2012_en-US.iso (0xff)
-map --hook
-root (0xff)
-chainloader (0xff)
-
 title MemTest86+\n
 find --set-root /Boot/memtest86+-5.31b.bin
 kernel /Boot/memtest86+-5.31b.bin
@@ -31,6 +24,13 @@ kernel /Boot/plpbt.bin
 title HDD Regenerator 2011\n
 find --set-root /Boot/hddreg2011.iso
 map --mem /Boot/hddreg2011.iso (0xff)
+map --hook
+root (0xff)
+chainloader (0xff)
+
+title Offline Windows Password & Registry Editor\n
+find --set-root /Boot/chntpw140201.iso
+map --mem /Boot/chntpw140201.iso (0xff)
 map --hook
 root (0xff)
 chainloader (0xff)
