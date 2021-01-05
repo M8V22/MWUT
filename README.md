@@ -5,7 +5,7 @@ MWUT is a Windows PE bootable CD used for easier installation and repair of Wind
   - Windows PE utilities:
 	- WinNTSetup
 	- Macrium Reflect
-	- Multi Commander
+	- Multi Commander (PE 10) / FreeCommander (PE 3.1)
 	- ImgDrive
 	- Macrorit Partition Expert
 	- 7-Zip File Manager
@@ -19,23 +19,28 @@ MWUT is a Windows PE bootable CD used for easier installation and repair of Wind
 	- BOOTICE
 	- ProduKey
 	- HWiNFO
+    - HDTune (PE 3.1 only)
 	- TestDisk
-	- Mozilla Firefox
+	- Mozilla Firefox (PE 10 only)
 	- AnyBurn
 	- Holger's PE Network Manager
 	- NTPWEdit
 	- GImageX
   - Bootable utilities (from "More tools" menu, legacy only)
-	- Acronis TrueImage Home 2012 (not included)
 	- MemTest86+
 	- Plop Boot Manager
 	- HDD Regenerator 2011 (not included)
+    - Offline Windows Password & Regstry Editor (chntpw)
 	- Darik's Boot and Nuke
 	- netboot.xyz
 	- iPXE
 
 ## System requirements:
   - Minimum:
+    - CPU: Intel Pentium 3 (or Celeron), AMD Athlon XP (or Sempron)
+	- RAM 512 MB
+	- DVD drive
+  - Recommended:
 	- CPU: Intel Pentium 4 (or Celeron), AMD Athlon 64 (or Sempron) with SSE2
 	- RAM: 2 GB
 	- DVD drive
