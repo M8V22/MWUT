@@ -20,7 +20,7 @@ regedit /s "X:\Windows\System32\Registry.reg"
 :choice
 set choice=0
 cls
-echo Matija's Windows Utility Toolkit
+echo Matija's Windows Utility Toolkit								      %TIME:~0,5% %DATE:~4%
 echo.
 echo.
 echo Select an action: 

@@ -1,1 +1,0 @@
-This is just a placeholder, because the tool itself cannot be distributed.
