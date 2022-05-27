@@ -15,11 +15,12 @@ echo 6	Add File Management API (PE 10)
 echo 7	Integrate NVMe hotfix (KB2990941 and KB3087873, PE 3.1)
 echo 8	Add all x64 drivers in %~dp0Drivers (PE 10)
 echo 9	Add all x86 drivers in %~dp0Drivers (PE 3.1)
-echo 10	Unmount Windows PE image and save changes
-echo 11	Modify BCD Boot files
-echo 12	Create ISO using OSCDIMG
-echo 13	Create Bootable USB Flash Drive
-echo 14	Unmount Windows PE image without saving changes
+echo 10	Enable SMB v1 (PE 10)
+echo 11	Unmount Windows PE image and save changes
+echo 12	Modify BCD Boot files
+echo 13	Create ISO using OSCDIMG
+echo 14	Create Bootable USB Flash Drive
+echo 15	Unmount Windows PE image without saving changes
 echo.
 set /p choice=Choose an option: 
 
@@ -32,11 +33,12 @@ if %choice%==6 "%PROGRAMFILES(X86)%\Windows Kits\10\Assessment and Deployment Ki
 if %choice%==7 goto NVMe
 if %choice%==8 "%PROGRAMFILES(X86)%\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\DISM\dism.exe" /Add-Driver /Driver:"%~dp0Drivers\x64" /Recurse /Image:"%~dp0Mount"
 if %choice%==9 "%PROGRAMFILES(X86)%\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\DISM\dism.exe" /Add-Driver /Driver:"%~dp0Drivers\x86" /Recurse /Image:"%~dp0Mount"
-if %choice%==10 "%PROGRAMFILES(X86)%\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\DISM\dism.exe" /Unmount-Image /MountDir:"%~dp0Mount" /Commit
-if %choice%==11 goto BCD
-if %choice%==12 "%PROGRAMFILES(X86)%\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\oscdimg.exe" -bootdata:2#p0,e,b"%PROGRAMFILES(X86)%\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\etfsboot.com"#pEF,e,b"%PROGRAMFILES(X86)%\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\efisys.bin" -u1 -udfver102 -l"Matija's Windows Utility Toolkit" "%~dp0Media" "%~dp0MWUT 4.0.iso"
-if %choice%==13 goto USB
-if %choice%==14 "%PROGRAMFILES(X86)%\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\DISM\dism.exe" /Unmount-Image /MountDir:"%~dp0Mount" /Discard
+if %choice%==10 goto SMBv1
+if %choice%==11 "%PROGRAMFILES(X86)%\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\DISM\dism.exe" /Unmount-Image /MountDir:"%~dp0Mount" /Commit
+if %choice%==12 goto BCD
+if %choice%==13 "%PROGRAMFILES(X86)%\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\oscdimg.exe" -bootdata:2#p0,e,b"%PROGRAMFILES(X86)%\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\etfsboot.com"#pEF,e,b"%PROGRAMFILES(X86)%\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\efisys.bin" -u1 -udfver102 -l"Matija's Windows Utility Toolkit" "%~dp0Media" "%~dp0MWUT 4.0.iso"
+if %choice%==14 goto USB
+if %choice%==15 "%PROGRAMFILES(X86)%\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\DISM\dism.exe" /Unmount-Image /MountDir:"%~dp0Mount" /Discard
 
 goto choice
 
@@ -114,6 +116,13 @@ goto choice
 :NVMe
 "%PROGRAMFILES(X86)%\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\DISM\dism.exe" /Add-Package /PackagePath:"D:\Servis\Microsoft\Windows Updates\Windows 7 SP1 x86\Windows6.1-KB2990941-v3-x86.msu" /Image:"%~dp0Mount"
 "%PROGRAMFILES(X86)%\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\DISM\dism.exe" /Add-Package /PackagePath:"D:\Servis\Microsoft\Windows Updates\Windows 7 SP1 x86\Windows6.1-KB3087873-v2-x86.msu" /Image:"%~dp0Mount"
+
+goto choice
+
+
+:SMBv1
+"%PROGRAMFILES(X86)%\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\DISM\dism.exe" /Enable-Feature /FeatureName:SMB1Protocol /Image:"%~dp0Mount"
+"%PROGRAMFILES(X86)%\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\DISM\dism.exe" /Enable-Feature /FeatureName:SMB1Protocol-Client /Image:"%~dp0Mount"
 
 goto choice
 

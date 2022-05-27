@@ -88,6 +88,11 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
 "NoControlPanel"=dword:00000001
 
+;Use DNS to resolve hostnames without a suffix instead of NetBios Name Service
+;[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters]
+;"SearchList"="."
+;"UseDomainNameDevolution"=dword:00000001
+
 [HKEY_LOCAL_MACHINE\Software\Macrium\RescuePE]
 "InstallDir"="X:\\Program Files\\Macrium Reflect"
 

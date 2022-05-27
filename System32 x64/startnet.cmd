@@ -17,6 +17,8 @@ wpeutil SetUserLocale hr-HR > nul
 wpeutil InitializeNetwork > nul
 regedit /s "X:\Windows\System32\Registry.reg"
 
+goto NetDrives
+
 :choice
 set choice=0
 cls
@@ -32,7 +34,7 @@ echo 4)   Multi Commander			19)  TestDisk
 echo 5)   ImgDrive				20)  Mozilla Firefox
 echo 6)   Macrorit Partition Expert		21)  AnyBurn
 echo 7)   7-Zip File Manager			22)  DiskPart
-echo 8)   Data on 192.168.1.1 (Z:)		23)  PE Network Manager
+echo 8)   Remap network drives		23)  PE Network Manager
 echo 9)   Data on 192.168.1.10 (Y:)		24)  NTPWEdit
 echo 10)  Computer Management (ERD)		25)  GImageX
 echo 11)  Disk Commander (ERD)		26)  Command Prompt
@@ -50,7 +52,7 @@ if %choice%==4	goto MultiCommander
 if %choice%==5	start "" "X:\Program Files\ImgDrive\ImgDrivePortable_x64.exe"
 if %choice%==6	goto PartitionExpert
 if %choice%==7	start "" "X:\Program Files\7-Zip\7zFM.exe"
-if %choice%==8	net use Z: \\192.168.1.1\Data /U:Admin *
+if %choice%==8	goto NetDrives
 if %choice%==9	net use Y: \\192.168.1.10\Data /U:Admin *
 if %choice%==10	ERDLogon "X:\Windows\System32\CompMgmt.exe"
 if %choice%==11	start "" "X:\Windows\System32\diskcmdr.exe"
@@ -73,6 +75,29 @@ if %choice%==27	start "" notepad.exe
 if %choice%==28	start "" taskmgr.exe
 if %choice%==29	wpeutil Shutdown
 if %choice%==30	wpeutil Reboot
+
+goto choice
+
+
+:NetDrives
+echo.
+echo Connecting network drives...
+echo.
+net use * /delete /Y > nul 2> nul
+net use Z: \\Server\Servis /U:Server\Matija 2210 > nul 2> nul && (
+  reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\MountPoints2\##Server#Servis" /f /v "_LabelFromReg" /t REG_SZ /d "Servis on Server" > nul 2> nul
+  echo Mapped Servis on Server to local drive Z:
+) || (
+  net use Z: \\Matija-Laptop\Servis /U:Matija-Laptop\Matija 2210 > nul 2> nul && (
+    reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\MountPoints2\##Matija-Laptop#Servis" /f /v "_LabelFromReg" /t REG_SZ /d "Servis on Matija-Laptop" > nul 2> nul
+    echo Mapped Servis on Matija-Laptop to local drive Z:
+  )
+)
+net use Y: \\Matija-PC.\Servis /U:Matija-PC\Matija 2210 > nul 2> nul && (
+  reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\MountPoints2\##Matija-PC.#Servis" /f /v "_LabelFromReg" /t REG_SZ /d "Servis on Matija-PC" > nul 2> nul
+  echo Mapped Servis on Matija-PC to local drive Y:
+)
+timeout /t 3 > nul
 
 goto choice
 

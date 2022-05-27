@@ -26,5 +26,10 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Classes\UserLibraryFolder\shellex\ContextMenuHandlers\SendTo]
 @=""
 
+;Use DNS to resolve hostnames without a suffix instead of NetBios Name Service
+;[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\Tcpip\Parameters]
+;"SearchList"="."
+;"UseDomainNameDevolution"=dword:00000001
+
 [HKEY_LOCAL_MACHINE\Software\Macrium\RescuePE]
 "InstallDir"="X:\\Program Files\\Macrium Reflect"
